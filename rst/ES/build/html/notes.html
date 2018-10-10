@@ -52,6 +52,15 @@
       <ul>
 <li><a class="reference internal" href="#">ES Zusammenfassung</a></li>
 <li><a class="reference internal" href="#table-of-contents">Table Of Contents</a></li>
+<li><a class="reference internal" href="#filmvortraege">Filmvortraege</a><ul>
+<li><a class="reference internal" href="#crash-des-flugzeugs">Crash des Flugzeugs</a></li>
+<li><a class="reference internal" href="#zu-realtime-constraints">Zu Realtime Constraints</a><ul>
+<li><a class="reference internal" href="#vehicle-networks-uony">vehicle networks (UoNY)</a></li>
+<li><a class="reference internal" href="#real-time-communication-runtime-uony">Real-Time communication (runtime UoNY)</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a class="reference internal" href="#kapitel-1-introduction">Kapitel 1 Introduction</a><ul>
 <li><a class="reference internal" href="#history-of-terms">History of Terms</a><ul>
 <li><a class="reference internal" href="#definitionen">Definitionen</a><ul>
@@ -62,7 +71,13 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#opportunities">Opportunities</a></li>
-<li><a class="reference internal" href="#challenges">Challenges</a></li>
+<li><a class="reference internal" href="#challenges">Challenges</a><ul>
+<li><a class="reference internal" href="#dependability">Dependability</a></li>
+<li><a class="reference internal" href="#efficiency">Efficiency</a></li>
+<li><a class="reference internal" href="#hardware">Hardware</a></li>
+<li><a class="reference internal" href="#real-time-constraints">Real-Time constraints</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#common-charecteristics">Common Charecteristics</a></li>
 <li><a class="reference internal" href="#curriculum-integration-of-es">Curriculum Integration of ES</a></li>
 <li><a class="reference internal" href="#design-flows">Design Flows</a></li>
@@ -115,8 +130,85 @@
 <div class="section" id="table-of-contents">
 <h1>Table Of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
+<li><a class="reference internal" href="#filme">Filme</a></li>
 <li><a class="reference internal" href="#kapitel-1">Kapitel_1</a></li>
 </ul>
+</div>
+<div class="section" id="filmvortraege">
+<span id="filme"></span><h1>Filmvortraege<a class="headerlink" href="#filmvortraege" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="crash-des-flugzeugs">
+<h2>Crash des Flugzeugs<a class="headerlink" href="#crash-des-flugzeugs" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Integer Overflow 64 zu 16 bit</li>
+</ul>
+</div>
+<div class="section" id="zu-realtime-constraints">
+<h2>Zu Realtime Constraints<a class="headerlink" href="#zu-realtime-constraints" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vehicle-networks-uony">
+<h3>vehicle networks (UoNY)<a class="headerlink" href="#vehicle-networks-uony" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>engine management etc. ware sehr teuer</li>
+<li>Loesung: Bus/ <strong>Wiring Harness</strong></li>
+<li><dl class="first docutils">
+<dt><strong>Can Messages</strong>: Bitstrings mit binaeren informationen zu Oel Temperaturen etc.</dt>
+<dd><ul class="first last">
+<li>fast processing</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>ICU -&gt; Can message -&gt; decoding Can Message -&gt; performing analog task</p>
+</div>
+<div class="section" id="real-time-communication-runtime-uony">
+<h3>Real-Time communication (runtime UoNY)<a class="headerlink" href="#real-time-communication-runtime-uony" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>determining Time problematic</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>Worst case execution time problem</dt>
+<dd><ul class="first last">
+<li>constants of the O-Notation matter (cache miss/ empty cache etc.)</li>
+<li>Speed des Prozessors mit beruecksichtigen</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>end-to-end meassurements</dt>
+<dd><ul class="first last">
+<li>underestimate worst case</li>
+<li><strong>not safe</strong>!!</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>static analysis</dt>
+<dd><ul class="first last">
+<li>modelling the timing behaviour of the processor</li>
+<li>performing worst case</li>
+<li><dl class="first docutils">
+<dt>exact order problematic</dt>
+<dd><ul class="first last">
+<li>running binary instead of source code, <strong>not working</strong> correctly</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>keiner der Ansaetze gut genug</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="section" id="kapitel-1-introduction">
 <span id="kapitel-1"></span><h1>Kapitel 1 Introduction<a class="headerlink" href="#kapitel-1-introduction" title="Permalink to this headline">¶</a></h1>
@@ -290,6 +382,152 @@ IoT(Internet of Things) findet unter anderem Anwedung in den Folgenden Gebieten:
 </div>
 <div class="section" id="challenges">
 <h2>Challenges<a class="headerlink" href="#challenges" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="dependability">
+<h3>Dependability<a class="headerlink" href="#dependability" title="Permalink to this headline">¶</a></h3>
+<p>Systeme keonnen auf mehreren Rechnern gleichzeitig laufen, fuer den Fall, dass
+Fehler auftreten</p>
+<p>Zur Dependability gehoeren:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Reliability <span class="math notranslate">\(R(t)\)</span></dt>
+<dd><ul class="first last">
+<li>Wahrscheinlichkeit, dass das System funktioniert, wenn es
+zu Begin (<span class="math notranslate">\(t=0\)</span>) funktionierte</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Maintainability <span class="math notranslate">\(M(d)\)</span></dt>
+<dd><ul class="first last">
+<li>Wahrscheinlichkeit, dass das System d Zeiteinheiten nach einem Error
+funktioniert</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Availability <span class="math notranslate">\(A(t)\)</span></dt>
+<dd><ul class="first last">
+<li>Wahrscheinlichkeit, dass das System zum Zeitpunkt t funktioniert</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Safety</dt>
+<dd><ul class="first last">
+<li>Kein Schaden kann entstehen</li>
+<li>Oder z.B.: Keine Software-Malfunction sollte Menschenleben gefaehrden
+koennen</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Security</dt>
+<dd><ul class="first last">
+<li>vertrauuche und authentische Kommunikation</li>
+<li>Sicherung gegen Attacken von Ausserhalb auf das System</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="efficiency">
+<h3>Efficiency<a class="headerlink" href="#efficiency" title="Permalink to this headline">¶</a></h3>
+<p>CPS und ES effizient funktionieren, dazu gehoeren:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Codesize</dt>
+<dd><ul class="first last">
+<li>small memories</li>
+<li>powerconsumpotion groesser bei groesserem Speicher</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Run-time</li>
+<li><dl class="first docutils">
+<dt>Weight</dt>
+<dd><ul class="first last">
+<li>weight of the chip/ computer</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Cost</li>
+<li><dl class="first docutils">
+<dt>Energy</dt>
+<dd><ul class="first last">
+<li>siehe code-size</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>zur Graphic:</p>
+<ul class="simple">
+<li>ASIC am effizientesten und <strong>Teuersten</strong></li>
+<li><dl class="first docutils">
+<dt>FPGA aehnlich zu ASIC</dt>
+<dd><ul class="first last">
+<li>etwas mehr Freiraum</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>RISC MPU sehr ineffizient</dt>
+<dd><ul class="first last">
+<li>aber <strong>flexibel</strong></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="hardware">
+<h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Sensoren entnehmen Informationen aus dem Physikalischen Umfeld</li>
+<li><dl class="first docutils">
+<dt>Analog to Digital converter (<strong>A/D converter</strong>)</dt>
+<dd><ul class="first last">
+<li>stabile Translation Sensor -&gt; digital</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>actualor funktioniert analog</dt>
+<dd><ul class="first last">
+<li>D/A converter noetig</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="real-time-constraints">
+<h3>Real-Time constraints<a class="headerlink" href="#real-time-constraints" title="Permalink to this headline">¶</a></h3>
+<p><em>A real-time constraint is called hard, if not meeting that constraint could
+result in a catastrophe</em></p>
+<ul class="simple">
+<li>alle constriants sind soft</li>
+<li>predictable and reliable computing not neccessarily fast</li>
+<li>faster processor -&gt; timeliness violation</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Nicht alle ES brauchen Real-Time effizienz, CPS schon.
+Daher <span class="math notranslate">\(RTS = CPS\)</span></p>
+</div>
 </div>
 <div class="section" id="common-charecteristics">
 <h2>Common Charecteristics<a class="headerlink" href="#common-charecteristics" title="Permalink to this headline">¶</a></h2>

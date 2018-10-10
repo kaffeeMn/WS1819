@@ -128,7 +128,7 @@ latex_elements = {
 
     # Additional stuff for the LaTeX preamble.
     #
-    # 'preamble': '',
+    'preamble': '\usepackage{amsmath}',
 
     # Latex figure (float) alignment
     #
