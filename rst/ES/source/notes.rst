@@ -202,7 +202,7 @@ zur Graphic:
 * RISC MPU sehr ineffizient
     + aber **flexibel**
 
-.. .. image: 1.2 Folie 5
+.. image:: ../../../Modules/ES/energy_efficiency.png
 
 Hardware
 --------
@@ -226,13 +226,59 @@ result in a catastrophe*
 |
 
 Nicht alle ES brauchen Real-Time effizienz, CPS schon.
-Daher :math:`RTS = CPS`
+Daher :math:`RTS \overset{~}{=} CPS`
 
-.. \overset{^}{=} CPS`
+Reactive & hybrid systems
+-------------------------
 
-.. 8 -  end
+reactive system
+^^^^^^^^^^^^^^^
 
-Commo Charecteristics
+*A reactive system is (one which is) in continual interaction with its 
+environment and executes at a pace determined by that environment*
+
+* demnach sind ES und CPS reactive systems
+    + input und state beeinflussen das Verhalten
+* Automaten Modell eignet sich
+
+hybrid system
+^^^^^^^^^^^^^
+
+analog und digitale teile
+
+* Beispiel manche digitaluhren
+
+Space of Design
+---------------
+
+.. image:: ../../../Modules/ES/space_of_design.png
+
+Walls
+-----
+
+Es muss Wissen von vielen Bereichen verbunden Werden, *Mauern der 
+Wissenschaftlichen Disziplinen mussen zum Fall gebracht werden.*
+* CS
+* EE
+* ME
+* Physics
+* Medicine
+* Statistics
+* Biology
+
+Software Challenges
+-------------------
+
+* dynamic environment
+* capturing required behaviour
+* validate specifications
+* *efficient* translation of specifications into implementations
+* meeting real-time constraints
+* validating embedded real-time software
+
+..  -  end
+
+Common Charecteristics
 ======================
 
 Curriculum Integration of ES

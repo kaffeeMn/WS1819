@@ -76,6 +76,14 @@
 <li><a class="reference internal" href="#efficiency">Efficiency</a></li>
 <li><a class="reference internal" href="#hardware">Hardware</a></li>
 <li><a class="reference internal" href="#real-time-constraints">Real-Time constraints</a></li>
+<li><a class="reference internal" href="#reactive-hybrid-systems">Reactive &amp; hybrid systems</a><ul>
+<li><a class="reference internal" href="#reactive-system">reactive system</a></li>
+<li><a class="reference internal" href="#hybrid-system">hybrid system</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#space-of-design">Space of Design</a></li>
+<li><a class="reference internal" href="#walls">Walls</a></li>
+<li><a class="reference internal" href="#software-challenges">Software Challenges</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#common-charecteristics">Common Charecteristics</a></li>
@@ -490,6 +498,7 @@ koennen</li>
 </dl>
 </li>
 </ul>
+<img alt="_images/energy_efficiency.png" src="_images/energy_efficiency.png" />
 </div>
 <div class="section" id="hardware">
 <h3>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h3>
@@ -526,7 +535,60 @@ result in a catastrophe</em></p>
 <div class="line"><br /></div>
 </div>
 <p>Nicht alle ES brauchen Real-Time effizienz, CPS schon.
-Daher <span class="math notranslate">\(RTS = CPS\)</span></p>
+Daher <span class="math notranslate">\(RTS \overset{~}{=} CPS\)</span></p>
+</div>
+<div class="section" id="reactive-hybrid-systems">
+<h3>Reactive &amp; hybrid systems<a class="headerlink" href="#reactive-hybrid-systems" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="reactive-system">
+<h4>reactive system<a class="headerlink" href="#reactive-system" title="Permalink to this headline">¶</a></h4>
+<p><em>A reactive system is (one which is) in continual interaction with its
+environment and executes at a pace determined by that environment</em></p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>demnach sind ES und CPS reactive systems</dt>
+<dd><ul class="first last">
+<li>input und state beeinflussen das Verhalten</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Automaten Modell eignet sich</li>
+</ul>
+</div>
+<div class="section" id="hybrid-system">
+<h4>hybrid system<a class="headerlink" href="#hybrid-system" title="Permalink to this headline">¶</a></h4>
+<p>analog und digitale teile</p>
+<ul class="simple">
+<li>Beispiel manche digitaluhren</li>
+</ul>
+</div>
+</div>
+<div class="section" id="space-of-design">
+<h3>Space of Design<a class="headerlink" href="#space-of-design" title="Permalink to this headline">¶</a></h3>
+<img alt="_images/space_of_design.png" src="_images/space_of_design.png" />
+</div>
+<div class="section" id="walls">
+<h3>Walls<a class="headerlink" href="#walls" title="Permalink to this headline">¶</a></h3>
+<p>Es muss Wissen von vielen Bereichen verbunden Werden, <em>Mauern der
+Wissenschaftlichen Disziplinen mussen zum Fall gebracht werden.</em>
+* CS
+* EE
+* ME
+* Physics
+* Medicine
+* Statistics
+* Biology</p>
+</div>
+<div class="section" id="software-challenges">
+<h3>Software Challenges<a class="headerlink" href="#software-challenges" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>dynamic environment</li>
+<li>capturing required behaviour</li>
+<li>validate specifications</li>
+<li><em>efficient</em> translation of specifications into implementations</li>
+<li>meeting real-time constraints</li>
+<li>validating embedded real-time software</li>
+</ul>
 </div>
 </div>
 <div class="section" id="common-charecteristics">
