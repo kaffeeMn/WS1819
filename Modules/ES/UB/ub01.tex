@@ -54,17 +54,51 @@ Eingebette Systeme(ES) finden Anwendung in:\\
           Fabriken verwenden ES in 'social machines`, Maschinen de sich selbst 
           konfigurieren und/ oder distributieren.\\
     \item Structural Safety:\\
-%Regulation des Wasserstandes eines Damms
-%Ueberwachung von Bruecken/ Vilkanen
-%Neigung von Hochhausern bei Erdbeben
+          Darunter f"allt Regulation des Wasserstandes eines Damms,
+          "Uberwachung von Br"ucken/ Vulkanen, sowie die
+          Neigung von Hochhausern bei Erdbeben.\\
+    \item Smart Home:\\
+          Hauser k"onnen ES f"ur zero energy buildings, safety/ security, 
+          comfort, ambient assited living (selbst regulierende Fenster etc.)
+          benutzen.\\
+\end{enumerate}
 
-%Smart Home
-%zero energy buildings
-%safety/ security
-%comfort
-%ambient assited living (selbst regulierende Fenster etc.)
+\subsection{Nennen Sie mindestens drei Charakteristika bzw. Anforderungen an 
+            eingebettete Systeme.}
 
-%Physical/ Science Experiments
-%obeservation of outcomes
+Anforderungen an ES sind:\\
+\begin{enumerate}
+    \item Dependability:\\
+          Darunter F"allt\\
+          \subitem Reliability $R(t)$\\
+                   Wahrscheinlichkeit, dass das System funktioniert, wenn es zu 
+                   Begin (t=0) funktionierte.\\
+          \subitem Maintainability $M(d)$
+                   die Wahrscheinlichkeit, dass das System $d$ Zeiteinheiten nach 
+                   einem Error funktioniert.\\
+          \subitem Availability $A(t)$\\
+                   Wahrscheinlichkeit, dass das System zum Zeitpunkt $t$ 
+                   funktioniert.\\
+          \subitem Safety\\
+                   Das System soll dem Umfeld keinen Schaden anrichten k"onnen.\\
+          \subitem Security\\
+                   Das System soll sicher gegen Attacken au"serhalb des Systems
+                   sein.\\
+    \item Efficiency:\\
+          Bei der Effizienz wird meistens ein Kompromiss zwischen dem best 
+          m"oglichem Endprodukt und der einfachsten Herstellungsweise unter den
+          folgenden Anforderungen eingegangen (RISC vs. ASIC)\\
+          \subitem Code=Gr"o"se/ L"ange\\
+          \subitem Laufzeit\\
+          \subitem Gewicht der Hardware\\
+          \subitem Kosten\\
+          \subitem Energieverbrauch\\
+    \item Real-Time Constraints:\\
+          Nicht alle ES sind Real-Time effizient. Cyber-Physical-Systems (CPS)
+          hingegen m"ussen Real-Time effizient sein.\\
+          Zu Real-Time constraints k"onnen auch wie folgt aufgefasst werden:\\
+          Eine garantierte R"uckmeldung des Systems auf Stimulationen des zu
+          kontrollierenden Objekts innerhalb eines Zeitraums, den Das Umfeld
+          diktiert.\\
 \end{enumerate}
 \end{document}
