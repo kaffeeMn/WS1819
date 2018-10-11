@@ -2,6 +2,8 @@
 import os
 import os.path as path
 
+BASE_DIRS = ['base', 'sphinx_base']
+
 def gen_page(li):
     return '''
 <head>
@@ -26,31 +28,26 @@ def gen_page(li):
 
 if __name__ == '__main__':
     dir = path.dirname(path.realpath(__file__))
-    modules = [m 
-        for m in os.listdir(dir) 
-        if path.isdir('{}/rst/build/html'.format(m))
-        ]
-    index_html = ['index.html' in os.listdir('{}/rst/build/html'.format(m)) 
-        for m in modules
-        ]
+    modules = [m for m in os.listdir(dir) 
+               if m not in BASE_DIRS]
+    notes_html = ['{}/build/html/notes.html'.format(m) 
+                  if os.path.isfile('{}/build/html/notes.html'.format(m))
+                  else None
+                  for m in modules]
     li_str = []
     for i, m in enumerate(modules):
-        if index_html[i]:
+        if notes_html[i] is not None:
             li_str.append(
                 '''
-                <a 
-                class="list-group-item  
-                    list-group-item-action 
-                    list-group-item-success
-                    " 
-                href="{}/rst/build/html/index.html"
+                <a class="list-group-item  
+                          list-group-item-action 
+                          list-group-item-success" 
+                   href="{}"
                 >
                     {}
-                    </a>
-                '''.format(
-                    m, m.split('/')[0]
-                    )
-                )
+                </a>
+                '''.format(notes_html[i], m.split('/')[0])
+            )
     index = gen_page(li_str)
     with open('index.html', 'w') as out:
         out.write(index)
