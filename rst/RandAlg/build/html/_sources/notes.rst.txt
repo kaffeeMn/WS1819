@@ -1,0 +1,14 @@
+Randomisierte Algorithmen Notizen
+#################################
+
+Table Of Contents
+#################
+
+10.3. Minimum Spanning Trees (Definitionen und Einleitung)
+==========================================================
+
+Grundlegendes
+-------------
+
+Graphen werden wie ueblich als :math:`G=(V,E)`, mit einer Gewichtungsfunktion
+:math:`w: E \rightarrow \mathbb{R}`
