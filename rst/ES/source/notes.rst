@@ -30,7 +30,6 @@ vehicle networks (UoNY)
 
 ICU -> Can message -> decoding Can Message -> performing analog task
 
-
 Real-Time communication (runtime UoNY)
 --------------------------------------
 
@@ -47,6 +46,14 @@ Real-Time communication (runtime UoNY)
     + exact order problematic
         - running binary instead of source code, **not working** correctly
 * keiner der Ansaetze gut genug 
+
+framework stateflow
+===================
+
+* easy design of logical state-flow diagramss
+* Stateflow Diagramms resolve into simulations
+* visualize behaviour of logic in your programm
+* Code gets generated
 
 .. _Kapitel_1:
 

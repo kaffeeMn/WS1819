@@ -7,6 +7,9 @@ from corpus import CorpusLoader
 from features import WordListNormalizer, BagOfWords
 from visualization import hbar_plot
 
+import matplotlib.pyplot as plt
+import numpy as np
+
 def aufgabe1():
     
     #
@@ -41,12 +44,13 @@ def aufgabe1():
     
     # Geben Sie nun die Gesamtanzahl von Kategorien, Dokumenten und Woertern
     # mit print auf der Konsole aus.  
-     
-    raise NotImplementedError('Implement me')
-    
+    #print(type(brown_categories),type(brown_documents),type(brown_words))
+    print('Anzahlen:\nKategorien {}\nDokumente {}\nWoerter {}'.format(len(brown_categories),
+                                                                      len(brown_documents),
+                                                                      len(brown_words)))
+
     # Geben Sie die Namen der einzelnen Kategorien aus. 
-    raise NotImplementedError('Implement me')
-     
+    print(brown_categories)
      
     # Bisher haben Sie noch keine Information ueber die Struktur des Brown
     # Corpus gewonnen, da sie jeweils die Gesamtzahl von Kategorien, Dokumenten
@@ -67,7 +71,35 @@ def aufgabe1():
     # gemeinsamen Plot dar. Verwenden Sie unterschiedliche Farben.
     # http://matplotlib.org/examples/api/barchart_demo.html
     
-    raise NotImplementedError('Implement me')
+    cat_to_count = {cat : (len(brown.fileids(categories = cat)), 
+                           len(brown.words(categories = cat))) 
+                    for cat in brown_categories}
+    print('Kategorien und ihre Werte (Documente, Woerter)\n {}'.format(cat_to_count))
+    
+    y_pos = np.arange(len(brown_categories))
+    cats = np.array(cat_to_count.keys())
+    files = np.array(cat_to_count.values())[:,0]
+    words = np.array(cat_to_count.values())[:,1]
+    
+    # plotting bars for documents
+    plt.rcdefaults()
+    fig, ax = plt.subplots()
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(cats) 
+    ax.invert_yaxis()
+    ax.barh(y_pos, files,
+            align='center', color='green')
+    plt.show()
+    
+    # plotting bars for words
+    plt.rcdefaults()
+    fig, ax = plt.subplots()
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(cats) 
+    ax.invert_yaxis()
+    ax.barh(y_pos, words,
+            align='center', color='green')
+    plt.show()
 
     
     # ********************************** ACHTUNG **************************************
@@ -113,8 +145,13 @@ def aufgabe1():
     #
     # Implementieren Sie die (statische) Funktion BagOfWords.most_freq_words im Modul
     # features.
-
-    raise NotImplementedError('Implement me')
+    
+    w_most_20 = BagOfWords.most_freq_words(brown_words, n_words=20)
+    cat_to_w_most_20 = {cat : BagOfWords.most_freq_words(brown.words(categories=cat), n_words=20)
+                        for cat in brown_categories}
+    
+    print(w_most_20)
+    print(cat_to_w_most_20)
     
     
     #

@@ -3,6 +3,10 @@ import numpy as np
 from collections import defaultdict
 from corpus import CorpusLoader
 from nltk.stem.porter import PorterStemmer # IGNORE:import-error
+from pygments.lexer import default
+from ConfigParser import _default_dict
+
+import operator
 
 class AbsoluteTermFrequencies(object):
     """Klasse, die zur Durchfuehrung absoluter Gewichtung von Bag-of-Words
@@ -159,8 +163,14 @@ class BagOfWords(object):
                 Woerter enthaelt. Die Sortierung der Liste ist nach Haeufigkeit
                 absteigend.
         """
-        raise NotImplementedError('Implement me')
-
+        wcount_dict = defaultdict(int)
+        for w in word_list:
+            wcount_dict[w] += 1
+            
+        sorted_items = sorted(wcount_dict.items(), key=operator.itemgetter(1), reverse=True)
+        words_topn = [i[0] for i in sorted_items]
+        
+        return words_topn if n_words is None else words_topn[:n_words]
     
     
 class WordListNormalizer(object):

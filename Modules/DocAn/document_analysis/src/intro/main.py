@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from collections import defaultdict
 from __builtin__ import True
+from numpy import dtype
 
 class RandomArrayGenerator(object):
     
@@ -527,11 +528,12 @@ class NumPyIntro(object):
         # Hinweis: Schauen Sie sich dazu auch das Numpy Quickstart Tutorial an:
         # https://docs.scipy.org/doc/numpy-dev/user/quickstart.html#indexing-slicing-and-iterating 
     
-        ober_3_2 = seq_arr[:3,:3]
+        ober_3_2 = seq_arr[:3,:2]
         unter_3_3 = seq_arr[-3:,-3:]
-        z_4 = seq_arr[4]
-        ungerade = seq_arr[1::2]
-        raise NotImplementedError('Implement me')
+        z_4 = seq_arr[3] # or[3,]
+        ungerade = seq_arr[:,1::2]
+        print(ober_3_2, unter_3_3, z_4, ungerade)
+        return ober_3_2, unter_3_3, z_4, ungerade
     
     def array_indexing(self, seq_arr=None):
         print '\n[NumPyIntro::array_indexing]'
@@ -549,8 +551,13 @@ class NumPyIntro(object):
         #        Arrays aus.  
         #    Index arrays lassen sich auch mit Slicing Operationen kombinieren
         #        Geben Sie alle Zeilen und die Spalten mit Index 2,3,6 aus.
+        rows = [1,2,3]
+        cols = [3,1,1]
+        els_idx = seq_arr[rows,cols]
+        print(els_idx)
         
-        raise NotImplementedError('Implement me')
+        els_slice = seq_arr[:,[2,3,6]]
+        print(els_slice)
         
         # Boolean Indexing:
         # Boolsche Index Arrays funktionieren als Masken, bei der an jeder Array
@@ -566,13 +573,15 @@ class NumPyIntro(object):
         #     Geben Sie dann alle Elemente zurueck die groesser als 17 und 
         #         ganzzahlig durch drei teilbar sind.
         #         http://docs.scipy.org/doc/numpy/reference/generated/numpy.logical_and.html
-
-        raise NotImplementedError('Implement me')
+        seq_arr[seq_arr%2 == 1] = 0
+        arr_a2 = seq_arr[(seq_arr>17) & (seq_arr%3 == 0)]
+        print(seq_arr)
+        print(arr_a2)
         
         # Speichern Sie die vier Egebnisse jeweils in ein Array und geben Sie diese 
         # als Ergebnis der Funktion zurueck.
 
-        raise NotImplementedError('Implement me')
+        return els_idx, els_slice, seq_arr, arr_a2
     
     def array_operations(self, seq_arr=None):
         print '\n[NumPyIntro::array_operations]'
@@ -591,12 +600,16 @@ class NumPyIntro(object):
         # Verwenden Sie dazu die Operatorn +, *  und np.dot in geeigneter Weise
         # http://docs.scipy.org/doc/numpy/reference/generated/numpy.dot.html
 
-        raise NotImplementedError('Implement me')
+        sum = seq_arr[0] + seq_arr[1]
+        prod = seq_arr[0] * seq_arr[1]
+        skalar = np.dot(*seq_arr[:2,])
+
+        print(sum, prod, skalar)
         
         # Speichern Sie alle Ergebnisse und geben Sie diese als Ergebnis der
         # Funktion zurueck.
 
-        raise NotImplementedError('Implement me')
+        return sum, prod, skalar
 
     def array_functions(self, seq_arr=None):
         print '\n[NumPyIntro::array_functions]'
@@ -613,13 +626,13 @@ class NumPyIntro(object):
         # http://docs.scipy.org/doc/numpy/reference/generated/numpy.amax.html
         # http://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html
         
-        raise NotImplementedError('Implement me')
+        tup = np.argmax(seq_arr,axis=1), np.amax(seq_arr, axis=1) 
         
         # Bestimmen Sie die Summen ueber die Elemente jeder Zeile.
         # Speichern Sie das Ergebnis in einer Variable.
         
-        raise NotImplementedError('Implement me')
-
+        sums = np.sum(seq_arr, axis=1)
+        
         # Teilen Sie nun jedes Element des Arrays durch die Summe der entsprechenden
         # Zeile. Eine solche Operation laesst sich als elementweise Division zwischen
         # Arryays ausdruecken bei der sich Bezug zwischen Divdend und Divisor
@@ -636,12 +649,13 @@ class NumPyIntro(object):
         # Geben Sie die Zwischenergebnisse aus und inspizieren Sie diese auch
         # mit dem Debugger.
         
-        raise NotImplementedError('Implement me')
+        divs = seq_arr.astype(np.float) / sums[:,np.newaxis].astype(np.float)
+
 
         # Speichern Sie alle Ergebnisse und geben Sie diese als Ergebnis der
         # Funktion zurueck.
 
-        raise NotImplementedError('Implement me')
+        return tup, sums, divs
 
     def array_distributions(self):
         print '\n[NumPyIntro::array_distributions]'
@@ -671,8 +685,12 @@ class NumPyIntro(object):
         # http://docs.scipy.org/doc/numpy/reference/generated/numpy.bincount.html
         # http://docs.scipy.org/doc/numpy/reference/generated/numpy.reshape.html
     
-        raise NotImplementedError('Implement me')
-    
+        round_gauss = np.around(rand_arr_gauss.reshape(-1)).astype(np.int)
+        hist_gauss = np.bincount(round_gauss)
+        plt.bar(x=np.arange(len(hist_gauss)), height=hist_gauss)
+        plt.show()
+        
+        
         # Bilden Sie nun die zeilenweisen Summen ueber das ndarray mit den gleichverteilten
         # Zufallszahlen (rand_arr_unif). Berechnen und visualisieren Sie das Histogramm 
         # wie zuvor. Erklaeren Sie das Ergebnis.
@@ -680,7 +698,12 @@ class NumPyIntro(object):
         #
         # Geben Sie das Ergebnis als Rueckgabe der Funktion zurueck.
 
-        raise NotImplementedError('Implement me')
+        round_unif = np.around(np.sum(rand_arr_unif, axis=1).reshape(-1)).astype(np.int)
+        hist_unif = np.bincount(round_unif)
+        plt.bar(x=np.arange(len(hist_unif)), height=hist_unif)
+        plt.show()
+        
+        return hist_unif
         
 
 
