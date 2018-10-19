@@ -34,9 +34,11 @@
 }
 
 % needs to be updated
-\author{Max Springenberg, 177792}
+\author{Max Springenberg, 177792\\
+        Daniel Sonnabend, 190748}
 \title{\
-    ES "Ubungsblatt 1
+    ES "Ubungsblatt 2\\
+    Gruppe Fr. 8-10
     }
 \setcounter{section}{1}
 \date{}
@@ -75,7 +77,6 @@ Z sei die Bier-, G die Geschmacks- und F die Flaschentaste. F"ur den
     \node[anchor=west] (hopfigTitle) at (3.5,2.5) {flavour-monitoring};
     \node[state] (hopfig) at (4,0) {hopfig};
     \node[state] (malzig) at (6,0) {malzig};
-    \node[state] (H) at (4,-1.5) {H};
 
     \node[anchor=west] (hopfigTitle) at (13.5,2.5) {glass-monitoring};
     \node[state] (gross) at (14,0) {gro"s};
@@ -84,6 +85,7 @@ Z sei die Bier-, G die Geschmacks- und F die Flaschentaste. F"ur den
     \node[anchor=west] (hopfigTitle) at (8.5,2.5) {alcohol-monitoring};
     \node[state] (4) at (10,1) {4\%};
     \node[state] (45) at (9,-1) {4,5\%};
+    \node[state] (H) at (8,-2) {H};
     \node[state] (5) at (11,-1) {5\%};
 
     \node[state] (active) at (8,-6) {activate};
@@ -100,11 +102,11 @@ Z sei die Bier-, G die Geschmacks- und F die Flaschentaste. F"ur den
     % gross
     \draw[-latex] (gross.south) + (0,-1) coordinate (temp) to (gross);
         \fill (temp) circle (0.05);
-    % 4,5%
-    \draw[-latex] (45.south) + (0,-1) coordinate (temp) to (45);
+    % hopfig
+    \draw[-latex] (hopfig.south) + (0,-1) coordinate (temp) to (hopfig);
         \fill (temp) circle (0.05);
-    % hopfig/ H
-    \draw[-latex] (H.south) + (0,-0.5) coordinate (temp) to (H);
+    % 4,5%/ H
+    \draw[-latex] (H.south) + (1,0) coordinate (temp) to (H);
         \fill (temp) circle (0.05);
     % bier
     \draw[-latex] (bier.south) + (0,-1) coordinate (temp) to (bier);
@@ -123,7 +125,6 @@ Z sei die Bier-, G die Geschmacks- und F die Flaschentaste. F"ur den
 
         (hopfig) edge [->, bend right, above] node {G} (malzig)
         (malzig) edge [->, bend right, above] node {G} (hopfig)
-        (H) edge [->] node {} (hopfig)
 
         (klein) edge [->, bend right, above] node {F} (gross)
         (gross) edge [->, bend right, above] node {F} (klein)
@@ -137,6 +138,7 @@ Z sei die Bier-, G die Geschmacks- und F die Flaschentaste. F"ur den
         (5) edge [->, bend right, right] node {1xA} (4)
         (5) edge [->, bend right, below] node {2xA} (45)
         (5) edge [->, loop right] node {3xA} (5)
+        (H) edge [->] node {} (45)
 
         (active) edge [->, bend right, right] node {on} (8,-3) 
         (8, -3) edge [->, bend right, right] node {off} (active)
@@ -153,7 +155,7 @@ Z sei die Bier-, G die Geschmacks- und F die Flaschentaste. F"ur den
     0       &6       &0          & $a_1$\\
     1       &3       &2          & $a_1$\\
     2       &0       &4          & $a_2$\\
-    3       &6       &0          & $a_1$\\
+    3       &3       &2          & $a_1$\\
     4       &0       &4          & $a_2$\\
 \end{tabular}\\
 \gap
