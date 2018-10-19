@@ -3,8 +3,10 @@
 \hoffset=0in
 \voffset=0in
 
+\usepackage{afterpage}
 \usepackage{pgf}
 \usepackage{tikz}
+\usepackage{pdflscape}
 \usetikzlibrary{arrows,automata}
 \usepackage[latin1]{inputenc}
 \usepackage{ngerman}
@@ -14,13 +16,22 @@
 \usepackage{stmaryrd}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{automata, arrows}
+\usetikzlibrary{automata, arrows, fit, calc}
 \usepackage{pifont}
 \usepackage{amssymb}
 \usepackage{gensymb}
 \usepackage[ampersand]{easylist}
 
+
 \newcommand{\gap}{\ \\ \\}
+\newcommand{\chart}[6]{
+    \node[round, 
+          minimum width=#5, 
+          minimum height=#6] (#1) at (#3,#4) {chart};
+    \node[rect] (#2) at (#3,#4) {title};
+}
+\newcommand{\sepline}[2]{
+}
 
 % needs to be updated
 \author{Max Springenberg, 177792}
@@ -40,7 +51,6 @@
 
 Zu den in der Vorlesung vorgestelleten Anforderungen an Spezifiations- und 
     Modellierungssprachen f"ur eingebettete Systeme sind:\\
-
 \begin{enumerate}
     \item Hierarchy
     \item Component-based design
@@ -48,9 +58,88 @@ Zu den in der Vorlesung vorgestelleten Anforderungen an Spezifiations- und
     \item Support design reactive systems
         \subitem event-handling/ state und error orientiertes Verhalten
 \end{enumerate}
-
+\begin{landscape}
 \subsection{}
-\\
+\begin{tikzpicture}[round/.style={rounded corners=1.5mm,minimum width=3cm,draw,
+                                  anchor=north west},
+                    rect/.style={draw, anchor=south west},
+                    node distance =1cm]
+    \node[anchor=west] (bierTitle) at (-0.5,2.5) {beer-monitoring};
+    \node[state] (bier) at (0,0) {Bier};
+    \node[state] (radler) at (2,0) {Radler};
+
+    \node[anchor=west] (hopfigTitle) at (3.5,2.5) {flavour-monitoring};
+    \node[state] (hopfig) at (4,0) {hopfig};
+    \node[state] (malzig) at (6,0) {malzig};
+    \node[state] (H) at (4,-1.5) {H};
+
+    \node[anchor=west] (hopfigTitle) at (13.5,2.5) {glass-monitoring};
+    \node[state] (gross) at (14,0) {gro"s};
+    \node[state] (klein) at (16,0) {klein};
+
+    \node[anchor=west] (hopfigTitle) at (8.5,2.5) {alcohol-monitoring};
+    \node[state] (4) at (10,1) {4\%};
+    \node[state] (45) at (9,-1) {4,5\%};
+    \node[state] (5) at (11,-1) {5\%};
+
+    \node[state] (active) at (8,-6) {activate};
+
+    % chart beer automaton
+    \node[round, 
+          minimum width=18cm, 
+          minimum height=6cm] (ba) at (-1,3) {};
+    \node[rect] (baT) at (-1,3) {beer automaton};
+    \draw[densely dashed] (3,-3) -- (3,3);
+    \draw[densely dashed] (7,-3) -- (7,3);
+    \draw[densely dashed] (13,-3) -- (13,3);
+    % defaults
+    % gross
+    \draw[-latex] (gross.south) + (0,-1) coordinate (temp) to (gross);
+        \fill (temp) circle (0.05);
+    % 4,5%
+    \draw[-latex] (45.south) + (0,-1) coordinate (temp) to (45);
+        \fill (temp) circle (0.05);
+    % hopfig/ H
+    \draw[-latex] (H.south) + (0,-0.5) coordinate (temp) to (H);
+        \fill (temp) circle (0.05);
+    % bier
+    \draw[-latex] (bier.south) + (0,-1) coordinate (temp) to (bier);
+        \fill (temp) circle (0.05);
+
+    % chart machine
+    \node[round, 
+          minimum width=20cm, 
+          minimum height=14cm] (bm) at (-2,5) {};
+    \node[rect] (bmT) at (-2,5) {beer machine};
+
+    % automata
+    \path
+        (bier)   edge [->, bend right, above] node {Z} (radler)
+        (radler) edge [->, bend right, above] node {Z} (bier)
+
+        (hopfig) edge [->, bend right, above] node {G} (malzig)
+        (malzig) edge [->, bend right, above] node {G} (hopfig)
+        (H) edge [->] node {} (hopfig)
+
+        (klein) edge [->, bend right, above] node {F} (gross)
+        (gross) edge [->, bend right, above] node {F} (klein)
+
+        (4) edge [->, loop above] node {1xA} (4)
+        (4) edge [->, bend right, left] node {2xA} (45)
+        (4) edge [->, bend right, right] node {3xA} (5)
+        (45) edge [->, bend right, left] node {1xA} (4)
+        (45) edge [->, loop left] node {2xA} (45)
+        (45) edge [->, bend right, below] node {3xA} (5)
+        (5) edge [->, bend right, right] node {1xA} (4)
+        (5) edge [->, bend right, below] node {2xA} (45)
+        (5) edge [->, loop right] node {3xA} (5)
+
+        (active) edge [->, bend right, right] node {on} (8,-3) 
+        (8, -3) edge [->, bend right, right] node {off} (active)
+        ;
+\end{tikzpicture}
+\end{landscape}
+\newpage
 
 \subsection{}
 (i)\\
