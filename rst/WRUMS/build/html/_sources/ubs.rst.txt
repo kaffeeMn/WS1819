@@ -1,0 +1,12 @@
+Notizen zur Uebung
+##################
+
+Blatt 01
+########
+
+* :download:`Musterlsg. <../../../Modules/wrums/UB/ub01.r>`
+
+Orga:
+
+* R kann klausurrelevant sein
+
