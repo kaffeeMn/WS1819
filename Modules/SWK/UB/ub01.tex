@@ -25,18 +25,25 @@
 
 
 \newcommand{\gap}{\ \\ \\}
-\newcommand{\chart}[6]{
-    \node[round, 
-          minimum width=#5, 
-          minimum height=#6] (#1) at (#3,#4) {chart};
-    \node[rect] (#2) at (#3,#4) {title};
-}
-\newcommand{\sepline}[2]{
+
+% node of size 1x1 with 
+% #1 : ID
+% #2 : min
+% #3 : max
+% #4 : buffer
+% #5, #6 : coords of center
+\newcommand{\cpnd}[6]{
+    \node[] ()  at (#5,    #6+0.25) {#1};
+    \node[] ()  at (#5-0.25,#6)     {#2};
+    \node[] ()  at (#5+0.25,#6)     {#3};
+    \node[] ()  at (#5,    #6-0.25) {#4};
+    %\node[rounded corners=1.5mm, minimum width=3cm, draw, anchor=center,
+    %      minimum width=1cm, 
+    %      minimum height=1cm] (#1) at (#5,#6) {};
 }
 
 % needs to be updated
-\author{Max Springenberg, 177792\\
-        Daniel Sonnabend, 190748}
+\author{Max Springenberg, 177792}
 \title{SWK\\
        "Ubungsblatt 1}
 
@@ -55,7 +62,7 @@ Klassifizierung der Anforderungen:\\
     \hline
     Benuztzer       & System  & Unternehmen & Produkt       & Extern\\
     \hline
-    (i), (v), (vii) & (iv)    & (iii)       & (vi), (vii)   & (ii)\\
+    (i), (v), (vii),(viii) & (iv)    & (iii)       & (vi)             & (ii)\\
     \hline
 \end{tabular}
 
@@ -80,30 +87,50 @@ Nicht funktional externe Anforderung:\\
 Nicht funktionale Unternehmensanforderung:\\
 (iv) Schl"ussel der Cypher-Texte m"ussen f"ur Entwickler uneinsehbar bleiben.\\
 
+
 \subsection{}
+siehe Anhang
 
 \subsection{2- und 3-Punktsch"atzung}
+\subsubsection\
 Es wurde in der Vorlesung definiert:\\
 $E_{2-Punkt}(x) = \frac{a+b}{2}, S(x) = \frac{b-a}{6}$\\
 $E_{3-Punkt}(x) = \frac{a+4*c+b}{2}, S(x) = \frac{b-a}{6}$\\
-$E = \Sigma_i E_i$\\
-\gap
-Durch einzetzen folgt f"ur:\\
+%$E = \Sigma_i E_i$\\
+\\
+Da die Komponenten unabh"angig voneinander arbeiten, reicht es aus die maximale
+    Komponente `Gesch"aftslogik` betrachten und es m"ussen keine Summen 
+    gebildet werden.\\
+\newpage
+\  \\
+Durch einsetzen folgt f"ur:\\
 (i)/(ii)\\
-\begin{flalign*}
-    S   &= \sqrt{(\frac{60-10}{6})^2 + (\frac{160-30}{6})^2 
-            + (\frac{12-4}{6})^2 + (\frac{20-8}{6})^2}&&\\
-        &= \sqrt{8,3^2 + 21.7^2 + 1.3^2 + 2^2} = 23.4&&\\
-\end{flalign*}
+$S = \frac{160-30}{6} = 31,7$\\
+%\begin{flalign*}
+%    S   &= \sqrt{(\frac{60-10}{6})^2 + (\frac{160-30}{6})^2 
+%            + (\frac{12-4}{6})^2 + (\frac{20-8}{6})^2}&&\\
+%        &= \sqrt{8,3^2 + 31.7^2 + 1.3^2 + 2^2} = 23.4&&\\
+%\end{flalign*}
 (i)\\
-\begin{flalign*}
-    E &= \frac{10+60}{2} + \frac{30+160}{2} + \frac{4+12}{2} + \frac{8+20}{2}&&\\
-      &= 35 + 95 + 8 + 14 = 152&&\\
-\end{flalign*}
+$E = \frac{30 + 160}{2} = 95$\\
+%\begin{flalign*}
+%    E &= \frac{10+60}{2} + \frac{30+160}{2} + \frac{4+12}{2} + \frac{8+20}{2}&&\\
+%      &= 35 + 95 + 8 + 14 = 152&&\\
+%\end{flalign*}
 (ii)\\
-\begin{flalign*}
-    E &= \frac{10+4*40+60}{2} + \frac{30+4*80+160}{2} 
-       + \frac{4 + 4*8 + 12}{2} + \frac{8 + 4*10 + 20}{2}&&\\
-      &= 115 + 255 + 26 + 34 = 430&&\\
-\end{flalign*}
+$E = \frac{30 + 4*80 + 160}{2} = 255$\\
+%\begin{flalign*}
+%    E &= \frac{10+4*40+60}{2} + \frac{30+4*80+160}{2} 
+%       + \frac{4 + 4*8 + 12}{2} + \frac{8 + 4*10 + 20}{2}&&\\
+%      &= 115 + 255 + 26 + 34 = 430&&\\
+%\end{flalign*}
+
+\subsubsection\
+Vorteil einer 3-Punktsch"atzung ist deren Genauigkeit, bei guter Einsch"atzung
+    des m"oglichen Aufwands. Jedoch ist die 3-Punktsch"atzung vergleichsweise
+    schlecht wenn man nicht absehen kann wie gro"s der Aufwand ist.\\
+Vorteil einer 2-Punktsch"atzung ist deren nicht all zu schlechte Genauigkeit, 
+    bei schlechter Einsch"atzung des m"oglichen Aufwands. Jedoch ist deren
+    Genauigkeit nicht so gut wie die der 3-Punktsch"atzung bei gut absehbarem
+    Aufwand.\\
 \end{document}
