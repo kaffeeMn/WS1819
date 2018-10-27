@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{MST in gewichteten Graphen}{3}{0}{1}
+\beamer@sectionintoc {2}{B\active@dq \dq@prtct {a}ume vs. W\active@dq \dq@prtct {a}lder}{7}{0}{2}
+\beamer@sectionintoc {3}{Boruvka Phasen}{8}{0}{3}
+\beamer@sectionintoc {4}{F-schwere/ -leichte Kanten}{11}{0}{4}
+\beamer@sectionintoc {5}{Randomiserte Stichprobem}{12}{0}{5}
+\beamer@sectionintoc {6}{Erkenntnis}{15}{0}{6}
