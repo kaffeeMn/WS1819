@@ -53,7 +53,29 @@
 <li><a class="reference internal" href="#">Randomisierte Algorithmen Notizen</a></li>
 <li><a class="reference internal" href="#table-of-contents">Table Of Contents</a><ul>
 <li><a class="reference internal" href="#minimum-spanning-trees-definitionen-und-einleitung">10.3. Minimum Spanning Trees (Definitionen und Einleitung)</a><ul>
-<li><a class="reference internal" href="#grundlegendes">Grundlegendes</a></li>
+<li><a class="reference internal" href="#grundlegendes">Grundlegendes</a><ul>
+<li><a class="reference internal" href="#allgemeine-definitionen-zu-graphen">Allgemeine Definitionen zu Graphen</a></li>
+<li><a class="reference internal" href="#spannbaum-spannwald">Spannbaum -/ Spannwald</a></li>
+<li><a class="reference internal" href="#bekannte-algorithem-state-of-the-art">Bekannte Algorithem/ State of the art</a></li>
+<li><a class="reference internal" href="#verifikation">Verifikation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#boruvkas-algorithmus">10.3.2 Boruvkas Algorithmus</a><ul>
+<li><a class="reference internal" href="#boruvka-phasen">Boruvka Phasen</a><ul>
+<li><a class="reference internal" href="#idee">Idee</a></li>
+<li><a class="reference internal" href="#kontraktion">Kontraktion</a></li>
+<li><a class="reference internal" href="#ablauf">Ablauf</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#greedy-strategie">Greedy Strategie</a></li>
+<li><a class="reference internal" href="#excercises">Excercises</a><ul>
+<li><a class="reference internal" href="#id1">10.11</a></li>
+<li><a class="reference internal" href="#id2">10.12</a></li>
+<li><a class="reference internal" href="#id3">10.13</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -107,8 +129,168 @@
 <h2>10.3. Minimum Spanning Trees (Definitionen und Einleitung)<a class="headerlink" href="#minimum-spanning-trees-definitionen-und-einleitung" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="grundlegendes">
 <h3>Grundlegendes<a class="headerlink" href="#grundlegendes" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="allgemeine-definitionen-zu-graphen">
+<h4>Allgemeine Definitionen zu Graphen<a class="headerlink" href="#allgemeine-definitionen-zu-graphen" title="Permalink to this headline">¶</a></h4>
 <p>Graphen werden wie ueblich als <span class="math notranslate">\(G=(V,E)\)</span>, mit einer Gewichtungsfunktion
-<span class="math notranslate">\(w: E \rightarrow \mathbb{R}\)</span></p>
+<span class="math notranslate">\(w: E \rightarrow \mathbb{R}\)</span>.</p>
+<p>Ferner definieren wir <span class="math notranslate">\(|V| = n, |E| = m\)</span></p>
+</div>
+<div class="section" id="spannbaum-spannwald">
+<h4>Spannbaum -/ Spannwald<a class="headerlink" href="#spannbaum-spannwald" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Ein minimaler Spannbaum ist:</dt>
+<dd><ul class="first last">
+<li>ein azyklischer Teilgraph eines Graphen G</li>
+<li>der alle Knoten enthaelt</li>
+<li>verbunden ist</li>
+<li>und dessen Summe von Kantengewichten <span class="math notranslate">\(\sum_{e\in E_T} w(e)\)</span>
+minimal ist</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Das Gewicht des Spannbaums wird als die Summe aller Kantengewichte definiert.</li>
+<li>Ist ein Graph nicht verbunden, so existiert kein Spannbaum.</li>
+</ul>
+<p>Fuer einen nicht verbundenen Graphen ist deshalb das Konzept eines Spanwaldes
+besonders interessant.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Ein Spannwald <span class="math notranslate">\(F\)</span> ist ein azyklischer Teilgraph eines Graphen G, der
+aus Disjunkten Spannbaeumen fuer die verbundenen Komponenten in G besteht.
+Isolierte Knoten sind Baeume der Groesse 1.</p>
+<p>Der minimale Spannwald ist analog zum minimalen Spannbaum definiert.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Wir nehmen an, dass alle Kantengewichte einzigartig sind, daraus erfolgt immer
+ein eindeutiger Spannbaum/-wald.</p>
+</div>
+<div class="section" id="bekannte-algorithem-state-of-the-art">
+<h4>Bekannte Algorithem/ State of the art<a class="headerlink" href="#bekannte-algorithem-state-of-the-art" title="Permalink to this headline">¶</a></h4>
+<p>Das MSTP ist eines der am besten behandelten Probleme in combinatorischer
+Optimierung. Es gibt bereits viele Algorithmen zu diesem Problem. Die meisten
+basieren auf einer &quot;gierigen&quot; Strategie und haben eine worst-case Laufzeit
+von:</p>
+<div class="math notranslate">
+\[O(m*log(n))\]</div>
+<p>Darunter fallen u.a. Boruvkas, Kruskals und Prims Algorithmen.</p>
+<p>Der momentan beste deterministische Algorithmus hat die Laufzeit</p>
+<div class="math notranslate">
+\[O(m*log(n) * \beta(m,n))\]</div>
+<p>wobei <span class="math notranslate">\(\beta = min\{i | log^{(i)}n \leq m/n\}\)</span>  und <span class="math notranslate">\(log^{(i)}\)</span>
+die i-te Iteration von <span class="math notranslate">\(log\)</span> auf n ist.</p>
+<p>Dieser Algorithmus ist also praktisch linear fuer fast alle praktischen
+Anwendungen, jedoch sind dessen Datenstrukturen kompliziert genug, das die
+simpleren Algorithmen mehr angewandt werden.</p>
+</div>
+<div class="section" id="verifikation">
+<h4>Verifikation<a class="headerlink" href="#verifikation" title="Permalink to this headline">¶</a></h4>
+<p>Wir gehen davon aus, dass eine Black-Box gegeben sei, die bei Eingabe eines
+Graphen G und eines Baums T verifiziert, ob T der/ ein minimaler Spannbaum von
+G ist.</p>
+<p>Dieser Black-Box Algorithmus ist deterministisch und linear.</p>
+<p>Ferner werden Kanten zurueck gegeben, mit denen &quot;verbesserungen&quot;, bzw.
+manipulationen an G, durchgefuehrt werden koennen, die das errechnen eines
+minimalen Spannbaums erleichtern.</p>
+</div>
+</div>
+</div>
+<div class="section" id="boruvkas-algorithmus">
+<h2>10.3.2 Boruvkas Algorithmus<a class="headerlink" href="#boruvkas-algorithmus" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="boruvka-phasen">
+<h3>Boruvka Phasen<a class="headerlink" href="#boruvka-phasen" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="idee">
+<h4>Idee<a class="headerlink" href="#idee" title="Permalink to this headline">¶</a></h4>
+<p>Die Idee einer Boruvka-Phase ist es Kanten, die im MST vorkommen muessen je
+Knoten zu kontraktieren.</p>
+<p>Solche Kanten sind die, mit den minalen Kantengewichten je Knoten (siehe 10.11)</p>
+</div>
+<div class="section" id="kontraktion">
+<h4>Kontraktion<a class="headerlink" href="#kontraktion" title="Permalink to this headline">¶</a></h4>
+<p>Unter einer Kontraktion versteht man das verschmelzen von Knoten in einen
+einzigen Konten, der Die Kanten aller verschmolzenen Knoten enthaelt.</p>
+<p>Jedoch werden Selbsschleifen nach der Kontraktion geloescht.</p>
+</div>
+<div class="section" id="ablauf">
+<h4>Ablauf<a class="headerlink" href="#ablauf" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Markiere fuer jeden Knoten die inzidente Kante mit dem kleinsten Gewicht.</li>
+<li>ermittel die verbundenen Komponenten</li>
+<li>ersetze jede Komponente durch einen einzelnen Knoten mittels Kontraktion</li>
+<li>entferne die Selbstschleifen</li>
+</ol>
+</div>
+</div>
+<div class="section" id="greedy-strategie">
+<h3>Greedy Strategie<a class="headerlink" href="#greedy-strategie" title="Permalink to this headline">¶</a></h3>
+<p>Boruvka-Phasen werden solange durchgefuehrt, bis nur noch ein Knoten bleibt.
+Dabei ergeben die markierten Kanten den minimalen Spannbaum.</p>
+<p>Es scheint offensichtlich, dass nach jeder Phase maximal noch <span class="math notranslate">\(n/2\)</span> Knoten
+in G vorhanden sind.</p>
+<p>Interessant ist, dass die markierten Kanten nach jeder Phase einen Wald ergeben,
+der Teilgraph des MST ist. Diese Erkenntniss wird uns spaeter nuetzlich sein.</p>
+</div>
+<div class="section" id="excercises">
+<h3>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id1">
+<h4>10.11<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate">\(\text{Sei } v \in V \text{ ein beliebiger Knoten in } G.\)</span>
+<span class="math notranslate">\(\text{Zeige, dass der MST von } G \text{ die minimal gewichtete Kante }\)</span>
+<span class="math notranslate">\((v,w) \in E , w \in V \text{ enthalten muss.}\)</span></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Annahme MST muss die Kante nicht enthalten:</p>
+<p>1. Fall e=:math:<cite>(v,w)</cite> ist die einzige Kante von v:
+Dann muss e im MST vorkommen, da sonst der MST nicht vollstaendig ist.
+Daraus folgt ein Widerspruch fuer diesen Fall.</p>
+<p>2. Fall v hat mehr Kanten:
+Dann muesste im MST mindestens eine andere Kante inzident zu v enthalten sein.
+Dessen Kantengewicht waere groesser, als das von e.</p>
+<p>Der MST wuerde also alle Knoten bereits verbinden. v ist also von w
+bereits erreichbar und umgekehrt. sei <span class="math notranslate">\(z_1, \ldots, z_k\)</span> der Pfad
+von v nach w. Entfernen wir die Kante <span class="math notranslate">\(z=max{z_1,z_k}\)</span> und erstzen sie
+Durch e, so haben wir eine Kante mit groesseren Gewicht, als das von e
+ersetzt. Ferner haben wir keinen Zyklus geschaffen, da zuvor nur ein Pfad von
+v nach w im &quot;MST&quot; existiert haben kann und der Pfad lediglich umgeleitet wurde.
+Des Weiteren sind v, w und alle anderen Knoten auf dem Pfad nach wie vor
+erreichbar.
+Damit war der &quot;MST&quot; nicht minimal.
+Daraus folgt ein Widerspruch fuer diesen Fall.</p>
+<p>Durch Widerspruch folgt, dass der MST die Minimale Kante eines jeden Knoten
+enthalten muss.</p>
+</div>
+<div class="section" id="id2">
+<h4>10.12<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate">\(\text{Zeige, dass eine Boruvka-Phase in } O(m+n)\)</span>
+<span class="math notranslate">\(\text{ umgesetzt werden kann}\)</span></p>
+<ol class="arabic simple">
+<li><span class="math notranslate">\(\forall v \in V\)</span>:</li>
+<li><span class="math notranslate">\(\ \ \ \ e = \{v,w\} = min\ adj(v)\)</span></li>
+<li><span class="math notranslate">\(\ \ \ \ V_T = V_T \cup \{w\}\)</span></li>
+<li><span class="math notranslate">\(\ \ \ \ E_T = E_T \cup \{e\}\)</span></li>
+<li><span class="math notranslate">\(\forall v \in V_T\)</span>:</li>
+<li><span class="math notranslate">\(\ \ \ \ \text{}\)</span> kontraktiere v mit allen adjazenten Knoten aus T in G</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h4>10.13<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate">\(\text{Zeige, dass die waehrend einer Boruvka-Phase markierten Kanten }\)</span>
+<span class="math notranslate">\(\text{einen Wald in G aufspannen}\)</span></p>
+<p>Zu zeigen ist, dass eine verbunde Komponente Ein Baum ist, bzw. azyklisch.
+Minimale Kanten sind eindeutig, da jedes Kantengewicht nur einmal genutzt wird.
+Damit ein Zyklus entstehen wuerde muesste ein Knoten Zwei einen Pfad schliessen,
+in dem er mindestens eine zusaetzliche Kante nimmt. Dessen Kantengewicht muesste
+kleiner, als das der bereits inzidente, markierte Kante sein.</p>
+<p>Dadurch, dass alle Kantengewichte nur einmal vorkommen wird entweder ein Pfad/
+eine Komponente geschlossen, indem Zwei Knoten eine minimale Kante teilen, oder
+der adjazente Knoten hat eine kleinere minimale Kante.</p>
+<p>Ein alternativer Pfad zu dem Knoten mit der schwereren Kante ist also nicht
+moeglich.</p>
+</div>
 </div>
 </div>
 </div>
