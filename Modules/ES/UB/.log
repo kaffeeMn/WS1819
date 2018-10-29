@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  18 OCT 2018 12:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  28 OCT 2018 08:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -8,13 +8,9 @@ LaTeX2e <2017-04-15>
 Babel <3.10> and hyphenation patterns for 84 language(s) loaded.
 File ignored)
 *
-! Interruption.
-<*> 
-    
-? 
 ! Emergency stop.
-<*> 
-    
+<*> .tex
+        
 End of file on the terminal!
 
  

@@ -1,0 +1,102 @@
+\documentclass{article}
+\textwidth=6in
+\hoffset=0in
+\voffset=0in
+
+\usepackage{tabularx}
+    \newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\usepackage{afterpage}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{inputenc}
+\usepackage{ngerman}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows, fit, calc}
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage[ampersand]{easylist}
+
+
+\newcommand{\gap}{\ \\ \\}
+\newcommand{\chart}[6]{
+    \node[round, 
+          minimum width=#5, 
+          minimum height=#6] (#1) at (#3,#4) {chart};
+    \node[rect] (#2) at (#3,#4) {title};
+}
+\newcommand{\sepline}[2]{
+}
+
+% needs to be updated
+\author{Max Springenberg, 177792\\
+        Daniel Sonnabend, 190748}
+\title{\
+    ES "Ubungsblatt 3\\
+    Gruppe Fr. 8-10
+    }
+\setcounter{section}{3}
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\subsection{Java}\ \\
+\begin{table}
+\centering
+\begin{tabularx}{\linewidth}{LL}
+	\hline
+	
+	Vorteile 						        & Nachteile\\
+    Saubere und sichere Programmier sprachea& Lirbaries sind recht gro"s, 
+                                              beannspruchen viel Speicher\\
+    Unterst"utzung von Multithreading       & Kein direkter Zugang zu 
+                                              spezifischen Hardware-Features\\
+    Platform unabh"angig                    & Garbage-Collector nicht absehbar
+                                              , bzw. unvorhersehbarkeit der Zeit
+                                              zu der der Garbage-Collector
+                                              eingesetzt wird micht das System
+                                              `non-deterministic`.\\
+                                            & `non-deterministic` dispatcher,
+                                               mehrere Methoden mit gleichem
+                                               Namen sind zul"assig und Methoden
+                                               k"onnen "uberschrieben werden.\\
+                                            & Daraus resultierende Performanz
+                                              Probleme.\\
+                                            & "Uberpr"ufen von 
+                                              Echtzeitanforderungen ist schwer
+                                              m"oglich.\\
+\end{tabularx}
+\end{table}
+
+\subsection{Aliasing}
+Bei Aliasing werden zwei unterschiedliche Signale als gleich interpretiert, 
+    weil die Samplingrate nicht frequent genug ist.\\
+\\
+Es gilt:\\$$
+    p_s < 0,5 * p_N
+    f_s > 2* f_N$$
+, wobei $f_s$ die Samplingrate ist.\\
+Daraus folgt f"ur unser Beispiel $2*f_N = 2 * 20Hz = 40Hz$, also m"ussen wir
+    eine Samplingrate von gr"o"ser $40Hz$  benuzten.\\
+
+\subsection{SDF vs. Petrinetze}
+SDFs modeliert den Data-Flow, also wie Daten durch das System flie"sen sollen
+    und Petrinetze modelieren kausale Abh"angigkeiten zwischen Erseignissen,
+    also was eingetreten sein muss, bevor ein Ereigniss statt finden kann.\\
+\\
+Aus einem SDF kann Code generiert werden, bzw. eine Umwandlung zwischen dem
+    Modell in Code ist m"oglich. Dies ist bei Petrinetzen nicht der Fall, weil
+    das Modell in sich korrekt sein kann, dies aber nicht zwingend auf das 
+    ganze System "ubertragbar sein muss.\\
+
+\end{document}
