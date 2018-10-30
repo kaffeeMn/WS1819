@@ -71,9 +71,31 @@
 </li>
 <li><a class="reference internal" href="#greedy-strategie">Greedy Strategie</a></li>
 <li><a class="reference internal" href="#excercises">Excercises</a><ul>
-<li><a class="reference internal" href="#id1">10.11</a></li>
-<li><a class="reference internal" href="#id2">10.12</a></li>
-<li><a class="reference internal" href="#id3">10.13</a></li>
+<li><a class="reference internal" href="#id1">10.10</a></li>
+<li><a class="reference internal" href="#id2">10.11</a></li>
+<li><a class="reference internal" href="#id3">10.12</a></li>
+<li><a class="reference internal" href="#id4">10.13</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#schwere-kanten-und-die-verfikation-eines-mst">10.3.2 Schwere Kanten und die Verfikation eines MST</a><ul>
+<li><a class="reference internal" href="#idee-randomisierte-stichproben">Idee: Randomisierte Stichproben</a></li>
+<li><a class="reference internal" href="#f-schwere-leichte-kanten">F-schwere/ -leichte Kanten</a><ul>
+<li><a class="reference internal" href="#verbessernde-kanten">Verbessernde Kanten</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#exercises">Exercises</a><ul>
+<li><a class="reference internal" href="#id5">10.14</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#randomisierte-stichproben">10.3.3 Randomisierte Stichproben</a><ul>
+<li><a class="reference internal" href="#randomisierte-graphen">randomisierte Graphen</a></li>
+<li><a class="reference internal" href="#lemma-zur-guete-der-randomisierten-stichproben">Lemma zur Guete der Randomisierten Stichproben</a></li>
+<li><a class="reference internal" href="#execises">Execises</a><ul>
+<li><a class="reference internal" href="#id6">10.15</a></li>
 </ul>
 </li>
 </ul>
@@ -236,7 +258,7 @@ der Teilgraph des MST ist. Diese Erkenntniss wird uns spaeter nuetzlich sein.</p
 <div class="section" id="excercises">
 <h3>Excercises<a class="headerlink" href="#excercises" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id1">
-<h4>10.11<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
+<h4>10.10<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h4>
 <p><span class="math notranslate">\(\text{Sei } v \in V \text{ ein beliebiger Knoten in } G.\)</span>
 <span class="math notranslate">\(\text{Zeige, dass der MST von } G \text{ die minimal gewichtete Kante }\)</span>
 <span class="math notranslate">\((v,w) \in E , w \in V \text{ enthalten muss.}\)</span></p>
@@ -264,7 +286,7 @@ Daraus folgt ein Widerspruch fuer diesen Fall.</p>
 enthalten muss.</p>
 </div>
 <div class="section" id="id2">
-<h4>10.12<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
+<h4>10.11<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h4>
 <p><span class="math notranslate">\(\text{Zeige, dass eine Boruvka-Phase in } O(m+n)\)</span>
 <span class="math notranslate">\(\text{ umgesetzt werden kann}\)</span></p>
 <ol class="arabic simple">
@@ -277,7 +299,7 @@ enthalten muss.</p>
 </ol>
 </div>
 <div class="section" id="id3">
-<h4>10.13<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
+<h4>10.12<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h4>
 <p><span class="math notranslate">\(\text{Zeige, dass die waehrend einer Boruvka-Phase markierten Kanten }\)</span>
 <span class="math notranslate">\(\text{einen Wald in G aufspannen}\)</span></p>
 <p>Zu zeigen ist, dass eine verbunde Komponente Ein Baum ist, bzw. azyklisch.
@@ -290,6 +312,90 @@ eine Komponente geschlossen, indem Zwei Knoten eine minimale Kante teilen, oder
 der adjazente Knoten hat eine kleinere minimale Kante.</p>
 <p>Ein alternativer Pfad zu dem Knoten mit der schwereren Kante ist also nicht
 moeglich.</p>
+</div>
+<div class="section" id="id4">
+<h4>10.13<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h4>
+<p>Sei G' der Graph von G nach einer Boruvka Phase. Zeige, dass der MST von G die
+Vereinigung der markierten Kanten (der kontraktierten Kanten) mit dem MST von G'
+ist.</p>
+<p>In 10.10 wurde bereits gezeigt, dass der MST von G alle minimalen Kanten je
+Knoten enthalten muss. Das sind die markierten Kanten.
+Nach 10.12 Ist G' ein Wald in G. Damit G' nun also ein MST sein soll muessen
+alle verbundenen Komponenten miteinander verbunden werden.</p>
+<p>(i) Dabei darf kein Zyklus entstehen. Deshalb koennen Kanten, die zu solchen Zyklen
+fuehren, also Knoten einer jeweiligen Komponenten untereinander Verbinden,
+ignoriert werden.
+Dies wird durch das loeschen der Selbstschleifen in der
+Boruvka-Phase umgesetzt.
+Die Kanten aus G' sind genau die Kanten der jeweiligen verbundenen
+Komponente Die also im MST sind (10.10) und keine Zyklen verursachen. Restliche
+Kanten der Komponente untereinander werden also wie bereits gesagt ignoriert.
+Das bedeutet insbesondere, dass aus G' nur Kanten geloescht wurden, die nicht
+im MST vorkommen koennten, da sie Zuklen induzieren.</p>
+<p>Die Darstellung eines Graphen von Komponenten ohne Zyklen und Knoten ohne
+Selbstschleifen die alle aus- und eingehenden Kanten der jeweiligen Komponente
+haben ist nun also analog hinsichtlich der Kanten
+<span class="math notranslate">\(E_{MST-Rest} = E_{MST} - E_{G'-marked}\)</span>.</p>
+<p>Ferner sind <span class="math notranslate">\(E_{MST-Rest}\)</span> genau die Kanten die die Komponenten zu einem
+minimalen Spannbaum verbinden,
+da nach 10.10 alle markierten Kanten aus G' im MST enthalten sein muessen, nach
+(i) keine Kanten geloescht wurden, die im MST vorkommen koennten und G' keine
+Knoten geloescht kontraktiert hat, die nicht bereits im MST verbunden waeren.</p>
+</div>
+</div>
+</div>
+<div class="section" id="schwere-kanten-und-die-verfikation-eines-mst">
+<h2>10.3.2 Schwere Kanten und die Verfikation eines MST<a class="headerlink" href="#schwere-kanten-und-die-verfikation-eines-mst" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="idee-randomisierte-stichproben">
+<h3>Idee: Randomisierte Stichproben<a class="headerlink" href="#idee-randomisierte-stichproben" title="Permalink to this headline">¶</a></h3>
+<p>Wir werden Randomisierung benutzen um die Laufzeit zu verbessern, jedoch muessen
+wir erst erfassen, was die Randomisieung bezwecken soll. Dazu fuehren wir die
+Begriffe der F-schweren und -leichten Kanten ein.</p>
+</div>
+<div class="section" id="f-schwere-leichte-kanten">
+<h3>F-schwere/ -leichte Kanten<a class="headerlink" href="#f-schwere-leichte-kanten" title="Permalink to this headline">¶</a></h3>
+<p>Wir betrachren einen Wald F in G. Fuer Knoten <span class="math notranslate">\(u,v\)</span>, die in der selben
+verbundenen Komponente/ Baum wenden wir nun folgende Funktion an und deuten
+deren Werte hinsichtlich eines minimalen Spannbaums:</p>
+<div class="math notranslate">
+\[\begin{split}w_F(u,v) = \begin{cases}
+                \infty, P(u,v) = \emptyset\\
+                max\{P(u,v)\}, \text{sonst}
+           \end{cases}\end{split}\]</div>
+<p>, wobei P(u,v) alle Kanten des Pfades von u nach v ausgibt</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Wir definieren Ferner Kanten als F-schwere Kanten als <span class="math notranslate">\(w(u,v) &gt; w_F(u,v)\)</span>
+und F-leichte Kanten als <span class="math notranslate">\(w(u,v) \leq w_F(u,v)\)</span></p>
+<div class="section" id="verbessernde-kanten">
+<h4>Verbessernde Kanten<a class="headerlink" href="#verbessernde-kanten" title="Permalink to this headline">¶</a></h4>
+<p>Aus 10.14 folgt, dass eine Kante, die F-schwer ist nicht im MST liegt, der
+Umkehrschluss gilt jedoch nicht.</p>
+<p>Eine Kante verbessert einen Wald, wann das Hinzufuegen dieser Kante entweder
+die Anzahl an Baeumen im Wald reduziert oder das Entfernen der schwersten Kante
+im entstandenen Zyklus das gewicht des Waldes reduziert.</p>
+</div>
+</div>
+<div class="section" id="exercises">
+<h3>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id5">
+<h4>10.14<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="section" id="randomisierte-stichproben">
+<h2>10.3.3 Randomisierte Stichproben<a class="headerlink" href="#randomisierte-stichproben" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="randomisierte-graphen">
+<h3>randomisierte Graphen<a class="headerlink" href="#randomisierte-graphen" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="lemma-zur-guete-der-randomisierten-stichproben">
+<h3>Lemma zur Guete der Randomisierten Stichproben<a class="headerlink" href="#lemma-zur-guete-der-randomisierten-stichproben" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="execises">
+<h3>Execises<a class="headerlink" href="#execises" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h4>10.15<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h4>
 </div>
 </div>
 </div>

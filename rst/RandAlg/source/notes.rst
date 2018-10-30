@@ -132,7 +132,7 @@ der Teilgraph des MST ist. Diese Erkenntniss wird uns spaeter nuetzlich sein.
 Excercises
 ----------
 
-10.11
+10.10
 ^^^^^
 :math:`\text{Sei } v \in V \text{ ein beliebiger Knoten in } G.`
 :math:`\text{Zeige, dass der MST von } G \text{ die minimal gewichtete Kante }`
@@ -164,7 +164,7 @@ Daraus folgt ein Widerspruch fuer diesen Fall.
 Durch Widerspruch folgt, dass der MST die Minimale Kante eines jeden Knoten
 enthalten muss.
 
-10.12
+10.11
 ^^^^^
 
 :math:`\text{Zeige, dass eine Boruvka-Phase in } O(m+n)`
@@ -177,7 +177,7 @@ enthalten muss.
 5. :math:`\forall v \in V_T`:
 6. :math:`\ \ \ \ \text{}` kontraktiere v mit allen adjazenten Knoten aus T in G
 
-10.13
+10.12
 ^^^^^
 
 :math:`\text{Zeige, dass die waehrend einer Boruvka-Phase markierten Kanten }`
@@ -195,3 +195,99 @@ der adjazente Knoten hat eine kleinere minimale Kante.
 
 Ein alternativer Pfad zu dem Knoten mit der schwereren Kante ist also nicht 
 moeglich.
+
+10.13
+^^^^^
+
+Sei G' der Graph von G nach einer Boruvka Phase. Zeige, dass der MST von G die
+Vereinigung der markierten Kanten (der kontraktierten Kanten) mit dem MST von G'
+ist.
+
+In 10.10 wurde bereits gezeigt, dass der MST von G alle minimalen Kanten je 
+Knoten enthalten muss. Das sind die markierten Kanten.
+Nach 10.12 Ist G' ein Wald in G. Damit G' nun also ein MST sein soll muessen
+alle verbundenen Komponenten miteinander verbunden werden. 
+
+(i) Dabei darf kein Zyklus entstehen. Deshalb koennen Kanten, die zu solchen Zyklen
+fuehren, also Knoten einer jeweiligen Komponenten untereinander Verbinden,
+ignoriert werden.
+Dies wird durch das loeschen der Selbstschleifen in der 
+Boruvka-Phase umgesetzt.
+Die Kanten aus G' sind genau die Kanten der jeweiligen verbundenen 
+Komponente Die also im MST sind (10.10) und keine Zyklen verursachen. Restliche
+Kanten der Komponente untereinander werden also wie bereits gesagt ignoriert.
+Das bedeutet insbesondere, dass aus G' nur Kanten geloescht wurden, die nicht
+im MST vorkommen koennten, da sie Zuklen induzieren.
+
+Die Darstellung eines Graphen von Komponenten ohne Zyklen und Knoten ohne 
+Selbstschleifen die alle aus- und eingehenden Kanten der jeweiligen Komponente
+haben ist nun also analog hinsichtlich der Kanten 
+:math:`E_{MST-Rest} = E_{MST} - E_{G'-marked}`.
+
+Ferner sind :math:`E_{MST-Rest}` genau die Kanten die die Komponenten zu einem
+minimalen Spannbaum verbinden,
+da nach 10.10 alle markierten Kanten aus G' im MST enthalten sein muessen, nach 
+(i) keine Kanten geloescht wurden, die im MST vorkommen koennten und G' keine 
+Knoten geloescht kontraktiert hat, die nicht bereits im MST verbunden waeren.
+
+10.3.2 Schwere Kanten und die Verfikation eines MST
+===================================================
+
+Idee: Randomisierte Stichproben
+-------------------------------
+
+Wir werden Randomisierung benutzen um die Laufzeit zu verbessern, jedoch muessen
+wir erst erfassen, was die Randomisieung bezwecken soll. Dazu fuehren wir die
+Begriffe der F-schweren und -leichten Kanten ein.
+
+F-schwere/ -leichte Kanten
+--------------------------
+
+Wir betrachren einen Wald F in G. Fuer Knoten :math:`u,v`, die in der selben
+verbundenen Komponente/ Baum wenden wir nun folgende Funktion an und deuten
+deren Werte hinsichtlich eines minimalen Spannbaums:
+
+.. math::
+    
+    w_F(u,v) = \begin{cases}
+                    \infty, P(u,v) = \emptyset\\
+                    max\{P(u,v)\}, \text{sonst}
+               \end{cases}
+
+, wobei P(u,v) alle Kanten des Pfades von u nach v ausgibt
+
+|
+
+Wir definieren Ferner Kanten als F-schwere Kanten als :math:`w(u,v) > w_F(u,v)`
+und F-leichte Kanten als :math:`w(u,v) \leq w_F(u,v)`
+
+Verbessernde Kanten
+^^^^^^^^^^^^^^^^^^^
+
+Aus 10.14 folgt, dass eine Kante, die F-schwer ist nicht im MST liegt, der
+Umkehrschluss gilt jedoch nicht.
+
+Eine Kante verbessert einen Wald, wann das Hinzufuegen dieser Kante entweder
+die Anzahl an Baeumen im Wald reduziert oder das Entfernen der schwersten Kante 
+im entstandenen Zyklus das gewicht des Waldes reduziert.
+
+Exercises
+---------
+
+10.14
+^^^^^
+
+10.3.3 Randomisierte Stichproben
+================================
+
+randomisierte Graphen
+---------------------
+
+Lemma zur Guete der Randomisierten Stichproben
+----------------------------------------------
+
+Execises
+--------
+
+10.15
+^^^^^
