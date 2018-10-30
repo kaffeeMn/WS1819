@@ -271,17 +271,84 @@ Eine Kante verbessert einen Wald, wann das Hinzufuegen dieser Kante entweder
 die Anzahl an Baeumen im Wald reduziert oder das Entfernen der schwersten Kante 
 im entstandenen Zyklus das gewicht des Waldes reduziert.
 
+Es folgt, dass eine F-leichte Kante den Wald verbessern kann, eine F-schwere
+nicht.
+
+Es ist moeglich auf dieser Erkenntnis einen Greedy-Algorithmus aufzubauen, der 
+die Kanten sortiert und mit einem Leerem Wald startet. (Kruskal)
+
+Verifikation
+------------
+
+Aufbauend auf den Erkenntnissen zu F-leichten Kanten laesst sich ein recht 
+einfacher Verfikationsalgorithmus bauen, der als Eingaben einen Baum T und einen
+einen Graph G bekommt und dann testet, ob die einzigen T-leichten Kanten auch in 
+T sind.
+Es gibt Algorithmen, die dies in O(m+n) bewerstelligen und/ oder sogar alle 
+F-schweren und -leichten Kanten in HInsicht zu jedem Wald F ermitteln koennen.
+
 Exercises
 ---------
 
 10.14
 ^^^^^
+:math:`\text{Sei } F \text{ ein beliebiger Baum in einem Graphen } G.`
+:math:`\text{Zeige, dass F-schwere Kanten nicht im MST enthalten sind und dass}`
+:math:`\text{der Umkehrschluss nicht wahr ist.}`
+
+Existiert eine F-schwere Kante (u,v), so gelten zwei Eigenschaften in F.
+
+1. Es existiert ein Pfad zwischen u und v in F, bzw. u und v sin bereits 
+   verbunden und es existiert kein Zyklus
+2. Jede Kante auf diesem Pfad ist leichter als die Kante (u,v)
+
+Das hinzufuegen der Kante wuerde also weder eine Zusammenhaengende Komponente um
+einen Knoten erweitern (1.), noch das Gewicht des Baumes verkleinern, da durch
+das hinzufuegen der Kante ein Zyklus entstehen wuerde und eine andere, leichtere
+Kante entfernt werden muesste.
+
+Ein Gegenbeispiel fuer den Umkehrschluss waere ein nicht eindeutiger MST. Hier
+koennten auch Kanten, die nicht im MST sind gleichen MST-leicht durch
+:math:`w(e_1) = w_F(e_1), P(e_1) = (e_2,e_3), w(e_1) = w(e_2) > w(e_3)`
+, mit zwei gleich gewichteten Kanten :math:`e_1, e_2` sein.
 
 10.3.3 Randomisierte Stichproben
 ================================
 
-randomisierte Graphen
+Randomisierte Graphen
 ---------------------
+
+Wir bezeichnen mit :math:`G(p)` den Graphen der jede in G enthaltene Kante 
+unabhaengig mit der Wahrscheinlichkeit p enthaelt.
+
+:math:`G(p)` hat damit n Knoten und erwartete m*p Kanten. Es existiert 
+insbesondere keine Garantie, das G(p) verbunden ist.
+
+Approximation durch Spannwaelder
+--------------------------------
+
+F sei der minimale Spannwald von G(p).
+Intuitiv sind wenige Kanten aus G F-leicht und F approximiert den MST von G 
+hinreichend gut fuer ein moderat gewaehltes p.
+
+Wahrsheinlichkeitstheorie zur Intuition
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Hier wiederholen wir nocheinmal ein paar Grundlagen der 
+Wahrscheinlichkeitstheorie, die wir zum Verstaendnis des folgenden Lemma 
+benoetigen.
+
+Eine Zufallsvariable :math:`X` hat die negative Binomialverteilung mir parametern n 
+und p, wenn sie korrespondierend zu der Anzahl unabhaengiger Versuche fuer
+n erfolge ist, wobei jeder Versuch eine Erfolgswahrscheinlichkeit von p hat.
+Mit anderen Worten der Erwartungswert von X ist :math:`n/p`.
+
+Eine Zufallsvariable X dominiert ein andere Y, wenn gilt:
+
+.. math::
+    \forall z \in \mathbb{R}: Pr[X > z] \geq Pr[Y > z]
+
+Ferner sei gegeben, dass wenn X Y domniert, so gilt auch :math:`E[X] \geq E[Y]`
 
 Lemma zur Guete der Randomisierten Stichproben
 ----------------------------------------------
