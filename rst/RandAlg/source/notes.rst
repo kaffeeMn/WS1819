@@ -353,8 +353,120 @@ Ferner sei gegeben, dass wenn X Y domniert, so gilt auch :math:`E[X] \geq E[Y]`
 Lemma zur Guete der Randomisierten Stichproben
 ----------------------------------------------
 
+kurz:
+
+Sei F der MSF von G(p), dann ist die Anzahl an F-leichten Kanten in G
+definiert durch die Zufallvariable X, wobei X die negative Binomialverteilung
+mit parametern n un dp hat. Also hat G einen Erwartungswert von hoechstens
+n/p F-leichten Kanten
+
+Beweis
+^^^^^^
+
+Wir betrachten Alle Kanten von G nach ihren **Gewichten aufsteigend sortiert**.
+
+Nun konstruieren wir G(p), indem diese **Kanten** in ihrer sortierten Reihenfolge 
+betrachten und mit der Wahrscheinlichkeit **p=0,5 inkludieren**, bzw. wenn wir eine
+Muenze werfen und diese auf Kopf landet.
+
+Der minimale Spannwald F **(MSF)** kann dabei "online" konstruiert werden.
+Dazu koennen wir an **Kruskals** Algorithmus angelehnt einen leeren Wald 
+initialisieren und Kanten 
+:math:`e_i = (u_i,v_i)`
+die in G(p) aufgenommen werden genau dann in 
+den Wald inkludieren, wenn ihre Endpunkte :math:`u_i` und :math:`v_i` zu 
+zwei unterschliedlichen verbundenen Komponenten gehoeren.
+
+Durch die Ordnung der Kanten und der daraus resultierenden Betrachtungsreihenfolge
+koennen wir folgende Aussage Treffen:
+**Eine Kannte aus G ist zum Zeitpunkt ihrer Betrachtung genau dann F-leicht, 
+wenn deren Knoten in zwei 
+verschiedenen verbundenen Komponenten in F liegen**
+
+|
+
+Was sind hierbei die entscheidenden Beobachtungen?
+
+1. Ob eine Kante :math:`e_i` F-leicht ist oder nicht ist alleinig von den 
+   vorhegehenden Zufallsexperimenten (Muenzwuerfe) abhaengig.
+2. Keine Kanten werden aus F entfernt.
+3. Eine Kante :math:`e_i` ist nach dem i-ten Experiment F-leicht, genau dann wenn
+   sie zu Beginn des i-ten Experiments F-leicht ist.
+
+|
+
+Neben den Iterationen/ Zuafallsexperimenten moechten wir nun noch **"Phasen"**
+einfuehren. Eine Phase k beginnt, sobald F k-1 Kanten hat und endet 
+dementsprechend nach Hinzunahme der k-ten Kante.
+Wir behandeln nun also die Anzahl an Iterationen/ Zufallsexperimenten, bis eine
+Kante **in F** hinzugenommen wird.
+
+*(Ferner sind F-schwere Kanten fuer uns hier irrelevant)*
+
+Jede F-leichte Kante hat ferner die Wahrscheinlichkeit p um in F inkludiert zu
+werden. Aus unserer Definition von Phasen folgt insbesondere fuer jede Phase,
+dass sie endet, wenn eine F-leichte kante hinzugenommen wird. In anderen Worten:
+
+*Eine Phase endet genau dann, wenn eine F-leichte Kannte zum ersten mal in dieser
+Phase hinzugenommen wird.* (Nur F-leichte Kanten werden hinzugenommen)
+
+Daraus folgt auch, dass die Anzahl von F-leichten Kanten, die waehrend einer 
+Phase betrachtet werden die geometrische Verteilung hat. 
+*(Erwartungswert von* :math:`(1-p)^k*p` *)*
+
+Die Groesse des Waldes F sei s nach allen Iterationen/ Zufallsexperimenten.
+Die Anzahl aller betrachteten F-leichten Kanten bis zum ende der s-ten Phase
+ist dann die Summe aller unabhaengigen geometrisch verteilten Zufallsvariablen,
+je mit dem Parameter p.
+Um die Kanten die nach der s-ten Phase betrachtet wurden aber nicht gewaehlt
+wurden zu kompensieren fuer wir solange weitere Zufallsexperimente durch, bis
+n mal "Kopf" erschienen ist.
+
+Die Anzahl an Zufallsexperimenten ist ein Zufallsvariable :math:`X_{coinflips}`
+mit negativer Binomialverteilung und den paramtern n, p.
+
+Da s kleinergleich n-1 ist, folgt, dass die Anzahl an F-leichten Kanten durch 
+:math:`X_{coinflips}` stochastisch dominiert ist.
+
+Damit ist die erwartete Anzahl an F-leichten Kanten von oben beschraenkt durch
+:math:`Pr[X_{coinflips}] = n/p`.
+
 Execises
 --------
 
 10.15
 ^^^^^
+:math:`X \text{ habe die negative Binomialverteilung mit paramatern } n_1,p.`
+:math:`Y \text{ habe die negative Binomialverteilung mit paramatern } n_2,p.`
+:math:`\text{Zeige, dass } X Y \text{ stochastisch dominiert, wenn } n_1 \geq n_2.`
+
+Widerspruch unter nutzen von
+
+.. math::
+    \forall z \in \mathbb{R}: Pr[X > z] \geq Pr[Y > z]
+
+
+10.3.4 Der Linearzeit MST Algorithmus
+=====================================
+
+Die Idee ist durch Boruvka-Phasen Knoten zu reduzieren und durch Stichproben
+Kanten zu reduzieren.
+
+Der Algorithmus gibt einen MSF und keinen MST zurueck
+
+
+Algorithmus
+-----------
+
+**MST**
+
+Eingabe: G (Gewichtet und ungerichtet)
+
+Ausgabe: MSF fuer G
+
+1. :math:`G_1, C = \text{ 3 Boruvka-Phasen auf G}`
+2. :math:`G_2 = G_1(p=0,5)`
+3. :math:`F_2 = MST(G_2)`
+4. :math:`G_3 = (V_{G1}, E_{G1} - E_{F2-heavy})`
+5. :math:`F_3 = MST(G_3)`
+6. :math:`\text{return } C \cup F_3`

@@ -98,11 +98,18 @@
 <li><a class="reference internal" href="#wahrsheinlichkeitstheorie-zur-intuition">Wahrsheinlichkeitstheorie zur Intuition</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#lemma-zur-guete-der-randomisierten-stichproben">Lemma zur Guete der Randomisierten Stichproben</a></li>
+<li><a class="reference internal" href="#lemma-zur-guete-der-randomisierten-stichproben">Lemma zur Guete der Randomisierten Stichproben</a><ul>
+<li><a class="reference internal" href="#beweis">Beweis</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#execises">Execises</a><ul>
 <li><a class="reference internal" href="#id7">10.15</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a class="reference internal" href="#der-linearzeit-mst-algorithmus">10.3.4 Der Linearzeit MST Algorithmus</a><ul>
+<li><a class="reference internal" href="#algorithmus">Algorithmus</a></li>
 </ul>
 </li>
 </ul>
@@ -450,12 +457,103 @@ Mit anderen Worten der Erwartungswert von X ist <span class="math notranslate">\
 </div>
 <div class="section" id="lemma-zur-guete-der-randomisierten-stichproben">
 <h3>Lemma zur Guete der Randomisierten Stichproben<a class="headerlink" href="#lemma-zur-guete-der-randomisierten-stichproben" title="Permalink to this headline">¶</a></h3>
+<p>kurz:</p>
+<p>Sei F der MSF von G(p), dann ist die Anzahl an F-leichten Kanten in G
+definiert durch die Zufallvariable X, wobei X die negative Binomialverteilung
+mit parametern n un dp hat. Also hat G einen Erwartungswert von hoechstens
+n/p F-leichten Kanten</p>
+<div class="section" id="beweis">
+<h4>Beweis<a class="headerlink" href="#beweis" title="Permalink to this headline">¶</a></h4>
+<p>Wir betrachten Alle Kanten von G nach ihren <strong>Gewichten aufsteigend sortiert</strong>.</p>
+<p>Nun konstruieren wir G(p), indem diese <strong>Kanten</strong> in ihrer sortierten Reihenfolge
+betrachten und mit der Wahrscheinlichkeit <strong>p=0,5 inkludieren</strong>, bzw. wenn wir eine
+Muenze werfen und diese auf Kopf landet.</p>
+<p>Der minimale Spannwald F <strong>(MSF)</strong> kann dabei &quot;online&quot; konstruiert werden.
+Dazu koennen wir an <strong>Kruskals</strong> Algorithmus angelehnt einen leeren Wald
+initialisieren und Kanten
+<span class="math notranslate">\(e_i = (u_i,v_i)\)</span>
+die in G(p) aufgenommen werden genau dann in
+den Wald inkludieren, wenn ihre Endpunkte <span class="math notranslate">\(u_i\)</span> und <span class="math notranslate">\(v_i\)</span> zu
+zwei unterschliedlichen verbundenen Komponenten gehoeren.</p>
+<p>Durch die Ordnung der Kanten und der daraus resultierenden Betrachtungsreihenfolge
+koennen wir folgende Aussage Treffen:
+<strong>Eine Kannte aus G ist zum Zeitpunkt ihrer Betrachtung genau dann F-leicht,
+wenn deren Knoten in zwei
+verschiedenen verbundenen Komponenten in F liegen</strong></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Was sind hierbei die entscheidenden Beobachtungen?</p>
+<ol class="arabic simple">
+<li>Ob eine Kante <span class="math notranslate">\(e_i\)</span> F-leicht ist oder nicht ist alleinig von den
+vorhegehenden Zufallsexperimenten (Muenzwuerfe) abhaengig.</li>
+<li>Keine Kanten werden aus F entfernt.</li>
+<li>Eine Kante <span class="math notranslate">\(e_i\)</span> ist nach dem i-ten Experiment F-leicht, genau dann wenn
+sie zu Beginn des i-ten Experiments F-leicht ist.</li>
+</ol>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<p>Neben den Iterationen/ Zuafallsexperimenten moechten wir nun noch <strong>&quot;Phasen&quot;</strong>
+einfuehren. Eine Phase k beginnt, sobald F k-1 Kanten hat und endet
+dementsprechend nach Hinzunahme der k-ten Kante.
+Wir behandeln nun also die Anzahl an Iterationen/ Zufallsexperimenten, bis eine
+Kante <strong>in F</strong> hinzugenommen wird.</p>
+<p><em>(Ferner sind F-schwere Kanten fuer uns hier irrelevant)</em></p>
+<p>Jede F-leichte Kante hat ferner die Wahrscheinlichkeit p um in F inkludiert zu
+werden. Aus unserer Definition von Phasen folgt insbesondere fuer jede Phase,
+dass sie endet, wenn eine F-leichte kante hinzugenommen wird. In anderen Worten:</p>
+<p><em>Eine Phase endet genau dann, wenn eine F-leichte Kannte zum ersten mal in dieser
+Phase hinzugenommen wird.</em> (Nur F-leichte Kanten werden hinzugenommen)</p>
+<p>Daraus folgt auch, dass die Anzahl von F-leichten Kanten, die waehrend einer
+Phase betrachtet werden die geometrische Verteilung hat.
+<em>(Erwartungswert von</em> <span class="math notranslate">\((1-p)^k*p\)</span> <em>)</em></p>
+<p>Die Groesse des Waldes F sei s nach allen Iterationen/ Zufallsexperimenten.
+Die Anzahl aller betrachteten F-leichten Kanten bis zum ende der s-ten Phase
+ist dann die Summe aller unabhaengigen geometrisch verteilten Zufallsvariablen,
+je mit dem Parameter p.
+Um die Kanten die nach der s-ten Phase betrachtet wurden aber nicht gewaehlt
+wurden zu kompensieren fuer wir solange weitere Zufallsexperimente durch, bis
+n mal &quot;Kopf&quot; erschienen ist.</p>
+<p>Die Anzahl an Zufallsexperimenten ist ein Zufallsvariable <span class="math notranslate">\(X_{coinflips}\)</span>
+mit negativer Binomialverteilung und den paramtern n, p.</p>
+<p>Da s kleinergleich n-1 ist, folgt, dass die Anzahl an F-leichten Kanten durch
+<span class="math notranslate">\(X_{coinflips}\)</span> stochastisch dominiert ist.</p>
+<p>Damit ist die erwartete Anzahl an F-leichten Kanten von oben beschraenkt durch
+<span class="math notranslate">\(Pr[X_{coinflips}] = n/p\)</span>.</p>
+</div>
 </div>
 <div class="section" id="execises">
 <h3>Execises<a class="headerlink" href="#execises" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="id7">
 <h4>10.15<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h4>
+<p><span class="math notranslate">\(X \text{ habe die negative Binomialverteilung mit paramatern } n_1,p.\)</span>
+<span class="math notranslate">\(Y \text{ habe die negative Binomialverteilung mit paramatern } n_2,p.\)</span>
+<span class="math notranslate">\(\text{Zeige, dass } X Y \text{ stochastisch dominiert, wenn } n_1 \geq n_2.\)</span></p>
+<p>Widerspruch unter nutzen von</p>
+<div class="math notranslate">
+\[\forall z \in \mathbb{R}: Pr[X &gt; z] \geq Pr[Y &gt; z]\]</div>
 </div>
+</div>
+</div>
+<div class="section" id="der-linearzeit-mst-algorithmus">
+<h2>10.3.4 Der Linearzeit MST Algorithmus<a class="headerlink" href="#der-linearzeit-mst-algorithmus" title="Permalink to this headline">¶</a></h2>
+<p>Die Idee ist durch Boruvka-Phasen Knoten zu reduzieren und durch Stichproben
+Kanten zu reduzieren.</p>
+<p>Der Algorithmus gibt einen MSF und keinen MST zurueck</p>
+<div class="section" id="algorithmus">
+<h3>Algorithmus<a class="headerlink" href="#algorithmus" title="Permalink to this headline">¶</a></h3>
+<p><strong>MST</strong></p>
+<p>Eingabe: G (Gewichtet und ungerichtet)</p>
+<p>Ausgabe: MSF fuer G</p>
+<ol class="arabic simple">
+<li><span class="math notranslate">\(G_1, C = \text{ 3 Boruvka-Phasen auf G}\)</span></li>
+<li><span class="math notranslate">\(G_2 = G_1(p=0,5)\)</span></li>
+<li><span class="math notranslate">\(F_2 = MST(G_2)\)</span></li>
+<li><span class="math notranslate">\(G_3 = (V_{G1}, E_{G1} - E_{F2-heavy})\)</span></li>
+<li><span class="math notranslate">\(F_3 = MST(G_3)\)</span></li>
+<li><span class="math notranslate">\(\text{return } C \cup F_3\)</span></li>
+</ol>
 </div>
 </div>
 </div>
