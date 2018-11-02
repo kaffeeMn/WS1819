@@ -150,105 +150,9 @@
         \item Selbstschleifen entfernen
     \end{enumerate}
     \gap
-    \begin{columns}
     \begin{block}{Was bedeutes das f"ur den reduzierten Graphen?}
-    \textbf{$\Rightarrow$ Knoten werden auf maximal $n/2, n = |V|$ reduziert!}\\
+    $\Rightarrow$ Knoten werden auf maximal $n/2, n = |V|$ reduziert!\\
     \end{block}
-    \end{columns}
-\end{frame}
-\begin{frame}{Kontraktierende Kanten markieren}
-    \begin{tikzpicture}[minND/.style={circle,
-                                      anchor=center,
-                                      draw=black,
-                                      text width=2.5mm,
-                                      inner sep=3pt,
-                                      align=center,
-                                      text left}]
-        %\node[state](A) at (0,0)  {A};
-        \node[minND](A1) at (0,0) {$A_1$};
-        \node[minND](A2) at (1,0) {$A_2$};
-                                         
-        %\node[state](B) at (3,0)  {B};  
-        \node[minND](B1) at (3,0) {$B_1$};
-        \node[minND](B2) at (4,0) {$B_2$};
-
-        %\node[state](C) at (0,-3) {C};
-        \node[minND](C1) at (0,-3) {$C_1$};
-        \node[minND](C2) at (0,-4) {$C_2$};
-;
-        %\node[state](D) at (3,-3) {D};
-        \node[minND](D1) at (3,-3) {$D_1$};
-        \node[minND](D2) at (3,-4) {$D_2$};
-;
-        %\node[state](E) at (6,0)  {E};
-        \node[minND](E1) at (6,0) {$E_1$};
-        \node[minND](E2) at (7,0) {$E_2$};
-;
-        %\node[state](F) at (9,0)  {F};
-        \node[minND](F1) at (9,0)  {$F_1$};
-        \node[minND](F2) at (10,0) {$F_2$};
-;
-        %\node[state](G) at (9,-3) {G};
-        \node[minND](G1) at (9,-3) {$G_1$};
-        \node[minND](G2) at (9,-4) {$G_2$};
-;
-        %\node[state](H) at (6,-3) {H};
-        \node[minND](H1) at (6,-3) {$H_1$};
-        \node[minND](H2) at (6,-4) {$H_2$};
-
-        \path
-            %(A) edge [-, above] node {6} (B)
-            %    edge [-, left ] node {7} (C)
-            (A1)
-                edge [-, above] node {3} (A2)
-                edge [-, left ] node {7} (C1)
-            (A2)
-                edge [-, above] node {6} (B1)
-            %(B)
-            %    edge [-, left ] node {8} (C)
-            %    edge [-, left ] node {11} (D)
-            (B1)
-                edge [-, above] node {5} (B2)
-                edge [-, left ] node {8}  (C1)
-                edge [-, left ] node {11} (D1)
-            % (C) //
-            (C1)
-                edge [-, left ] node {6} (C2)
-            %(D)
-            %    edge [-, left ] node {12} (E)
-            %    edge [-, below] node {13} (H)
-            (D1)
-                edge [-, left ] node {10} (D2)
-                edge [-, left ] node {12} (E1)
-            (D2)
-                edge [-, below] node {13} (H2)
-            %(E)
-            %    edge [-, above] node {6} (F)
-            %    edge [-, left ] node {8} (G)
-            %    edge [-, left ] node {10} (H)
-            (E1)
-                edge [-, above] node {1} (E2)
-                edge [-, left ] node {8} (G1)
-                edge [-, left ] node {10} (H1)
-            (E2)
-                edge [-, above] node {6} (F1)
-            %(F)
-            %    edge [-, left ] node {7} (G)
-            (F1)
-                edge [-, above] node {3} (F2)
-            (F2)
-                edge [-, left ] node {7} (G1)
-            %(G)
-            %    edge [-, below] node {7} (H)
-            (G1)
-                edge [-, left ] node {5} (G2)
-            (G2)
-                edge [-, below] node {7} (H2)
-            % (H) \\
-            (H1)
-                edge [-, left ] node {4} (H2)
-            ;
-    \end{tikzpicture}
 \end{frame}
 \begin{frame}{1. Kontraktierende Kanten markieren}
     \begin{tikzpicture}[minND/.style={circle,
@@ -518,6 +422,21 @@
 % * wann ist sie F-leicht
 % * kann eine F-schwere Kante im MST enthalten sein?
 \section{F-schwere/ -leichte Kanten}
+\begin{frame}{Definition}
+    Sei $P(e=\{u,v\})$ der Pfad, der die Knoten im MSF verbindet, in Kanten\\
+    Sei $w : E \rightarrow \mathbb{R}$, die Gewichtsfunktion von G\\
+    Sei ferner definiert $w(E) = \{w(e_1), \ldots, w(e_m)\}$
+    \gap
+    Eine Kante ist F-schwer, wenn gilt:
+    $$
+        \textcolor{orange}{w(e) > w_F(e)}
+    $$
+    , wobei:\\
+    $w_F(e=(u,v))$ = \begin{cases}
+                        $\infty$, u und v sind in verschiedenen Komponenten\\
+                                $max\{w(P(e))\}$, sonst 
+                     \end{cases}
+\end{frame}
 
 % Randomisierte Stichproben
 % * `w"urfeln` erkl"aren
@@ -575,7 +494,8 @@
     \end{tabular}\\
     \gap
     \begin{tabular}{ll}
-        $G(p=0,5):$&\vtop{\vskip0pt\hbox{
+        $G(p=0,5):$\\
+        \vtop{\vskip0pt\hbox{
         \begin{tikzpicture}
             \node[state](A) at (0,0)  {A};
             \node[state](B) at (3,0)  {B};
@@ -583,6 +503,8 @@
             \node[state](D) at (3,-3) {D};
             \node[state](E) at (6,0)  {E};
             \node[state](H) at (6,-3) {H};
+            \node[state](F) at (9,0)  {E};
+            \node[state](G) at (9,-3) {H};
             \path
                 (A) edge [-, above] node {6} (B)
                     edge [-, left ] node {7} (C)
@@ -598,11 +520,70 @@
     }}\\
     \end{tabular}
 \end{frame}
+\begin{frame}{MSF}
+    \hfill \begin{tabular}{rr}
+            \textcolor{gray}{MST}:&\vtop{\vskip0pt\hbox{
+            \begin{tikzpicture}[minND/.style={circle,
+                                          draw=gray,
+                                          text width=1mm,
+                                          inner sep=3pt,
+                                          align=center,
+                                          text centered},
+                            color=gray]
+                \node[minND](A) at (0,0)  {A};
+                \node[minND](B) at (2,0)  {B};
+                \node[minND](C) at (0,-1) {C};
+                \node[minND](D) at (2,-1) {D};
+                \node[minND](E) at (4,0)  {E};
+                \node[minND](F) at (6,0)  {F};
+                \node[minND](G) at (6,-1) {G};
+                \node[minND](H) at (4,-1) {H};
+                \path
+                    (A) edge [-, above] node {6}  (B)
+                        edge [-, left ] node {7}  (C)
+                    (B)                          
+                        edge [-, left ] node {11} (D)
+                    (D)                          
+                        edge [-, left ] node {12} (E)
+                    (E)                          
+                        edge [-, above] node {6}  (F)
+                    (F)                          
+                        edge [-, left ] node {7}  (G)
+                    (G)                          
+                        edge [-, below] node {7}  (H)
+                    ;
+            \end{tikzpicture}
+    }}\\
+    \end{tabular}\\
+    \begin{tabular}{ll}
+        MSF:\\
+        \vtop{\vskip0pt\hbox{
+        \begin{tikzpicture}
+            \node[state](A) at (0,0)  {A};
+            \node[state](B) at (3,0)  {B};
+            \node[state](C) at (0,-3) {C};
+            \node[state](D) at (3,-3) {D};
+            \node[state](E) at (6,0)  {E};
+            \node[state](H) at (6,-3) {H};
+            \node[state](F) at (9,0)  {F};
+            \node[state](G) at (9,-3) {G};
+            \path
+                (A) edge [-, above] node {6} (B)
+                    edge [-, left ] node {7} (C)
+                (D)
+                    edge [-, left ] node {12} (E)
+                (E)
+                    edge [-, left ] node {10} (H)
+                ;
+        \end{tikzpicture}
+    }}\\
+    \end{tabular}
+\end{frame}
 
 \section{Erkenntnis}
 \begin{frame}{Eleminierung von unn"utzen Kanten}
     \hfill \begin{tabular}{ll}
-        \textcolor{gray}{$G(p=0,5):$}&\vtop{\vskip0pt\hbox{
+        \textcolor{gray}{MSF:}&\vtop{\vskip0pt\hbox{
         \begin{tikzpicture}[minND/.style={circle,
                                           draw=gray,
                                           text width=1mm,
@@ -619,11 +600,8 @@
             \path
                 (A) edge [-, above] node {6} (B)
                     edge [-, left ] node {7} (C)
-                (B)
-                    edge [-, left ] node {8} (C)
                 (D)
                     edge [-, left ] node {12} (E)
-                    edge [-, below] node {13} (H)
                 (E)
                     edge [-, left ] node {10} (H)
                 ;
