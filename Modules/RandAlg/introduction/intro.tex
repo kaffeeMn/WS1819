@@ -34,7 +34,7 @@
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
 \title{Der Linearzeit MST Algorithmus}
-\subtitle{Ein randomisierter Ansatz f"ur bessere Performanz}
+\subtitle{Der schnellste Algorithmus f"ur das MST/ MSF Problem}
 \date{}
 \author{Max Springenberg}
 \institute{Proseminar: Randomisierte Algorithmen, TU Dortmund}
@@ -715,14 +715,19 @@
 %              garantiert sein?
 %    \end{itemize}\\
 %\end{frame}
-\begin{frame}{Aber wie fassen wir das in einen Algorithmus?}
-    $\ldots$ doch:\\
+\begin{frame}{Idee}
+    \begin{enumerate}
+        \item Nutze Bor\r uvka-Phasen, um Knoten zu reduzieren
+        \item Nutze Stickproben, um die Kanten zu reduzieren
+        \item Entferne alle F-schweren Kanten
+        \item \textbf{Rekursion}
+    \end{enumerate}\\
+\end{frame}
+\begin{frame}{Teaser}
     \begin{itemize}
-        \item Wie erreicht man dadurch eine erwartete lineare Laufzeit?
-        \item Wie kann ein vern"unftiger Spannbaum trotzt eliminierung von Kanten
-              erwartet werden?
-    \end{itemize}\\
-    \gap
-    Diese Antworten erhaltet ihr in meiner finalen Pr"asentation.
+        \item Wie Fassen wir die Erkenntnis geschickt in einem Algorithmus?
+        \item Wie erhalten wir trotz rekursiven Aufrufen eine erwartete lineare
+              Laufzeit?
+    \end{itemize}
 \end{frame}
 \end{document}
