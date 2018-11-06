@@ -63,41 +63,6 @@
     minimal ist.\\
 \end{frame}
 \begin{frame}{Definition MST}
-    Ein Teilgraph $T$ ist genau dann ein minimaler Spannbaum von $G$, 
-    wenn er ein Spannbaum in G ist und die Summe seiner Kantengewichte 
-    $\underset{e \in E_T}{\sum} w(e)$
-    minimal ist.\\
-    \gap
-    \begin{tikzpicture}
-        \node[state](A) at (0,0)  {A};
-        \node[state](B) at (3,0)  {B};
-        \node[state](C) at (0,-3) {C};
-        \node[state](D) at (3,-3) {D};
-        \node[state](E) at (6,0)  {E};
-        \node[state](F) at (9,0)  {F};
-        \node[state](G) at (9,-3) {G};
-        \node[state](H) at (6,-3) {H};
-        \path
-            (A) edge [-, above] node {6} (B)
-                edge [-, left ] node {7} (C)
-            (B)
-                edge [-, left ] node {8} (C)
-                edge [-, left ] node {11} (D)
-            (D)
-                edge [-, left ] node {12} (E)
-                edge [-, below] node {13} (H)
-            (E)
-                edge [-, above] node {6} (F)
-                edge [-, left ] node {8} (G)
-                edge [-, left ] node {10} (H)
-            (F)
-                edge [-, left ] node {7} (G)
-            (G)
-                edge [-, below] node {7} (H)
-            ;
-    \end{tikzpicture}
-\end{frame}
-\begin{frame}{Definition MST}
     Ein Teilgraph \textcolor{orange}{$T$} ist genau dann 
     ein \textcolor{orange}{minimaler Spannbaum} von $G$, 
     wenn er ein Spannbaum in G ist und die 
@@ -137,6 +102,34 @@
 % B"aume vs W"alder
 % * Was ist ein Wald?
 \section{B"aume vs. W"alder}
+\begin{frame}{MSF}
+    Ist ein Graph nicht Zusammenh"angend, so kann auch ein MSF den MST ersetzen.
+    Der MSF ist ein Teilgraph aus disjunkten MSTs.
+    \gap
+    \vtop{\vskip0pt\hbox{
+        \begin{tikzpicture}
+            \node[state](A) at (0,0)  {A};
+            \node[state](B) at (3,0)  {B};
+            \node[state](C) at (0,-3) {C};
+            \node[state](D) at (3,-3) {D};
+            \node[state](E) at (6,0)  {E};
+            \node[state](H) at (6,-3) {H};
+            \node[state](F) at (9,0)  {F};
+            \node[state](G) at (9,-3) {G};
+            \path
+                (A) edge [-, above, color=orange] node {6} (B)
+                    edge [-, left , color=orange] node {7} (C)
+                (B)
+                    edge [-, left] node {8} (C)
+                (D)
+                    edge [-, left , color=orange] node {12} (E)
+                    edge [-, below] node {13} (H)
+                (E)
+                    edge [-, left , color=orange] node {10} (H)
+                ;
+        \end{tikzpicture}
+    }}\\
+\end{frame}
 
 % Boruvka Phasen:
 % * Wie werden zu kontraktierende Kanten ausgew"ahlt?
@@ -434,7 +427,7 @@
     , wobei:\\
     $w_F(e=(u,v))$ = \begin{cases}
                         $\infty$, u und v sind in verschiedenen Komponenten\\
-                                $max\{w(P(e))\}$, sonst 
+                                $\textcolor{orange}{max\{w(P(e))\}}$, sonst 
                      \end{cases}
 \end{frame}
 
@@ -503,8 +496,8 @@
             \node[state](D) at (3,-3) {D};
             \node[state](E) at (6,0)  {E};
             \node[state](H) at (6,-3) {H};
-            \node[state](F) at (9,0)  {E};
-            \node[state](G) at (9,-3) {H};
+            \node[state](F) at (9,0)  {F};
+            \node[state](G) at (9,-3) {G};
             \path
                 (A) edge [-, above] node {6} (B)
                     edge [-, left ] node {7} (C)
@@ -520,9 +513,9 @@
     }}\\
     \end{tabular}
 \end{frame}
-\begin{frame}{MSF}
+\begin{frame}{MST vs. MSF}
     \hfill \begin{tabular}{rr}
-            \textcolor{gray}{MST}:&\vtop{\vskip0pt\hbox{
+            \textcolor{gray}{$MST_{G}$:}&\vtop{\vskip0pt\hbox{
             \begin{tikzpicture}[minND/.style={circle,
                                           draw=gray,
                                           text width=1mm,
@@ -556,7 +549,7 @@
     }}\\
     \end{tabular}\\
     \begin{tabular}{ll}
-        MSF:\\
+        $MSF_{G(0,5)}:$\\
         \vtop{\vskip0pt\hbox{
         \begin{tikzpicture}
             \node[state](A) at (0,0)  {A};
@@ -583,7 +576,7 @@
 \section{Erkenntnis}
 \begin{frame}{Eleminierung von unn"utzen Kanten}
     \hfill \begin{tabular}{ll}
-        \textcolor{gray}{MSF:}&\vtop{\vskip0pt\hbox{
+        \textcolor{gray}{$MSF_{G(0,5)}$:}&\vtop{\vskip0pt\hbox{
         \begin{tikzpicture}[minND/.style={circle,
                                           draw=gray,
                                           text width=1mm,
@@ -717,8 +710,8 @@
 %\end{frame}
 \begin{frame}{Idee}
     \begin{enumerate}
-        \item Nutze Bor\r uvka-Phasen, um Knoten zu reduzieren
-        \item Nutze Stickproben, um die Kanten zu reduzieren
+        \item Nutze Bor\r uvka-Phasen, um die Anzahl von Knoten zu reduzieren
+        \item Nutze Stickproben, um die Anzahl von Kanten zu reduzieren
         \item Entferne alle F-schweren Kanten
         \item \textbf{Rekursion}
     \end{enumerate}\\
