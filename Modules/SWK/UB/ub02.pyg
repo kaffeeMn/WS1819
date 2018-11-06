@@ -1,0 +1,13 @@
+    \$ git init
+   % # echo Hello World. > file.txt\\
+   % \$ git add file.txt\\
+   % \$ git commit -m "first commit"\\
+   % \$ git checkout -b fork\\
+   % # echo bye > file.txt\\
+   % \$ git  add file.txt\\
+   % \$ git commit -m "fork commit"\\
+   % \$ git checkout master\\
+   % # echo  Hello good\\
+   % \$ git add file.txt\\
+   % \$ git commit -m "master commit"\\
+   % \$ git merge\\
