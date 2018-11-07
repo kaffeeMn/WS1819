@@ -47,10 +47,10 @@
 \maketitle
 
 
-\begin{frame}{Table of contents}
-  \setbeamertemplate{section in toc}[sections numbered]
-  \tableofcontents[hideallsubsections]
-\end{frame}
+%\begin{frame}{Table of contents}
+%  \setbeamertemplate{section in toc}[sections numbered]
+%  \tableofcontents[hideallsubsections]
+%\end{frame}
 
 % MST
 % * was ist ein MST
@@ -103,7 +103,7 @@
 % * Was ist ein Wald?
 \section{B"aume vs. W"alder}
 \begin{frame}{MSF}
-    Ist ein Graph nicht Zusammenh"angend, so kann auch ein MSF den MST ersetzen.
+    Ist ein Graph nicht zusammenh"angend, so kann auch ein MSF den MST ersetzen.
     Der MSF ist ein Teilgraph aus disjunkten MSTs.
     \gap
     \vtop{\vskip0pt\hbox{
@@ -138,8 +138,8 @@
 \begin{frame}{Ablauf}
     \begin{enumerate}
         \item Kontraktierende Kanten markieren
-        \item Verbundene Komponente bestimmen
-        \item Verbundene Komponenten durch einzelnen Knoten ersetzen
+        \item Verbundene Komponenten bestimmen
+        \item Verbundene Komponenten durch einzelne Knoten ersetzen
         \item Selbstschleifen entfernen
     \end{enumerate}
     \gap
@@ -241,7 +241,7 @@
             ;
     \end{tikzpicture}
 \end{frame}
-\begin{frame}{2. Verbundene Komponente bestimmen}
+\begin{frame}{2. Verbundene Komponenten bestimmen}
     \begin{tikzpicture}[minND/.style={circle,
                                       anchor=center,
                                       draw=black,
@@ -335,7 +335,7 @@
             ;
     \end{tikzpicture}
 \end{frame}
-\begin{frame}{3. Verbundene Komponenten durch einzelnen Knoten ersetzen}
+\begin{frame}{3. Verbundene Komponenten durch einzelne Knoten ersetzen}
     \begin{tikzpicture}
         \node[state](A) at (0,0)  {A};
         \node[state, brown](B) at (3,0)  {B};
@@ -416,7 +416,7 @@
 % * kann eine F-schwere Kante im MST enthalten sein?
 \section{F-schwere/ -leichte Kanten}
 \begin{frame}{Definition}
-    Sei $P(e=\{u,v\})$ der Pfad, der die Knoten im MSF verbindet, in Kanten\\
+    Sei $P(e=\{u,v\})$ der Pfad, der die Knoten $u,v$ im MSF verbindet (in Kanten)\\
     Sei $w : E \rightarrow \mathbb{R}$, die Gewichtsfunktion von G\\
     Sei ferner definiert $w(E) = \{w(e_1), \ldots, w(e_m)\}$
     \gap
@@ -426,7 +426,7 @@
     $$
     , wobei:\\
     $w_F(e=(u,v))$ = \begin{cases}
-                        $\infty$, u und v sind in verschiedenen Komponenten\\
+                        $\infty$, $u$ und $v$ sind in verschiedenen Komponenten\\
                                 $\textcolor{orange}{max\{w(P(e))\}}$, sonst 
                      \end{cases}
 \end{frame}
@@ -590,6 +590,8 @@
             \node[minND](D) at (2,-1) {D};
             \node[minND](E) at (4,0)  {E};
             \node[minND](H) at (4,-1) {H};
+            \node[minND](F) at (6,0)  {F};
+            \node[minND](G) at (6,-1) {G};
             \path
                 (A) edge [-, above] node {6} (B)
                     edge [-, left ] node {7} (C)
@@ -711,14 +713,14 @@
 \begin{frame}{Idee}
     \begin{enumerate}
         \item Nutze Bor\r uvka-Phasen, um die Anzahl von Knoten zu reduzieren
-        \item Nutze Stickproben, um die Anzahl von Kanten zu reduzieren
+        \item Nutze Stichproben, um die Anzahl von Kanten zu reduzieren
         \item Entferne alle F-schweren Kanten
         \item \textbf{Rekursion}
     \end{enumerate}\\
 \end{frame}
 \begin{frame}{Teaser}
     \begin{itemize}
-        \item Wie Fassen wir die Erkenntnis geschickt in einem Algorithmus?
+        \item Wie fassen wir die Erkenntnis geschickt in einem Algorithmus?
         \item Wie erhalten wir trotz rekursiven Aufrufen eine erwartete lineare
               Laufzeit?
     \end{itemize}
