@@ -1,4 +1,5 @@
 \beamer@sectionintoc {1}{MST in gewichteten Graphen}{2}{0}{1}
 \beamer@sectionintoc {2}{B\active@dq \dq@prtct {a}ume vs. W\active@dq \dq@prtct {a}lder}{4}{0}{2}
 \beamer@sectionintoc {3}{Bor\r uvka Phasen}{6}{0}{3}
-\beamer@sectionintoc {4}{Erkenntnis}{14}{0}{4}
+\beamer@sectionintoc {4}{Randomisierte Stichprobem}{12}{0}{4}
+\beamer@sectionintoc {5}{Erkenntnis}{15}{0}{5}
