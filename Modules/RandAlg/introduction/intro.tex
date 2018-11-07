@@ -56,12 +56,12 @@
 % * was ist ein MST
 % * was ist ein minimaler MST
 \section{MST in gewichteten Graphen}
-\begin{frame}{Definition MST}
-    Ein Teilgraph $T$ ist genau dann ein minimaler Spannbaum von $G$, 
-    wenn er ein Spannbaum in G ist und die Summe seiner Kantengewichte 
-    $\underset{e \in E_T}{\sum} w(e)$ 
-    minimal ist.\\
-\end{frame}
+%\begin{frame}{Definition MST}
+%    Ein Teilgraph $T$ ist genau dann ein minimaler Spannbaum von $G$, 
+%    wenn er ein Spannbaum in G ist und die Summe seiner Kantengewichte 
+%    $\underset{e \in E_T}{\sum} w(e)$ 
+%    minimal ist.\\
+%\end{frame}
 \begin{frame}{Definition MST}
     Ein Teilgraph \textcolor{orange}{$T$} ist genau dann 
     ein \textcolor{orange}{minimaler Spannbaum} von $G$, 
@@ -103,8 +103,7 @@
 % * Was ist ein Wald?
 \section{B"aume vs. W"alder}
 \begin{frame}{MSF}
-    Ist ein Graph nicht zusammenh"angend, so kann auch ein MSF den MST ersetzen.
-    Der MSF ist ein Teilgraph aus disjunkten MSTs.
+    Teilgraph aus disjunkten MSTs
     \gap
     \vtop{\vskip0pt\hbox{
         \begin{tikzpicture}
@@ -143,7 +142,7 @@
         \item Selbstschleifen entfernen
     \end{enumerate}
     \gap
-    \begin{block}{Was bedeutes das f"ur den reduzierten Graphen?}
+    \begin{block}{Was bedeutet das f"ur den reduzierten Graphen?}
     $\Rightarrow$ Knoten werden auf maximal $n/2, n = |V|$ reduziert!\\
     \end{block}
 \end{frame}
@@ -414,26 +413,26 @@
 % * wann ist eine Kante F-schwer
 % * wann ist sie F-leicht
 % * kann eine F-schwere Kante im MST enthalten sein?
-\section{F-schwere/ -leichte Kanten}
-\begin{frame}{Definition}
-    Sei $P(e=\{u,v\})$ der Pfad, der die Knoten $u,v$ im MSF verbindet (in Kanten)\\
-    Sei $w : E \rightarrow \mathbb{R}$, die Gewichtsfunktion von G\\
-    Sei ferner definiert $w(E) = \{w(e_1), \ldots, w(e_m)\}$
-    \gap
-    Eine Kante ist F-schwer, wenn gilt:
-    $$
-        \textcolor{orange}{w(e) > w_F(e)}
-    $$
-    , wobei:\\
-    $w_F(e=(u,v))$ = \begin{cases}
-                        $\infty$, $u$ und $v$ sind in verschiedenen Komponenten\\
-                                $\textcolor{orange}{max\{w(P(e))\}}$, sonst 
-                     \end{cases}
-\end{frame}
+%\section{F-schwere/ -leichte Kanten}
+%\begin{frame}{Definition}
+%    Sei $P(e=\{u,v\})$ der Pfad, der die Knoten $u,v$ im MSF verbindet (in Kanten)\\
+%    Sei $w : E \rightarrow \mathbb{R}$, die Gewichtsfunktion von G\\
+%    Sei ferner definiert $w(E) = \{w(e_1), \ldots, w(e_m)\}$
+%    \gap
+%    Eine Kante ist F-schwer, wenn gilt:
+%    $$
+%        \textcolor{orange}{w(e) > w_F(e)}
+%    $$
+%    , wobei:\\
+%    $w_F(e=(u,v))$ = \begin{cases}
+%                        $\infty$, $u$ und $v$ sind in verschiedenen Komponenten\\
+%                                $\textcolor{orange}{max\{w(P(e))\}}$, sonst 
+%                     \end{cases}
+%\end{frame}
 
 % Randomisierte Stichproben
 % * `w"urfeln` erkl"aren
-\section{Randomiserte Stichprobem}
+%\section{Randomisierte Stichprobem}
 
 % Wie k"onnen 
 \begin{frame}
@@ -513,6 +512,8 @@
     }}\\
     \end{tabular}
 \end{frame}
+\section{Erkenntnis}
+
 \begin{frame}{MST vs. MSF}
     \hfill \begin{tabular}{rr}
             \textcolor{gray}{$MST_{G}$:}&\vtop{\vskip0pt\hbox{
@@ -573,8 +574,9 @@
     \end{tabular}
 \end{frame}
 
-\section{Erkenntnis}
-\begin{frame}{Eliminierung von unn"utzen Kanten}
+
+
+\begin{frame}{Eliminierung von F-schweren Kanten}
     \hfill \begin{tabular}{ll}
         \textcolor{gray}{$MSF_{G(0,5)}$:}&\vtop{\vskip0pt\hbox{
         \begin{tikzpicture}[minND/.style={circle,
