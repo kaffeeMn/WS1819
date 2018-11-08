@@ -40,15 +40,47 @@
 
 \begin{document}
 
-\subsection{}
+\subsection{Umsetzung von Architekturmustern}
+\subsubsection\ 
+(i) Client-Server: Web-Anwendungen, wie z.B. unser moodle\\
+Im moodle "ubernehmen Studenten die Client- und das System auf dem das moodle 
+gehostet wird die Serverrolle. Die Anwendungslogik wird auf eine Menge von 
+Studenten und Subsysteme von moodle verteilt.\\
+\\
+(ii) Peer-to-Peer: Bittorrent\\
+Bittorrent ist eine Umsetzung der Peer-to-Peer Architektur.\\
+Peers werden duch einen Server/ Broadcast gefunden. Diese werden dann zu 
+seeders und leachers, also Kommunizieren untereinander und nicht mit dem Server.\\
+\\
+(iii) Pipe-and-Filter: Unix-Filter\\
+Unix Pipes sind regul"are Ausdr"ucke, die compiliert werden. Dabei ist jeweils
+ein Filter/ eine Funktion durch ein Pipe-Symbol `$|$` getrennt und dessen 
+Aussagabe wird weitergereicht.\\
+\\
+(iv) Sharding: Data-Bases, wie z.B. oracle\\
+Datenbanksysteme benutzen unter anderem Sharding (wenn gut implementiert in 
+Kombination mit Load-Balancing) um Daten aufzuteilen und zu speichern.\\
+\subsubsection\ 
+Peer-to-Peer und Pipe-and-Filter sind ungeeignet.\\
+\\
+Grund daf"ur sind die in der Vorlesung genannten Nachteile. So kann bei 
+    Peer-to-Peer der Server, durch den die Peers gefunden werden zu einem Engpass
+    werden. Bezahlungen sollten schnell erfolgen k"onnen. Ferner sollten Konten
+    eingerichtet und verwaltet werden k"onnen. Dies ist mit einer Peer-to-Peer
+    Architektur nur erschwert m"oglich.\\
+Pipe-and-Filter ist eine Architektur, die rein Funktional "uber das durchlaufen
+    von Filtern funktioniert. Hierbei sind unter anderem Deadlocks m"oglich
+    und das Verwalten, sowie I/O operationen durch Filter sind ebenfalls nur
+    erschwert m"oglich.\\
 \subsection{}
 \subsection{git}
 
-\subsubsection\ 
-(i)\\
 Mit \# gekennzeichnete lines bezeichnen Kommentare.\\
 Das Editieren der Datei, musste nicht angegeben werden, deshalb ist es 
     auskommentiert.\\
+
+\subsubsection\ 
+(i)\\
 \begin{verbatim}
     # S1:
     $ git init
@@ -59,43 +91,75 @@ Das Editieren der Datei, musste nicht angegeben werden, deshalb ist es
     $ git checkout -b fork
     # S3:
     # echo f > data.txt
-    $ git  add data.txt
-    $ git commit -m "fork commit"
+    $ git commit data.txt -m "fork commit"
     $ git checkout master
-    # echo m > data.tx
-    $ git add data.txt
-    $ git commit -m "master commit"
+    # echo m > data.txt
+    $ git commit data.txt -m "master commit"
     # S4:
     $ git merge fork
     # An dieser stelle werden wir auf einen merge-conflict aufmerksam gemacht
-    $ git mergetool
+    # Konflikt loesen z.B. mit git mergetool
     $ git commit -m "resolved merge-conflict"
 \end{verbatim}
 \gap
 (ii)\\
-\begin{tikzpicture}
-    \node[anchor=west] (master) at (0,0) {master};
-    \node[anchor=west] (fork) at (0,-2) {fork};
+\begin{verbatim}
+*   9e58136 (HEAD -> master) resolved merge-conflict
+|\
+| * bd51b50 (fork) fork commit
+* | 34835a4 master commit
+|/
+* d1cdcc3 first commit
+\end{verbatim}
 
-    \node[state] (am) at (2,0) {$A$};
-    \node[state] (af) at (4,-2) {$A$};
-    \node[state] (a'f) at (6,-2) {$A^{f}$};
-    \node[state] (a'm) at (4,0) {$A^{m}$};
+\subsubsection\
 
-    \node[state] (b) at (8,0) {$B$};
-    \node[] (mpoint) at (6,0) {};
+(i)\\
+\begin{verbatim}
+    # S1:
+    $ git init
+    # touch data.txt
+    $ git add data.txt
+    $ git commit -m "first commit"
+    # S2:
+    $ git checkout -b fork
+    # S3:
+    # echo f > data.txt
+    $ git commit data.txt -m "fork commit"
+    $ git checkout master
+    # echo m > data.txt
+    $ git commit data.txt -m "master commit"
+    # S4:
+    $ git rebase master
+    # An dieser Stelle werden wir auf den rebase-conflict aufmerksam gemacht
+    # Konflikt loesen
+    $ git add data.txt
+    $ git rebase --continue
+    # S5:
+    $ git checkout master
+    $ git merge fork
+\end{verbatim}
+\gap
+(ii)\\
+\begin{verbatim}
+* c8ef802 (HEAD -> master, fork) fork commit
+* 59b30b1 master commit
+* 69762a1 first commit
+\end{verbatim}
 
-    \path 
-        (am) 
-            edge [->] node {} (af)
-            edge [->] node {} (a'm)
-        (af)
-            edge [->] node {} (a'f)
-        (a'm)
-            edge [->] node {} (b)
-        (a'f)
-            edge [->, right] node {merge/ Rosinen-pick} (mpoint)
-    ;
-\end{tikzpicture}
+\subsubsection\
+
+Eine Rebase-Operation erm"oglicht es Commits, die nicht Zielf"uhrend oder
+    sogar sch"adlich f"ur die Applikation/ das System waren aus der Historie
+    zu l"oschen, damit also unzug"anglich zu machen und den Stand des Branches
+    auf den der Produktionsreifen Version zu setzten.
+    Der Commit-Verlauf ist also sauber und sogar frei von Merge-Commits.\\
+Dies ist bei einer Merge-Operation nicht er Fall, jedoch muss man 
+    hierbei die Branches nicht gleich zerst"oren und hat mehr Freiheiten bei der
+    Weiterentwicklung. Man erh"alt durch das Aufgeben eines gewissen Gerades
+    an "Ubersichtlichkeit ein stabileres Projekt, denn bei Rebase-Operationen
+    kann schnell ein Fehler unterlaufen und eine Menge an Kontext verloren gehen.
+    Ferner kann leicht durch eine Rebase-Operation der 
+    Workflow ins stocken geraten.\\
 
 \end{document}
