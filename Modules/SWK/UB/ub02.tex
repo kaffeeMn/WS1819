@@ -72,7 +72,46 @@ Pipe-and-Filter ist eine Architektur, die rein Funktional "uber das durchlaufen
     von Filtern funktioniert. Hierbei sind unter anderem Deadlocks m"oglich
     und das Verwalten, sowie I/O operationen durch Filter sind ebenfalls nur
     erschwert m"oglich.\\
-\subsection{}
+
+\subsection{Model-View-Whatever}
+Wie grenzen sich die Muster untereinander ab?\\
+Wie wird jeweils der Fluss von Daten zwischen den Komponenten realisiert?\\
+Wie reagiert das System jeweils auf Benutzereingaben?\\
+\gap
+Bei einem Model-View-Controllr Modell korelliert jede Aktion in einem View mit dem
+    zu korrespondierenden Controller. Der Controller entscheidet welche View
+    angezeigt wird.\\
+Es gibt im Model-View-Controller mehere Views, zu denen je ein Controller 
+    existieren sollte. Der Kontroller nimmt jeweils die "Anderungen am Model vor,
+    die f"ur den ihm zugeh"origen View relevant sind.\\
+Beim Model-View-Controller Modell ist eine klare Top-Down Hierarchie vorhanden.\\
+Der Benutzer bedient die Gui, bzw. interargiert mit der View, diese Teilt das
+    dem zust"andigen Controller mit, der das Model editiert/ Updates vornimmt.
+    Das Modell f"ullt dann den View.\\
+\\
+Bei einem Model-View-Presenter Modell funktioniert der Presenter "ahnlich zum
+    Controller, jedoch verbindet der Presenter das Modell mit der View ein einer
+    `dynamischeren` Weise. Jede Aktion im View geht direkt zum Presenter, der
+    durch ein Interface mit dem View Kommuniziert. Im Presenterist ist also 
+    s"amtliche Logik implementiert. Model und View werden so `dumm` wie 
+    m"oglich gehalten.\\
+Benutzereingaben werden also "uber die Logik des Presenters verarbeitet, der dann
+    View und Modell w"ahrend der Laufzeit verbindet und "Anderungen vornimmt.\\
+\\
+Das Model-View-ViewModel Modell "uberl"asst der View mehr Eigenst"andigkeit in 
+    ihrer Darstellung. Das Model benachrichtigt das ViewModel, dieses
+    benachrichtigt die View lediglich, dass
+    eine "anderung passiert ist, die View "ubernimmt dann die 
+    Darstellungs"anderungen, statt direkt durch propagation des Controllers. 
+    "Uber das ViewModel werden Komponenten der View 
+    mit Daten des Model verbunden, dementsprechend muss das ViewModel auch 
+    das Model modifizieren k"onnen und das Model die View "uber ver"anderungen
+    benachrichtigen.\\
+"Ahnlich zum Model-View-Controller werden also Benutzer eingaben bis zum Model
+    durch gereicht. Jedoch Direkter als "uber den Controller, da Daten nahezu
+    direkt in Verbindung stehen. Das Model f"ullt also inderekt die View durch
+    die Zwischeninstanz eines ViewModel, das die Verbindungen herstellt.\\
+
 \subsection{git}
 
 Mit \# gekennzeichnete lines bezeichnen Kommentare.\\
