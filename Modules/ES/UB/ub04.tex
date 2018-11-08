@@ -1,0 +1,77 @@
+\documentclass{article}
+\textwidth=6in
+\hoffset=0in
+\voffset=0in
+
+\usepackage{afterpage}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{inputenc}
+\usepackage{ngerman}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows, fit, calc}
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage[ampersand]{easylist}
+
+
+\newcommand{\gap}{\ \\ \\}
+\newcommand{\chart}[6]{
+    \node[round, 
+          minimum width=#5, 
+          minimum height=#6] (#1) at (#3,#4) {chart};
+    \node[rect] (#2) at (#3,#4) {title};
+}
+\newcommand{\sepline}[2]{
+}
+
+% needs to be updated
+\author{Max Springenberg, 177792\\
+        Daniel Sonnabend, 190748}
+\title{\
+    ES "Ubungsblatt 3\\
+    Gruppe Fr. 8-10
+    }
+\setcounter{section}{3}
+\date{}
+
+\begin{document}
+
+\maketitle
+\newpage
+
+\subsection{Fragen}
+
+Wie wird ein Task im OSEK-Betriebssystem terminiert?\\
+Ein Task terminiert genau dann, wenn er sich selbst terminiert. Es gibt keine
+    Zwischentransition zum Zustand wait.\\
+\gap
+OSEK unterscheidet zwischen zwei Tasktypen. Nennen Sie diese und erl"autern Sie 
+    den Unterschied.\\
+\\
+Typ 1: Extended Task:\\
+Der Extended Task hat die vier States running, ready, waiting und suspended.
+    Im State runnuing wird die CPU zugeteilt, nur ein Prozess kann in diesem
+    State sein. Bei ready wird gewartet, bis das Scheduling-Verfahren den Prozess
+    in running einteilt. Bei waiting wartet der Task auf mindestens ein Event 
+    und bei suspended wird der Prozess passiv, kann aber wieder aktiviert werden.\\
+\\
+Typ 2: Basic Task\\
+Die Funktionalit"at eines Basic Task ist "ahnlich zu der des Extended Task.
+    Jedoch existiert kein waiting State. Damit fallen der waiting State und 
+    alle zu/ von diesem ein- und ausgehenden Transitionen weg.
+\gap
+In welchem Zustand befindet sich ein vom Scheduler aktivierter Task? Was 
+    zeichnet diesen zudem aus?\\
+Ein vom Scheduler aktivierter Prozess befindet sich im State running, dieser
+    ist dadurch ausgezeichnet, dass immer nur ein Prozess in diesem State sein
+    kann.\\
+\end{document}
