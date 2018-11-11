@@ -1,0 +1,48 @@
+%!TEX root = ../compehension.tex
+\section{Motivation}
+
+\subsection{Konventionen}
+In dieser Ausarbeitung wird sich an die "ublichen Konventionen zur Notation
+    von Variablen in Graphen orientiert. So definieren wir einen Graphen als
+    $G = (V,E)$, mit der Anzahl von Knoten $n = |V|$ und Kanten $m = |E|$.
+    Ferner betrachten wir ungerichtete gewichtete Graphen und bezeichnen 
+    die Gewichtungsfunktion als $w: E \rightarrow \mathbb{R}$.\\
+
+\subsection{MST und MSF}
+Der minimale Spannbaum, oder auch MST, stellt einen azyklischen 
+    zusammenh"angenden Teilgraph aus G, der alle Knoten verbindet und
+    dessen Summe von Kantengewichte $\sum_{e \in E_{MST}} w(e)$
+    minimal ist dar.\\
+Ist G selbst nicht zusammenh"angend, so werden wir einen minimalen Spannwald
+    als n"achst beste L"osung betrachten.
+    Ein minimaler Spannwald besteht aus einer Sammlung von minimalen 
+    Spannb"aumen f"ur die verbundenen Komponenten in G.\\
+
+\subsection{Warum ein nichtdeterministischer Anzatz von Vorteilen sein kann}
+
+Wir werden in dieser Ausarbeitung zum Kapitel 10.3 aus dem Buch
+    `Randomized Algorithms` von Motwani, R., Raghavan, P.  
+    einen
+    randomisierten Ansatz f"ur einen Algorithmus, der einen minimalen Spannbaum
+    in erwarteter Linearzeit aproximiert betrachten.\\
+Das MST Problem ist in $P$, und es sind bereits 
+    deterministische Algorithmen wie die von
+    Prim, Kruskal, Bor\r uvka bekannt
+    , die mit einer Worst-Case Laufzeitschranke 
+    von $O(m * log(n))$ das Problem l"osen.
+    Zudem existiert der Algorithmus von Bernard Chazelle, f"ur den eine
+    Worst-Case Laufzeitschranke von $O(m * log \beta(m,n))$ bekannt ist, wobei
+    mit
+    $\beta(m,n) = \{i | log^{(i)} n \leq m / n\}$ die inverse Ackermann Funktion
+    verwendet wird. 
+    $log^{(i)} n$ ist hierbei die $i$-te Anwendung von $log$ auf $n$.
+    Dementsprechend steigt die Funktion $\beta$ so schwach, dass die
+    aus ihr resultierenden Faktoren f"ur die Worst-Case Laufzeit hinsichtlich
+    der Gr"o"se von Graphen in der Praxis als nahezu konstant angesehen werden.\\
+Wozu dient also ein nichtdeterministischer Algorithmus, der im Erwartungswert 
+    linear verl"auft?
+    - Die Antwort auf diese Frage kann sowohl durch die komplexe Implementierung
+    des Algorithmus von Chazelle, als auch der Stabilit"at, bzw. G"ute,
+    des vorgestellten Algorithmus hinsichtlich seiner Laufzeit
+    und nicht zuletzt durch das Betrachten des Algorithmus als akademisches
+    Beispiel f"ur kreative Laufzeitverbesserungen begr"undet werden.\\
