@@ -1,0 +1,35 @@
+%!TEX root = ./graph_reduction.tex
+\subsection{Bor\r uvka-Algorithmus}
+
+Wir werden uns zum Reduzieren der Knoten einen Teil des Algorithmus von Bor\r uvka, 
+    der Bor\r uvka-Phase, zur Hilfe nehmen. In der finalen Laufzeitanalyse
+    werden wir zeigen, dass Bor\r uvkas Phasen kombiniert mit randomisierten
+    Stichproben der Kanten zu einem Algorithmus mit erwarteter Linearzeit f"uhrt.\\
+
+\subsubsection{Bor\r uvka-Phasen}
+
+Bor\r uvka Phasen Beruhen auf der Erkenntnis, dass in einem beliebigen 
+    ungerichteten Graphen $G$ f"ur jeden Knoten $v \in V$ die inzidente Kante mit 
+    minimaler Gewichtung 
+    $e_{v^{min}} := \{v, u\}, u \in adj(v): 
+        \nexists e' = \{v, u'\}, u' \in adj(v): w(e') < w(e)$
+    im MST von $G$ enthalten ist.\\
+%TODO: Beweis aus ex 10.10 hier
+Ferner bedeutet das, dass wir durch die f"ur die Kontraktion markierten Kanten
+    $E_{min}$ nach einer Bor\r uvka-Phase einen Wald $F$ in $G$, mit Kanten aus 
+    einem MST von $G$. Dies wird f"ur uns insebesondere dann interessant, wenn
+    wir rekursiv einen Wald aufabauen m"ochten.\\
+%TODO: ex 10.13 maybe?
+\\
+Darauf aufbauent betrachten wir nun den Ablauf einer Bor\r uvka-Phasen:
+\begin{enumerate}
+    \item Markiere inzidente Kanten $E_{min}$ mit minimaler Gewichtung
+    \item Bestimme die verbundenen Komponenten in $G' = (V,E_{min})$
+    \item Ersetze jede verbundene Komponente durch einen sie repr"asentierenden
+          Knoten in $G'$ und erhalte den Graphen $G''$
+    \item Entferne alle Selbstschleifen in $G''$
+\end{enumerate}
+\ \\
+Wir stellen fest, dass eine Bor\r uvka-Phase die Menge an Knoten in $G$ auf 
+    maximal die H"alfte reduziert.\\
+%TODO: Beweis n/2
