@@ -1,2 +1,44 @@
 %!TEX root = ./graph_reduction.tex
 \subsection{Randomisierte Stichproben}
+
+\subsection{G"ute einer randomisierten Stichprobe}
+
+Im folgenden werden wir zeigen, dass Anzahl von $F$-leichten Kanten in $G$ 
+    bez"uglich des MSF $F_p$ von $G(p)$ im Erwartungswert nach oben durch
+    $n/p$ beschr"ankt ist. 
+    Ferner zeigen wir also, dass die $F$-leichten Kanten in $G$ der negativen
+    Binomialverteilung mit Parametern $n$ und $p$ entsprechen.\\
+\\
+Zun"achst m"ochten wir festlegen, dass im folgenden alle Kanten aus $G$ nach 
+    ihrer Gewichtung aufsteigend sortiert betrachtet werden.
+    Dies wird f"ur uns insbesondere dann handlich sein, wenn wir "uber die zu 
+    betrachtende Kante wissen m"ochten, ob sie $F$-leicht ist.\\
+Nun da wir uns auf eine Iteration der Kanten festgelegt haben m"ochten wir 
+    $G(p=0,5)$ wie "ublich durch das hinzunehmen der zu betrachtenden Kante mit
+    der Wahrscheinlichkeit $p$ konstruieren.
+    W"ahrend wir $G(p)$ konstruieren k"onnen wir auch simultan, bzw. 
+    \glqq online\grqq den MSF $F_{MSF}$ zu $G(p)$ konstruieren.
+    Dies ist besipielsweise durch einen Ansatz wie den von Kruskal m"oglich, bei
+    dem wir genau dann eine Kante $\{u,v\}$ in $F_{MSF}$ aufnehmen, wenn $\{u,v\}$
+    in verschiedenen verbundenen Komponenten in $F_{MSF}$ sind, wobei wir 
+    $F_{MSF}$ mit allen Knoten aus $G$ und einer leeren Kantenmenge 
+    initialisieren.
+    Die Korrektheit von $F_{MSF}$ folgt aus der Sortierung der Kanten.
+    Interessant ist, dass dies gelichbedeutend damit ist, dass Kante $\{u,v\}$
+    aus $G$ genau dann $F_{MSF}$-leicht ist, wenn ihre $u$, $v$ in verschieden 
+    verbundenen Komponenten in $F_{MSF}$ liegen.\\
+Wir k"onnen bereits folgende Eigentschaften der Konsistenz unseres Verfahren 
+    beobachten: 
+    (i) Ob die zu betrachtende Kante $F_{MSF}$-leicht oder -schwer ist 
+    ist alleinig von den vorhergehenden Zufallsexperimenten abh"angig,
+    (ii) es werden keine Kanten aus $F_{MSF}$ entfernt,
+    (iii) eine Kante ist genau dann nach dem $i$-ten Zufallsexperiment 
+    $F_{MSF}$-leicht, wenn sie auch vor dem $i$-ten Zufallsexperiment $F_{MSF}$-leicht
+    war.\\
+Definieren wir nun den Begriff von Phasen in unserem Zufallsexperiment.
+    Die $k$-te Phase unseres Verfahrens beginne, sobald $|E_{F_{MSF}}| = k-1$ Kanten
+    vorhanden sind und ende bei $|E_{F_{MSF}}| = k$.
+    Wir befassen uns in einer Phase also unter anderem mit der Anzahl von 
+    Zufallsexperimenten bis eine Kante hinzugenommen wird.
+    Insbesondere ist die hinzugenommene Kante per definition unseres Verfahrens
+    $F_{MSF}$ leicht.\\

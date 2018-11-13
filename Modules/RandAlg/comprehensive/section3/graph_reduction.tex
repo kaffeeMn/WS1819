@@ -1,7 +1,15 @@
 %!TEX root = ../comprehension.tex
 \section{Reduzieren des Graphen}
 
-% intro
+Wir werden einen rekursiven Algorithmus konstruieren, der genau dann aufh"ort, 
+    wenn nur noch ein Knoten in Graphen "ubrig bleibt. Folglich m"ussen wir
+    bei jedem rekursiven Aufruf unseren Graphen reduzieren. Wir werden in 
+    diesem Teil betrachten, wie wir durch Verwendung von Bor\r uvka-Phasen die
+    Knoten des Graphen reduzieren k"onnen und anschlie"send durch randomisierte
+    Stichproben zuz"uglich eine Methode kennen lernen um die Anzahl von Kanten
+    zu reduzieren. Letzteres erm"oglicht uns erst eine erwartete lineare 
+    Laufzeit, da die Rekursiontiefe durch das alleinige reduzieren von Knoten
+    f"ur unseren Anspruch zu gro"s ist.\\
 
 \input{section3/boruvka}
 \input{section3/sampling}

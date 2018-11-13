@@ -1,1 +1,58 @@
-\section{F-schwere/-leichte Kanten}
+\section{$F$-schwere/-leichte Kanten}
+
+$F$-schwere und -leichte Kanten sind ein wesentlicher Bestandteil des 
+    MST-Algorithmus. Mittels der Identifizierung von Kanten in einem Graphen $G$
+    als $F$-schwer hinsichtlich eines Waldes $F$ in $G$ kann
+    bereits entschieden werden, dass diese Kante nicht im MST von $G$ enthalten
+    ist. Der umkehrschluss f"ur $F$-leichte Kanten gilt jedoch nicht, wie wir
+    sehen werden.\\
+
+\subsection{Definition}
+
+Wir betrachten neben der Gewichtungsfunktion $w$ nun die Funktion $w_F$, mit
+    $$
+    w_F(\{u,v\}) =  \begin{cases}
+                        \infty, P(\{u,v\}) = \emptyset\\
+                        max\{w(P_e(\{u,v\}))\}, \text{ sonst}
+                    \end{cases}
+    $$
+, wobei $w(P_e(\{u,v\}))$ bedeutet, dass $w$ auf alle Kanten des Pfades angewandt
+    wurde.\\
+$w_F$, gibt also das Kantengewicht der Kante mit maximalen Gewicht auf dem
+    Pfad von $u$ nach $v$ in $F$ aus. Sollte dieser Pfad nicht existieren, so
+    nehmen wir an, dass diese Kante unendlich schwer ist.\\
+Ist das Gewicht einer Kante $w(e)$ echt gr"o"ser als das maximale Gewicht auf dem 
+    Pfad $P_e(e)$ in $F$, bzw. $w(e) > w_F(e)$, 
+    so bezeichnen wir sie als $F$-schwer.
+    Sonst ist sie $F$-leicht.
+
+\subsection{Verifikation durch $F$-schwere/-leichte Kanten}
+
+Es liegt nahe, dass $F$ kein MSF in $G$ ist, wenn eine Kante $\{u,v\}$ 
+    existiert dessen gewicht echt kleiner als das des maximalen Gewichts auf dem
+    Pfad $P_e(\{u,v\})$ in $F$ ist. W"urde man annehmen, dass $F$ ein MSF w"are, 
+    so k"onnte man $E_F$ um die Kante $\{u,v\}$ erweitern und den dadurch 
+    entstandenen Zyklus mittels entfernen der Kante maximalen Gewichts auf dem
+    Pfad $P_e(\{u,v\})$ l"osen. Dadurch h"atte man die Zusammenh"angende 
+    Komponente als solche gewahrt und eine schwerere durch eine leichtere Kante
+    substituiert. Folglich h"atte man einen leichteren Wald und $F$ w"are damit
+    kein MSF.\\
+Diese Erkenntnis reicht bereits aus um einen Verifikationsalgorithmus zum 
+    MST und MSF Problem zu konstruieren, der lediglich "uber alle Kanten 
+    iteriert und schaut ob die einzigen $F$-leichten Kanten die aus $F$ selbst
+    sind.\\
+
+\subsection{Informationsgewinn durch $F$-schwere Kanten}
+
+Wir haben bereits erw"ahnt, dass $F$-schwere Kanten nicht in einem MSF, bzw. MST
+    enthalten sein k"onnen. 
+    Dies l"asst sich durch folgendenen Beweis verdeutlichen.\\
+%TODO: ex 10.14 hier
+\\
+Wir k"onnen also s"amtliche $F$-schwere Kanten f"ur das erfassen des MST 
+    ignorieren, bzw. sogar aus $G$ eliminieren.\\
+Diese Erkenntnis nimmt sich auch der MST-Algorithmus zum Nuzten. In gewisser
+    Hinsicht werden wir den umgekehrten Ansatz von Kruskal, welcher Kanten nach
+    gewichten aufsteigend sortiert und immer nur $F$-leichte Kanten hinzunimmt,
+    durch das erfassen von $F$-schweren Kanten "uber Stichproben von W"aldern
+    in $G$ verfolgen.\\
