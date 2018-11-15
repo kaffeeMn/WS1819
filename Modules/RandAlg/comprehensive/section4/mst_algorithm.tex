@@ -1,1 +1,29 @@
-\section{der MST-Algorithmus}
+\section{Der MST-Algorithmus}
+
+Nun da wir Verfahren zum reduzieren von Knoten und Kanten des Graphen $G$ kennen
+    gelernt haben  k"onnen wir anfangen einen Algorithmus zu konstruieren.
+    Die Ausgabe unseres Algorithmus sei ein Wald $F$ in $G$.\\
+Die erste Entscheidung die wir treffen m"ussen, ob wir zuerst Knoten oder Kanten
+    reduzieren. Da Bor\r uvka-Pahsen nur Kanten markieren, die im MST/MSF 
+    enthalten sind fangen wur mit Boruvka-Pahsen an und erhalten den Graphen 
+    $G_1$.
+    Dadurch veringern wir
+    zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
+    Anschlie"send konstruieren wir $G_2 = G(p)$, wir wissen also, dass $G$ 
+    $\frac{n/2}{p}$ $F$-leichte Kanten nach diesen Verfahren enth"alt.\\
+\begin{algorithm}
+\KwData{Graph $G$}
+\KwResult{Approximation eines MST/ MSF in $G$}
+\begin{algorithmic}[1]
+    \STATE $G_1, C$ $\leftarrow$\begin{tabular}[H]{l}
+                                 3 Bor\r uvka-Phasen werden auf $G$ angewandt.\\
+                                 Dabei wird der resultierende Graph und die zur\\
+                                 Kokatenierung markierten Kanten zur"uck gegeben.
+                                 \end{tabular}
+    \STATE $G_2$ $\leftarrow$ $G_1(p=0,5)$
+    \STATE $F_2$ $\leftarrow$ $MST(G_2)$
+    \STATE $G_3$ $\leftarrow$ $(V_{G_1}, E_{G_1} - E_{F_2-heavy})$
+    \STATE $F_3$ $\leftarrow$ $MST(G_3)$
+    \RETURN $C \cup F_3$
+\end{algorithmic}
+\end{algorithm}
