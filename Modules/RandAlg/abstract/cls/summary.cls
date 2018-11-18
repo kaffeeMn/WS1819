@@ -8,13 +8,10 @@
 
 \renewcommand{\maketitle}{
     \ \\
-    \begin{Huge}
-        \\
-        \\
-        \\
+    \begin{huge}
         \\
         \@title
-    \end{Huge}\\
+    \end{huge}\\
     \begin{large}
         \\
         \@author

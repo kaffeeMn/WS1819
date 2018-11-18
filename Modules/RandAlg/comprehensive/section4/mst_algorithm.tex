@@ -5,7 +5,7 @@ Nun da wir Verfahren zum reduzieren von Knoten und Kanten des Graphen $G$ kennen
     Die Ausgabe unseres Algorithmus sei ein Wald $F$ in $G$.\\
 Die erste Entscheidung die wir treffen m"ussen, ob wir zuerst Knoten oder Kanten
     reduzieren. Da Bor\r uvka-Pahsen nur Kanten markieren, die im MST/MSF 
-    enthalten sind fangen wur mit Boruvka-Pahsen an und erhalten den Graphen 
+    enthalten sind fangen wur mit Bor\r uvka-Pahsen an und erhalten den Graphen 
     $G_1$.
     Dadurch veringern wir
     zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
@@ -27,3 +27,25 @@ Die erste Entscheidung die wir treffen m"ussen, ob wir zuerst Knoten oder Kanten
     \RETURN $C \cup F_3$
 \end{algorithmic}
 \end{algorithm}
+
+\subsection{Laufzeit}
+
+$T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
+    Zeile 1 benutzt 3 Bor\r uvka-Phasen und  l"auft damit in $O(n+m)$. 
+    $G_2 = G_1(p)$ aus Zeile 2 kann ebenfalls in $O(m + n)$ berechnet werden.
+    $G_1$ hat nur noch $n/2^3 = n/8$ Knoten und f"ur $G_2$ hat damit 
+    $|V_{G_2}| = n/8$ Knoten und im Erwartungswert $|E_{G_2}| = m/2$ Kanten.
+    Folglich ben"otigt die Berechnung von $F_3$  die erwartete Laufzeit 
+    $T(n/8,m/2)$.
+    Die Berechnugn $F_2$-schwerer Kanten und die Konstruktion von $G_3$ mittels
+    derer ben"otigt ebenfalls $O(m+n)$.
+    Nach dem Lemma 10.19 ist die Anzahl von $F$-leichten Kanten in $G$ durch
+    $n/p = 2n,$ mit $p = 0,5$ im Erwartungswert nach oben beschr"ankt. Da $G_1$
+    aner nur $n/8$ Knoten hat, k"onnen wir die Anzahl an Kanten in $G_3$
+    durch $2*n/8 = n/4$ im Erwartungswert absch"atzen.
+    Damit bel"auft sich die erwartete Laufzeit der Berechnung von $F_3$ auf
+    $T(n/2, n/4)$.
+    Die Vereinigung von $C$ und $F$ in Zeile 6 ben"otigt $O(n)$.\\
+Aus den Laufzeiten der Teilschritte folgt
+    $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m)$
+    \\
