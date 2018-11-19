@@ -24,15 +24,14 @@
 Der Linearzeit MST-Algorithmus ist ein randomisierter Ansatz, der das MST und MSF
     Problem in erwarteter linearer Laufzeit l"ost.
     Es gibt bereits ein deterministisches Verfahren von Chazelle, dass einen MST in
-    $O(m * log \beta(m,n)), \beta(m,n) = \{i | log^{(i)} n \leq m / n\}$
-    , wobei $\beta$ die inverse Ackermann Funktion ist, berechnet.
+    $O(m * log \beta(m,n)), \beta(m,n) = \{i | log^{(i)} n \leq m / n\}, n = |V|, m = |E|$
+    , wobei $\beta$ die inverse Ackermann Funktion verwendet, berechnet.
     Unser Algorithmus wird jedoch einfacher zu implementieren sein, bietet eine
-    im Erwartungswert bessere Laufzeit und der randomisierte Teil des 
-    Algorithmus wird mit hinsichtlich $G$ mit im Erwartungswert $n/p$ nach oben
-    beschr"ankt
-    $F$-leichten Kanten eine akzeptabele Approximation des MST/MSF ergeben.\\
-Eine Kante aus $G$ isr $F$-leicht, wenn sie hinsichtlich eines Waldes $F$ 
-    weniger oder gleich
+    im Erwartungswert bessere Laufzeit und der randomisierte Anteil des 
+    Algorithmus wird eine akzeptable Approximation des MST/MSF mit 
+    im Erwartungswert $n/p$ $F$-leichten Kanten.\\
+Eine Kante aus $G$ ist $F$-leicht, wenn sie hinsichtlich eines Waldes $F$ 
+    weniger oder gleich stark
     gewichtet ist, wie die Kante mit maximalem Gewicht auf dem Pfad in $F$,
     der die Knoten der Kante verbindet. 
     Ist das nicht der Fall, so ist die Kante $F$-schwer.
@@ -49,11 +48,12 @@ Der aus dem Algorithmus resultierende MST/MSF wird nicht rein randomisiert
     betrachteten Graphen in jedem rekursiven Aufruf reduzieren m"ussen.
     Eine Bor\r uvka-Phase nutzt aus, dass f"ur jeden Knoten die minimal gewichtete
     inzidente Kante im MST/MSF vorkommen muss. 
-    Es werden also in einer Bor\r uvka-Phase minimale Kanten markiert und die 
+    Es werden also in einer Bor\r uvka-Phase Kanten mit den minimalen Gewichten
+    markiert und die 
     daraus entstehenden verbundenen Komponenten auf je einen Knoten reduziert.
     Im Worst-Case erhalten wir ein perfektes Matching und reduzieren die 
-    Knotenmenge auf $|V|/2$.\\
-Die randomisierte Konstruktion erfolgt "uber randomisierte Stichproben eines
+    Knotenmenge auf $n/2$.\\
+Die randomisierte Konstruktion erfolgt "uber randomisierte Stichproben 
     des Graphen.
     Dabei wird in unserem Fall jede Kante mit der Wahrscheinlichkeit $p=0,5$
     in der Stichprobe $G(p)$ inkludiert. 
@@ -61,18 +61,25 @@ Die randomisierte Konstruktion erfolgt "uber randomisierte Stichproben eines
     halbiert wird.
     Wie wir im Teil zur G"ute einer randomisierten Stichprobe sehen werden 
     hat $G$ dabei hinsichtlich des MSF von $G(p)$ im Erwartungswert $n/p$
-    $F$-leichte Kanten.\\
+    $F$-leichte Kanten. 
+    F"ur den Beweis werden wir eine Folge von Zufallsexperimenten definieren
+    und anhand des Ablaufs derer Zeigen, dass die negative Binomialverteilung
+    mit dem Erwartungswert $n/p$ die Anzahl von $F$-leichten Kanten stochastisch
+    dominiert.\\
 Der Algorithmus wird drei Bor\r uvka-Phasen ausf"uhren.
-    Die rekursion Terminiert, wenn nach einer Bor\r uvka Phase der Graph 
-    unver"andert blieb, oder $G$ leer ist.
-    Danach werden wir eine Stichprobe knostruieren und beginnen die erste
+    Die Rekursion terminiert, wenn nach einer Bor\r uvka Phase der Graph 
+    unver"andert bleibt, oder $G$ leer ist.
+    Danach werden wir eine Stichprobe konstruieren und beginnen die erste
     Rekursion.
     "Uber das Resultat der Rekursion werden $F$-schwere Kanten ermittelt, 
     diese aus $G$ entfernt und ein letzter rekursiver Aufruf get"atigt.\\
 Interessant ist hierbei, dass wir zwei sucessive rekursive Aufrufe haben, jedoch
     eine lineare Laufzeit erwarten.
     Dies ist darin begr"undet, dass wir den ersten rekursiven Aufruf mit 
-    $|V|/8$ Knoten, $|E|/2$ Kante und den zweiten rekursiven Aufruf mit $|V|/8$ Knoten,
-    $\frac{|V|/8}{p=0,5} = |V|/4$ Kanten bet"atigen.
-    
+    $n/8$ Knoten, $m/2$ Kante und den zweiten rekursiven Aufruf mit $n/8$ Knoten,
+    $\frac{n/8}{p=0,5} = n/4$ Kanten ausf"uhren.
+    In unserer Laufzeitanalyse zum Algorithmus werden wir feststellen, dass
+    wir die Rekursiongleichung mit 
+    $T(n,m) \leq T(n/8,m/2) + T(n/8, n/4) + c(n+m) \leq 2*c(n+m)$
+    absch"atzen k"onnen.\\
 \end{document}
