@@ -47,5 +47,8 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
     $T(n/2, n/4)$.
     Die Vereinigung von $C$ und $F$ in Zeile 6 ben"otigt $O(n)$.\\
 Aus den Laufzeiten der Teilschritte folgt
-    $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m)$
+    $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m)$.
+    Nach der Literatur kann $T(n,m)$ durch $2c(n+m)$ abgesch"atzt werden.
+    Ein Beweis, dass $T(n,m)$ tats"achlich in $O(n+m)$ enthalten ist befindet
+    sich im Anhang.\\
     \\
