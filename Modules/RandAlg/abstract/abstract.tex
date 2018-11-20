@@ -71,7 +71,7 @@ Die randomisierte Konstruktion erfolgt "uber randomisierte Stichproben
     hat $G$ dabei hinsichtlich des MSF von $G(p)$ im Erwartungswert $n/p$
     $F$-leichte Kanten. 
     F"ur den Beweis werden wir eine Folge von Zufallsexperimenten definieren
-    und anhand des Ablaufs derer Zeigen, dass die negative Binomialverteilung
+    und anhand des Ablaufs derer zeigen, dass die negative Binomialverteilung
     mit dem Erwartungswert $n/p$ die Anzahl von $F$-leichten Kanten in $G$
     stochastisch dominiert.\\
 Der Algorithmus wird drei Bor\r uvka-Phasen ausf"uhren.
@@ -84,20 +84,22 @@ Der Algorithmus wird drei Bor\r uvka-Phasen ausf"uhren.
     Intuitiv is durch das Entfernen der $F$-schweren Kanten die 
     Wahrscheinlichkeit, dass $F$-schwere Kanten nach dem zweiten Aufruf im 
     Wald enthalten sind geringer.\\
-Interessant ist hierbei, dass wir zwei sucessive rekursive Aufrufe haben, jedoch
+Interessant ist hierbei, dass wir zwei sucessive rekursive Aufrufe verwenden, jedoch
     eine lineare Laufzeit erwarten.
     Dies ist darin begr"undet, dass wir den ersten rekursiven Aufruf mit 
-    $n/8$ Knoten, $m/2$ Kante und den zweiten rekursiven Aufruf mit $n/8$ Knoten,
+    $n/8$ Knoten, $m/2$ Kanten und den zweiten rekursiven Aufruf mit $n/8$ Knoten
+    und im Erwartungswert
     $\frac{n/8}{p=0,5} = n/4$ Kanten ausf"uhren.
     In unserer Laufzeitanalyse zum Algorithmus werden wir feststellen, dass
-    wir die Rekursiongleichung mit 
+    wir die Rekursionsgleichung mit 
     $T(n,m) \leq T(n/8,m/2) + T(n/8, n/4) + c(n+m) \leq 2*c(n+m)$
     absch"atzen k"onnen.\\
 
 \begin{thebibliography}{}
 \footnotesize
 \bibitem{randAlg} 
-Motwani, R., Raghavan, P.
-\textit{\glqq Randomized Algorithms\grqq} 
+    Motwani, R., Raghavan, P. :
+    \textit{Randomized Algorithms}. Cambridge :
+    Cambridge University Press 1995, Kapitel 10.3.
 \end{thebibliography}
 \end{document}
