@@ -3,20 +3,18 @@
 
 \LoadClass[titlepage]{article}
 
-\RequirePackage[left=2cm, right=3cm, top=2cm, bottom=2cm]{geometry}
+\RequirePackage[left=2cm, right=3cm, top=1.5cm, bottom=1.5cm]{geometry}
 \RequirePackage{titlesec}
 
 \renewcommand{\maketitle}{
-    \ \\
+    \ \\ 
     \begin{huge}
-        \\
         \@title
     \end{huge}\\
     \begin{large}
         \\
         \@author
     \end{large}\\
-    \\
     \\
 }
 \titleformat{\section}{\large\raggedright}{\thesection\ }{0em}{}[\rule{0.75\linewidth}{1pt}] 

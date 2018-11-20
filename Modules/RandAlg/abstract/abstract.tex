@@ -9,6 +9,11 @@
 \usepackage{algorithmic}
 \usepackage[]{algorithm2e}
 \usepackage{float}
+
+\usepackage{cite}
+\usepackage{etoolbox}
+\patchcmd{\thebibliography}{\section*{\refname}}{}{}{}
+
 \restylefloat{table}
 
 \title{Der Linearzeit MST-Algorithmus\\
@@ -20,7 +25,10 @@
 
 \begin{document}
 \maketitle
-% ******************************** Main Matter *********************************
+In der Ausarbeitung werden wir uns mit dem Kapitel 10.3 aus dem Lehrbuch 
+    \cite{randAlg} auseinander
+    setzen, in dem ein randomisierter Algorithmus f"ur das minimale Spannbaum/
+    Spannwald Problem (MST/MSF) vorgestellt wird.\\
 Der Linearzeit MST-Algorithmus ist ein randomisierter Ansatz, der das MST und MSF
     Problem in erwarteter linearer Laufzeit l"ost.
     Es gibt bereits ein deterministisches Verfahren von Chazelle, dass einen MST in
@@ -28,7 +36,7 @@ Der Linearzeit MST-Algorithmus ist ein randomisierter Ansatz, der das MST und MS
     , wobei $\beta$ die inverse Ackermann Funktion verwendet, berechnet.
     Unser Algorithmus wird jedoch einfacher zu implementieren sein, bietet eine
     im Erwartungswert bessere Laufzeit und der randomisierte Anteil des 
-    Algorithmus wird eine akzeptable Approximation des MST/MSF mit 
+    Algorithmus erzeugt eine akzeptable Approximation des MST/MSF mit 
     im Erwartungswert $n/p$ $F$-leichten Kanten.\\
 Eine Kante aus $G$ ist $F$-leicht, wenn sie hinsichtlich eines Waldes $F$ 
     weniger oder gleich stark
@@ -56,7 +64,7 @@ Der aus dem Algorithmus resultierende MST/MSF wird nicht rein randomisiert
 Die randomisierte Konstruktion erfolgt "uber randomisierte Stichproben 
     des Graphen.
     Dabei wird in unserem Fall jede Kante mit der Wahrscheinlichkeit $p=0,5$
-    in der Stichprobe $G(p)$ inkludiert. 
+    in die Stichprobe $G(p)$ inkludiert. 
     Es ist leicht ersichtlich, dass hierbei die Kantenmenge im Erwartungswert
     halbiert wird.
     Wie wir im Teil zur G"ute einer randomisierten Stichprobe sehen werden 
@@ -64,15 +72,18 @@ Die randomisierte Konstruktion erfolgt "uber randomisierte Stichproben
     $F$-leichte Kanten. 
     F"ur den Beweis werden wir eine Folge von Zufallsexperimenten definieren
     und anhand des Ablaufs derer Zeigen, dass die negative Binomialverteilung
-    mit dem Erwartungswert $n/p$ die Anzahl von $F$-leichten Kanten stochastisch
-    dominiert.\\
+    mit dem Erwartungswert $n/p$ die Anzahl von $F$-leichten Kanten in $G$
+    stochastisch dominiert.\\
 Der Algorithmus wird drei Bor\r uvka-Phasen ausf"uhren.
     Die Rekursion terminiert, wenn nach einer Bor\r uvka Phase der Graph 
     unver"andert bleibt, oder $G$ leer ist.
     Danach werden wir eine Stichprobe konstruieren und beginnen die erste
     Rekursion.
     "Uber das Resultat der Rekursion werden $F$-schwere Kanten ermittelt, 
-    diese aus $G$ entfernt und ein letzter rekursiver Aufruf get"atigt.\\
+    diese aus $G$ entfernt und ein letzter rekursiver Aufruf get"atigt.
+    Intuitiv is durch das Entfernen der $F$-schweren Kanten die 
+    Wahrscheinlichkeit, dass $F$-schwere Kanten nach dem zweiten Aufruf im 
+    Wald enthalten sind geringer.\\
 Interessant ist hierbei, dass wir zwei sucessive rekursive Aufrufe haben, jedoch
     eine lineare Laufzeit erwarten.
     Dies ist darin begr"undet, dass wir den ersten rekursiven Aufruf mit 
@@ -82,4 +93,11 @@ Interessant ist hierbei, dass wir zwei sucessive rekursive Aufrufe haben, jedoch
     wir die Rekursiongleichung mit 
     $T(n,m) \leq T(n/8,m/2) + T(n/8, n/4) + c(n+m) \leq 2*c(n+m)$
     absch"atzen k"onnen.\\
+
+\begin{thebibliography}{}
+\footnotesize
+\bibitem{randAlg} 
+Motwani, R., Raghavan, P.
+\textit{\glqq Randomized Algorithms\grqq} 
+\end{thebibliography}
 \end{document}
