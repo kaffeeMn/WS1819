@@ -32,12 +32,12 @@ In der Ausarbeitung werden wir uns mit dem Kapitel 10.3 aus dem Lehrbuch
 Der Linearzeit MST-Algorithmus ist ein randomisierter Ansatz, der das MST und MSF
     Problem in erwarteter linearer Laufzeit l"ost.
     Es gibt bereits ein deterministisches Verfahren von Chazelle, dass einen MST in
-    $O(m * log \beta(m,n)), \beta(m,n) = \{i | log^{(i)} n \leq m / n\}, n = |V|, m = |E|$
+    $O(m \cdot log \beta(m,n)), \beta(m,n) = \{i | log^{(i)} n \leq m / n\}, n = |V|, m = |E|$
     , wobei $\beta$ die inverse Ackermann Funktion verwendet, berechnet.
     Unser Algorithmus wird jedoch einfacher zu implementieren sein, bietet eine
     im Erwartungswert bessere Laufzeit und der randomisierte Anteil des 
-    Algorithmus erzeugt eine akzeptable Approximation des MST/MSF mit 
-    im Erwartungswert $n/p$ $F$-leichten Kanten.\\
+    Algorithmus erzeugt eine Approximation des MST/MSF mit 
+    $n/p$ $F$-leichten Kanten im Erwartungswert.\\
 Eine Kante aus $G$ ist $F$-leicht, wenn sie hinsichtlich eines Waldes $F$ 
     weniger oder gleich stark
     gewichtet ist, wie die Kante mit maximalem Gewicht auf dem Pfad in $F$,
@@ -45,8 +45,8 @@ Eine Kante aus $G$ ist $F$-leicht, wenn sie hinsichtlich eines Waldes $F$
     Ist das nicht der Fall, so ist die Kante $F$-schwer.
     Mittels $F$-leichter Kanten k"onnen wir daher neben der Summe von Kantengewichten
     ein G"utema"s f"ur einen Wald hinsichtlich $G$ definieren.
-    Ferner wird das erkennen von $F$-schweren Kanten n"utzlich sein, wenn wir
-    Kanten entfernen m"ochten die nicht im MST/MSF vorkommen.\\
+    Ferner wird das Erkennen von $F$-schweren Kanten n"utzlich sein, wenn wir
+    Kanten entfernen m"ochten, die nicht im MST/MSF vorkommen.\\
 Der aus dem Algorithmus resultierende MST/MSF wird nicht rein randomisiert 
     konstruiert. 
     So werden wir uns auch ein deterministisches Verfahren, n"amlich die
@@ -56,7 +56,7 @@ Der aus dem Algorithmus resultierende MST/MSF wird nicht rein randomisiert
     betrachteten Graphen in jedem rekursiven Aufruf reduzieren m"ussen.
     Eine Bor\r uvka-Phase nutzt aus, dass f"ur jeden Knoten die minimal gewichtete
     inzidente Kante im MST/MSF vorkommen muss. 
-    Es werden also in einer Bor\r uvka-Phase Kanten mit den minimalen Gewichten
+    Es werden also in einer Bor\r uvka-Phase die Kanten mit den minimalen Gewichten
     markiert und die 
     daraus entstehenden verbundenen Komponenten auf je einen Knoten reduziert.
     Im Worst-Case erhalten wir ein perfektes Matching und reduzieren die 
@@ -65,9 +65,9 @@ Die randomisierte Konstruktion erfolgt "uber randomisierte Stichproben
     des Graphen.
     Dabei wird in unserem Fall jede Kante mit der Wahrscheinlichkeit $p=0,5$
     in die Stichprobe $G(p)$ inkludiert. 
-    Es ist leicht ersichtlich, dass hierbei die Kantenmenge im Erwartungswert
+    Es ist ersichtlich, dass hierbei die Kantenmenge im Erwartungswert
     halbiert wird.
-    Wie wir im Teil zur G"ute einer randomisierten Stichprobe sehen werden 
+    Wie wir im Teil zur G"ute einer randomisierten Stichprobe sehen werden, 
     hat $G$ dabei hinsichtlich des MSF von $G(p)$ im Erwartungswert $n/p$
     $F$-leichte Kanten. 
     F"ur den Beweis werden wir eine Folge von Zufallsexperimenten definieren
@@ -81,10 +81,10 @@ Der Algorithmus wird drei Bor\r uvka-Phasen ausf"uhren.
     Rekursion.
     "Uber das Resultat der Rekursion werden $F$-schwere Kanten ermittelt, 
     diese aus $G$ entfernt und ein letzter rekursiver Aufruf get"atigt.
-    Intuitiv is durch das Entfernen der $F$-schweren Kanten die 
+    Intuitiv ist durch das Entfernen der $F$-schweren Kanten die 
     Wahrscheinlichkeit, dass $F$-schwere Kanten nach dem zweiten Aufruf im 
     Wald enthalten sind geringer.\\
-Interessant ist hierbei, dass wir zwei sucessive rekursive Aufrufe verwenden, jedoch
+Interessant ist hierbei, dass wir zwei sukzessive rekursive Aufrufe verwenden, jedoch
     eine lineare Laufzeit erwarten.
     Dies ist darin begr"undet, dass wir den ersten rekursiven Aufruf mit 
     $n/8$ Knoten, $m/2$ Kanten und den zweiten rekursiven Aufruf mit $n/8$ Knoten
@@ -92,9 +92,8 @@ Interessant ist hierbei, dass wir zwei sucessive rekursive Aufrufe verwenden, je
     $\frac{n/8}{p=0,5} = n/4$ Kanten ausf"uhren.
     In unserer Laufzeitanalyse zum Algorithmus werden wir feststellen, dass
     wir die Rekursionsgleichung mit 
-    $T(n,m) \leq T(n/8,m/2) + T(n/8, n/4) + c(n+m) \leq 2*c(n+m)$
+    $T(n,m) \leq T(n/8,m/2) + T(n/8, n/4) + c(n+m) \leq 2 \cdot c(n+m)$
     absch"atzen k"onnen.\\
-
 \begin{thebibliography}{}
 \footnotesize
 \bibitem{randAlg} 
