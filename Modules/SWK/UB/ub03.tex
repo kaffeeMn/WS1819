@@ -1,0 +1,124 @@
+\documentclass{article}
+\textwidth=6in
+\hoffset=0in
+\voffset=0in
+
+\usepackage{dcolumn}
+\usepackage{afterpage}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{pdflscape}
+\usetikzlibrary{arrows,automata}
+\usepackage[latin1]{inputenc}
+\usepackage{ngerman}
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows, fit, calc}
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage[ampersand]{easylist}
+
+
+\usepackage{listings}
+
+\newcommand{\gap}{\ \\ \\}
+
+\setcounter{section}{2}
+
+% needs to be updated
+\author{Max Springenberg, 177792}
+\title{SWK\\
+       "Ubungsblatt 3\\
+       Gruppe 2: OH12 / 1.056}
+\date{}
+\setcounter{section}{3}
+
+
+\begin{document}
+\subsection{Die Modellierungs-Hierarchie}
+\subsubsection \
+Ein Metamodell beschreibt Modelle.
+    GraphML beschreibt xml-files, die als Graphen interpretiert werden k"onnen.
+    Damit sind die Modelle von GraphML xml-files.\\
+\subsubsection \ 
+(i) die abstrakte Syntax con GraphML definiert die zugrundelegenden Datenobjekte.
+    So behandelt GraphML Knoten, Kanten, bzw. Graphen im allgemeinen, sowie
+    ihre Darstellung.\\
+(ii) Die Konrete Syntax von GraphML definiert Schl"usserw"orter und die Grammatik
+    der Sprache, z.B. die Schl"usselw"orter node, edge, graph, key, data und
+    das Verwenden der xml-"ublichen Klammerung.\\
+(iii) Die Semantik von GraphML ist durch das Auswerten der geklammerten 
+    Schl"usselw"orter zu Datenobjekten definiert.
+    So ist durch die Grammatik der konkreten Syntax gegeben, dass die dieser
+    zugrundeliegende abstrakte Syntax als die entsprechenden Datenobjekte
+    interpretiert werden kann.\\
+\subsubsection \ 
+XML ist Turingvollst"andig, damit k"onnen alle f"ur die 
+    Informatik relevanten mathematischen Modelle beschrieben werden, 
+    auch wenn wir mit den Schl"usselw"ortern von GraphML auskommen m"ussten,
+    solange wir die abstrakte Syntax "andern.\\
+\subsubsection \ 
+Wie gesagt ist XML Turingvollst"andig, damit kann man die Kontextsensitiven-Grammatikken
+    als Metamodell f"ur Programmiersprachen im Allgemeinen erachten.\\
+    XML ist in der Sprache der Kontextsitiven-Grammatikken enthalten,
+    eine Modell-Instanz vom Metamodell `Kontextsensitive-Grammatik` ist 
+    die Sprache XML.\\
+Alternativ: XML Schema Definition Language.\\
+
+\newpage
+\subsection{UML}
+\newpage
+
+\subsection{Anforderungs-DSLs}
+\begin{verbatim}
+(i.i)
+requirement OPENSOURCE_PL organization {
+    implemented-in developers;
+    urgency must;
+    description "open source programming language";
+    action follow;
+};
+(i.ii)
+requirement OPENSOURCE_ALL organization {
+    implemented-in developers;
+    urgency should;
+    description "everything should be open-source";
+    action follow;
+};
+(ii)
+requirement DATAEXPORT system {
+    implemented-in developers;
+    urgency should;
+    automatic;
+    description "automatic data export";
+    action export;
+};
+(iii)
+requirement EXTENDTOOL product {
+    implemented-in developers;
+    urgency must;
+    description "extend backup tool";
+    action implement;
+};
+requirement PROHIBITDEL organization {
+    required-by EXTENDTOOL;
+    implemented-in global;
+    urgency must not;
+    description "admin must not delete latest backup";
+    action delete;
+};
+(iv)
+requirement PROHIBITTOBI_WEB organization {
+    implemented-in component WEB_FRONTEND;
+    urgency may;
+    usecase-for TOBI;
+    description "don't let tobi get access to salary-data";
+    action deny;
+};
+\end{verbatim}
+\end{document}
