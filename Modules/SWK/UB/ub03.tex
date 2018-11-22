@@ -46,29 +46,25 @@ Ein Metamodell beschreibt Modelle.
     GraphML beschreibt xml-files, die als Graphen interpretiert werden k"onnen.
     Damit sind die Modelle von GraphML xml-files.\\
 \subsubsection \ 
-(i) die abstrakte Syntax con GraphML definiert die zugrundelegenden Datenobjekte.
-    So behandelt GraphML Knoten, Kanten, bzw. Graphen im allgemeinen, sowie
+(i) die abstrakte Syntax von GraphML definiert die zugrundelegenden Datenobjekte.
+    So behandelt GraphML Knoten, Kanten, bzw. Graphen im Allgemeinen, sowie
     ihre Darstellung.\\
-(ii) Die Konrete Syntax von GraphML definiert Schl"usserw"orter und die Grammatik
+(ii) Die konrete Syntax von GraphML definiert Schl"usserw"orter und die Grammatik
     der Sprache, z.B. die Schl"usselw"orter node, edge, graph, key, data und
     das Verwenden der xml-"ublichen Klammerung.\\
-(iii) Die Semantik von GraphML ist durch das Auswerten der geklammerten 
-    Schl"usselw"orter zu Datenobjekten definiert.
-    So ist durch die Grammatik der konkreten Syntax gegeben, dass die dieser
-    zugrundeliegende abstrakte Syntax als die entsprechenden Datenobjekte
-    interpretiert werden kann.\\
+(iii) Die Semantik von GraphML ist durch das Auswerten der Inhalte f"ur die
+    jeweiligen geklammerten Schl"usselw"orter zu Datenobjekten definiert.\\
 \subsubsection \ 
 XML ist Turingvollst"andig, damit k"onnen alle f"ur die 
-    Informatik relevanten mathematischen Modelle beschrieben werden, 
-    auch wenn wir mit den Schl"usselw"ortern von GraphML auskommen m"ussten,
-    solange wir die abstrakte Syntax "andern.\\
+    Informatik relevanten mathematischen Modelle beschrieben werden.\\
 \subsubsection \ 
 Wie gesagt ist XML Turingvollst"andig, damit kann man die Kontextsensitiven-Grammatikken
     als Metamodell f"ur Programmiersprachen im Allgemeinen erachten.\\
     XML ist in der Sprache der Kontextsitiven-Grammatikken enthalten,
     eine Modell-Instanz vom Metamodell `Kontextsensitive-Grammatik` ist 
     die Sprache XML.\\
-Alternativ: XML Schema Definition Language.\\
+Alternativ: XML Schema Definition Language, was im Internet
+    als das ofizielle Metamodell von XML gelistet wird.\\
 
 \newpage
 \subsection{UML}
@@ -76,8 +72,16 @@ Alternativ: XML Schema Definition Language.\\
 
 \subsection{Anforderungs-DSLs}
 \begin{verbatim}
+(i)
+requirement IMPLEMENTATIONTHREAD organization {
+    implemented-in developers;
+    urgency must;
+    description "customers implementation-requirements";
+    action follow;
+};
 (i.i)
 requirement OPENSOURCE_PL organization {
+    required-by IMPLEMENTATIONTHREAD;
     implemented-in developers;
     urgency must;
     description "open source programming language";
@@ -85,13 +89,14 @@ requirement OPENSOURCE_PL organization {
 };
 (i.ii)
 requirement OPENSOURCE_ALL organization {
+    required-by IMPLEMENTATIONTHREAD;
     implemented-in developers;
     urgency should;
     description "everything should be open-source";
     action follow;
 };
 (ii)
-requirement DATAEXPORT system {
+requirement DATAEXPORT product {
     implemented-in developers;
     urgency should;
     automatic;
@@ -99,7 +104,9 @@ requirement DATAEXPORT system {
     action export;
 };
 (iii)
-requirement EXTENDTOOL product {
+// Der Einleitungstext konnte auch als Anforderung aufgefasst werden, 
+// desshalb die zweiteilung der Anforderung.
+requirement EXTENDTOOL system {
     implemented-in developers;
     urgency must;
     description "extend backup tool";
@@ -107,18 +114,18 @@ requirement EXTENDTOOL product {
 };
 requirement PROHIBITDEL organization {
     required-by EXTENDTOOL;
-    implemented-in global;
+    implemented-in developers;
     urgency must not;
     description "admin must not delete latest backup";
     action delete;
 };
 (iv)
-requirement PROHIBITTOBI_WEB organization {
+requirement PROHIBITTOBI_WEB user {
     implemented-in component WEB_FRONTEND;
-    urgency may;
+    urgency may not;
     usecase-for TOBI;
-    description "don't let tobi get access to salary-data";
-    action deny;
+    description "don't let Tobi get access to salary-data";
+    action access;
 };
 \end{verbatim}
 \end{document}
