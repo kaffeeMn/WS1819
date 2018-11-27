@@ -68,9 +68,9 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
     $T(n/8,m/2)$.
     Die Berechnugn $F_2$-schwerer Kanten und die Konstruktion von $G_3$ mittels
     derer ben"otigt ebenfalls $O(m+n)$.
-    Nach dem Lemma 10.19 ist die Anzahl von $F$-leichten Kanten in $G$ durch
-    $n/p = 2n,$ mit $p = 0,5$ im Erwartungswert nach oben beschr"ankt. Da $G_1$
-    aner nur $n/8$ Knoten hat, k"onnen wir die Anzahl an Kanten in $G_3$
+    Nach dem Lemma 10.19 \cite{randAlg} ist die Anzahl von $F$-leichten Kanten in $G$ durch
+    $n/p = 2n,$ mit $p = 0,5$ im Erwartungswert gegeben. Da $G_1$
+    aber nur $n/8$ Knoten hat, k"onnen wir die Anzahl an Kanten in $G_3$
     durch $2*n/8 = n/4$ im Erwartungswert absch"atzen.
     Damit bel"auft sich die erwartete Laufzeit der Berechnung von $F_3$ auf
     $T(n/2, n/4)$.
@@ -78,6 +78,7 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
 Aus den Laufzeiten der Teilschritte folgt
     $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m)$.
     Nach der Literatur kann $T(n,m)$ durch $2c(n+m)$ abgesch"atzt werden.
+% TODO: Kuerzer
     Ein Beweis, dass $T(n,m)$ tats"achlich in $O(n+m)$ enthalten ist befindet
     sich im Anhang.\\
     \\
