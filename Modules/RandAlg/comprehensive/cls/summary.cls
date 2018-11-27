@@ -15,10 +15,11 @@
         \\
         \@title
     \end{Huge}\\
-    \begin{large}
+    \begin{Large}
+        \\
         \\
         \@author
-    \end{large}\\
+    \end{Large}\\
     \\
     \\
 }

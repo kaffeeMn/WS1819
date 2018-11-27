@@ -16,25 +16,25 @@ Hierf"ur k"onnen wir einen beliebigen Knoten $v \in V_G$ und die zu $v$ inzident
 1. Fall $adj(v)$ enth"alt nur eine Kante oder mehrere inzidenten Kanten sind minimal. 
     Dann ist die minimale Kante Kante zwangsweise im 
     MST, oder ein MST mit gleichem Gewicht kann durch eine der anderen minimalen
-    Kanten knostruiert werden.\\
+    Kanten konstruiert werden.\\
 2. Fall $|adj(v)| > 1$ und nur eine Kante ist minimal. 
     Nehmen wir an, dass ein MST existiert, der $e_{min}$ 
     nicht enth"alt. 
     Der MST verbindet alle Knoten.
     Entfernen wir die zu $v$ inzidente Kante im MST
     und ersetzen wir sie durch $e_{min}$, so haben wir keinen Zyklus und das
-    Gewicht f"ur des MST veringert. 
+    Gewicht des MST veringert. 
     Damit war der MST nicht minimal.
     Aus dem Widerspruch folgt, dass die minimale inzidente Kante eines jeden
     Knoten im MST enthalten sein muss.\\
 \\
-Des weiteren ist f"ur uns interessant, dass durch das Markieren der minimalen
+Des weiteren ist f"ur uns interessant, dass durch die markierten, minimalen
     Kanten kein Zyklus entsteht. 
     Damit ein Zyklus entstehen w"urde m"usste ein Pfad geschlossen werden, 
     indem mindestens eine zus"atzliche Kante hinzugenommen wird. 
     Dessen Kantengewicht m"usste kleiner, als das der bereits inzidenten, 
     minimalen, markierten Kante sein.\\
-Ferner bedeutet das, dass wir durch die f"ur die Kontraktion markierten Kanten
+Ferner bedeutet das, dass wir durch die zur Kontraktion markierten Kanten
     $E_{min}$ nach einer Bor\r uvka-Phase einen Wald $F$ in $G$ induzieren.
     Dies wird f"ur uns insebesondere dann interessant, wenn
     wir rekursiv einen Wald aufbauen m"ochten.\\
@@ -58,7 +58,7 @@ Es werden die durch $E_{min}$ verbundenen Komponenten auf je einen Knoten
     An dieser Stelle w"urde aber unser Algorithmus terminieren.
     Die kleinste Verbundene Komponente die wir in einer Bor\r uvka-Phase 
     betrachten werden besteht also aus zwei Knoten und einer Kante.
-    Da $G$ zusammeng"angend ist existieren damit maximal $n/2$ verbundene
+    Da $G$ zusammenh"angend ist existieren damit maximal $n/2$ verbundene
     Komponenten.\\
 Wir stellen fest, dass eine Bor\r uvka-Phase die Menge an Knoten in $G$ auf 
     maximal die H"alfte reduziert, n"amlich genau dann, wenn die markierten 

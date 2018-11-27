@@ -3,7 +3,7 @@
 Nun da wir Verfahren zum reduzieren von Knoten und Kanten des Graphen $G$ kennen
     gelernt haben  k"onnen wir anfangen einen Algorithmus zu konstruieren,
     dessen Ausgabe ein Wald $F$ in $G$ ist.\\
-Die erste Entscheidung die wir treffen m"ussen, ist ob wir zuerst Knoten oder Kanten
+Die erste Entscheidung die wir treffen m"ussen ist, ob wir zuerst Knoten oder Kanten
     reduzieren. \\
 Da wir in \hyperref[sec:borIdea]{\textit{3.1.1}} gelernt haben, dass
     Bor\r uvka-Phasen nur Kanten markieren, die im MST/MSF 
@@ -12,8 +12,8 @@ Da wir in \hyperref[sec:borIdea]{\textit{3.1.1}} gelernt haben, dass
     Dadurch veringern wir
     zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
     Sollten wir in in den Bor\r uvka-Phasen terminieren geben wir den Teilgraph
-    mit allen markierten Kanten aus.
-    Die Bor\r uvka Phasen werden also auch das Abbruchkriterium unserer
+    mit allen markierten Kanten $C$ aus.
+    Die Bor\r uvka-Phasen werden also auch das Abbruchkriterium unserer
     Rekursion sein.\\
 Anschlie"send konstruieren wir $G_2 = G_1(p)$ und f"uhren einen rekursiven
     Aufruf auf diesem durch. 
@@ -34,7 +34,7 @@ F"uhren wir nun nocheinmal einen rekursiven Aufruf auf $G_3$ durch,
     auf $G_3$ nur unwahrscheinlich die Anzahl von Verbundenen Komponenten in 
     $G_3$ um ein wesentliches erh"ohen, bzw. Komponenten aus $G_3$ nicht mehr
     zusammen h"angen.
-    Wir verursachen also keinen Schaden durch das Entfernen der $F$-schweren
+    Wir verursachen also keinen Schaden durch das Entfernen der $F_2$-schweren
     Kanten.\\
 Nachdem wir den Wald $F_3$ bestimmt haben geben wir unsere, von den Bor\r uvka-Phasen
     markierten, Kanten in $C$ vereinigt mit $F_3$ aus.\\
@@ -49,13 +49,13 @@ Nachdem wir den Wald $F_3$ bestimmt haben geben wir unsere, von den Bor\r uvka-P
                                  ein Teilgraph $C$ mit den zur
                                  Kokatenierung markierten Kanten zur"uck gegeben.\\
                                  \textbf{Wenn} $G$ leer ist oder in den Bor\r uvka-Phasen
-                                 terminiert wird geben wir $C$ aus.\\
+                                 terminiert wird geben wir $F=C$ aus.\\
                                  \end{tabular}
     \STATE $G_2$ $\leftarrow$ $G_1(p=0,5)$
     \STATE $F_2$ $\leftarrow$ $MST(G_2)$
     \STATE $G_3$ $\leftarrow$ $(V_{G_1}, E_{G_1} - E_{F_2-heavy})$
     \STATE $F_3$ $\leftarrow$ $MST(G_3)$
-    \RETURN $C \cup F_3$
+    \RETURN $F = C \cup F_3$
 \end{algorithmic}
 \end{algorithm}
 
@@ -66,20 +66,21 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
     $G_2 = G_1(p)$ aus Zeile 2 kann ebenfalls in $O(m + n)$ berechnet werden.
     $G_1$ hat nur noch $n/2^3 = n/8$ Knoten und f"ur $G_2$ hat damit 
     $|V_{G_2}| = n/8$ Knoten und im Erwartungswert $|E_{G_2}| = m/2$ Kanten.
-    Folglich ben"otigt die Berechnung von $F_3$  die erwartete Laufzeit 
+    Folglich ben"otigt die Berechnung von $F_2$  die erwartete Laufzeit 
     $T(n/8,m/2)$.
     Die Berechnugn $F_2$-schwerer Kanten und die Konstruktion von $G_3$ mittels
     derer ben"otigt ebenfalls $O(m+n)$.
     Nach dem Lemma 10.19 \cite{randAlg} ist die Anzahl von $F$-leichten Kanten in $G$ durch
     $n/p = 2n,$ mit $p = 0,5$ im Erwartungswert gegeben. Da $G_1$
     aber nur $n/8$ Knoten hat, k"onnen wir die Anzahl an Kanten in $G_3$
-    durch $2*n/8 = n/4$ im Erwartungswert absch"atzen.
+    durch $2 \cdot n/8 = n/4$ im Erwartungswert absch"atzen.
     Damit bel"auft sich die erwartete Laufzeit der Berechnung von $F_3$ auf
     $T(n/2, n/4)$.
-    Die Vereinigung von $C$ und $F$ in Zeile 6 ben"otigt $O(n)$.\\
+    Die Vereinigung von $C$ und $F$ in Zeile 6 ben"otigt $O(n+m)$.\\
 Aus den Laufzeiten der Teilschritte folgt
     $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m)$.
-    Nach der Literatur kann $T(n,m)$ durch $2c(n+m)$ abgesch"atzt werden.
+    Nach der Literatur kann der rekursive Anteil der Ungleichung durch $2c(n+m)$ 
+    abgesch"atzt werden.
     %Ein Beweis, dass $T(n,m)$ tats"achlich in $O(n+m)$ enthalten ist befindet
     %sich im Anhang.\\
     \\
