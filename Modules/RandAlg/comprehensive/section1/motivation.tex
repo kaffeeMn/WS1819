@@ -20,8 +20,8 @@ Wir werden in dieser Ausarbeitung zum Kapitel 10.3 aus dem Buch
     in erwarteter Linearzeit aproximiert betrachten.\\
 Das MST Problem ist in $P$, und es sind bereits 
     deterministische Algorithmen wie die von
-    Prim, Kruskal, Bor\r uvka bekannt
-    , die mit einer Worst-Case Laufzeitschranke 
+    Prim, Kruskal, Bor\r uvka bekannt, 
+    die mit einer Worst-Case Laufzeitschranke 
     von $O(m * log(n))$ das Problem l"osen.
     Zudem existiert der Algorithmus von Bernard Chazelle, f"ur den eine
     Worst-Case Laufzeitschranke von $O(m * log \beta(m,n))$ bekannt ist, wobei
@@ -31,11 +31,12 @@ Das MST Problem ist in $P$, und es sind bereits
     $log^{(i)} n$ ist hierbei die $i$-te Anwendung von $log$ auf $n$.
     Dementsprechend steigt die Funktion $\beta$ so schwach, dass die
     aus ihr resultierenden Faktoren f"ur die Worst-Case Laufzeit hinsichtlich
-    der Gr"o"se von Graphen in der Praxis als nahezu konstant angesehen werden.\\
+    der Gr"o"se von Graphen in der Praxis als nahezu konstant angesehen werden 
+    kann.\\
 Wozu dient also ein nichtdeterministischer Algorithmus, der im Erwartungswert 
-    linear verl"auft?
+    Linearzeit ben"otigt?
     - Die Antwort auf diese Frage kann sowohl durch die komplexe Implementierung
     des Algorithmus von Chazelle, als auch der Stabilit"at, bzw. G"ute,
-    des vorgestellten Algorithmus hinsichtlich seiner Laufzeit
-    und nicht zuletzt durch das Betrachten des Algorithmus als akademisches
+    des vorgestellten Algorithmus hinsichtlich seiner Laufzeit und Approximation,
+    sowie nicht zuletzt durch das Betrachten des Algorithmus als akademisches
     Beispiel f"ur kreative Laufzeitverbesserungen begr"undet werden.\\

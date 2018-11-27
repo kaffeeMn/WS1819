@@ -11,7 +11,7 @@ Da wir in \hyperref[sec:borIdea]{\textit{3.1.1}} gelernt haben, dass
     $G_1$.
     Dadurch veringern wir
     zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
-    Sollte wir in in den Bor\r uvka-Phasen terminieren geben wir den Teilgraph
+    Sollten wir in in den Bor\r uvka-Phasen terminieren geben wir den Teilgraph
     mit allen markierten Kanten aus.
     Die Bor\r uvka Phasen werden also auch das Abbruchkriterium unserer
     Rekursion sein.\\
@@ -25,7 +25,7 @@ Wir haben in \hyperref[sec:verification]{\textit{2.2.2}} einen
     kann.
     Da wir durch \hyperref[sec:fProof]{\textit{2.2.1}} wissen, dass $F_2$-schwere Kanten nicht im MST/MSF von $G$
     enthalten sein k"onnen, entfernen wir alle $F_2$-schwere Kanten $E_{F_2-heavy}$
-    aus $G_1$,
+    aus dem Graphen $G_1$,
     auf dem lediglich die Bor\r uvka-Phasen angewandt wurden und erhalten $G_3$.\\
 F"uhren wir nun nocheinmal einen rekursiven Aufruf auf $G_3$ durch, 
     so erhalten wir 
@@ -33,7 +33,9 @@ F"uhren wir nun nocheinmal einen rekursiven Aufruf auf $G_3$ durch,
     Ferner ist insbesondere in dichten Graphen zu erwarten, dass die Stichproben 
     auf $G_3$ nur unwahrscheinlich die Anzahl von Verbundenen Komponenten in 
     $G_3$ um ein wesentliches erh"ohen, bzw. Komponenten aus $G_3$ nicht mehr
-    zusammen h"angen.\\
+    zusammen h"angen.
+    Wir verursachen also keinen Schaden durch das Entfernen der $F$-schweren
+    Kanten.\\
 Nachdem wir den Wald $F_3$ bestimmt haben geben wir unsere, von den Bor\r uvka-Phasen
     markierten, Kanten in $C$ vereinigt mit $F_3$ aus.\\
 
@@ -78,7 +80,6 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
 Aus den Laufzeiten der Teilschritte folgt
     $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m)$.
     Nach der Literatur kann $T(n,m)$ durch $2c(n+m)$ abgesch"atzt werden.
-% TODO: Kuerzer
-    Ein Beweis, dass $T(n,m)$ tats"achlich in $O(n+m)$ enthalten ist befindet
-    sich im Anhang.\\
+    %Ein Beweis, dass $T(n,m)$ tats"achlich in $O(n+m)$ enthalten ist befindet
+    %sich im Anhang.\\
     \\
