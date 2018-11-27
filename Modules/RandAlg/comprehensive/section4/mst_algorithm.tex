@@ -1,16 +1,21 @@
 \section{Der MST-Algorithmus}
 
 Nun da wir Verfahren zum reduzieren von Knoten und Kanten des Graphen $G$ kennen
-    gelernt haben  k"onnen wir anfangen einen Algorithmus zu konstruieren.
-    Die Ausgabe unseres Algorithmus sei ein Wald $F$ in $G$.\\
-Die erste Entscheidung die wir treffen m"ussen, ob wir zuerst Knoten oder Kanten
-    reduzieren. Da Bor\r uvka-Pahsen nur Kanten markieren, die im MST/MSF 
-    enthalten sind fangen wur mit Bor\r uvka-Pahsen an und erhalten den Graphen 
+    gelernt haben  k"onnen wir anfangen einen Algorithmus zu konstruieren,
+    dessen Ausgabe ein Wald $F$ in $G$ ist.\\
+Die erste Entscheidung die wir treffen m"ussen, ist ob wir zuerst Knoten oder Kanten
+    reduzieren. \\
+Da Bor\r uvka-Pahsen nur Kanten markieren, die im MST/MSF 
+    enthalten sind fangen wur mit Bor\r uvka-Phasen an und erhalten den Graphen 
     $G_1$.
     Dadurch veringern wir
     zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
-    Anschlie"send konstruieren wir $G_2 = G(p)$, wir wissen also, dass $G$ 
-    $\frac{n/2}{p}$ $F$-leichte Kanten nach diesen Verfahren enth"alt.\\
+    Anschlie"send konstruieren wir $G_2 = G_1(p)$, wir wissen also, dass $G$ 
+    $\frac{n/2}{p}$ $F$-leichte Kanten nach diesem Verfahren enth"alt.\\
+Wir haben in \hyperref[sec:verification]{\textit{2.2.2}} einen 
+    Verfikationsalgorithmus definiert, der auch $F_2$-schwere Kanten ausgeben
+    kann.\\
+
 \begin{algorithm}
 \KwData{Graph $G$}
 \KwResult{Approximation eines MST/ MSF in $G$}

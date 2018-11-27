@@ -10,6 +10,8 @@
 \usepackage[]{algorithm2e}
 \usepackage{float}
 \restylefloat{table}
+\usepackage{hyperref}
+
 
 \title{Der Linearzeit MST-Algorithmus\\
        \LARGE Der schnellste Algorithmus f"ur das MST/ MSF Problem}
@@ -19,20 +21,25 @@
 \setcounter{section}{-1}
 
 \begin{document}
-% ******************************** Front Matter ********************************
-%\frontmatter
 \maketitle
 
-% ******************************** Main Matter *********************************
+% paragraphs
 \input{section0/conventions}
 \input{section1/motivation}
 \input{section2/f_edges}
 \input{section3/graph_reduction}
 \input{section4/mst_algorithm}
+
+% literature
+\begin{thebibliography}{}
+\footnotesize
+\bibitem{randAlg} 
+    Motwani, R., Raghavan, P. :
+    \textit{Randomized Algorithms}. Cambridge :
+    Cambridge University Press 1995, Kapitel 10.3.
+\end{thebibliography}
+
+% appendix
 \newpage
 \input{appendix/appendix}
-
-% ********************************** Back Matter *******************************
-% Backmatter should be commented out, if you are using appendices after References
-%\backmatter
 \end{document}
