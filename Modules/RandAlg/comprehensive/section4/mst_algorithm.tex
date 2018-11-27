@@ -5,25 +5,49 @@ Nun da wir Verfahren zum reduzieren von Knoten und Kanten des Graphen $G$ kennen
     dessen Ausgabe ein Wald $F$ in $G$ ist.\\
 Die erste Entscheidung die wir treffen m"ussen, ist ob wir zuerst Knoten oder Kanten
     reduzieren. \\
-Da Bor\r uvka-Pahsen nur Kanten markieren, die im MST/MSF 
-    enthalten sind fangen wur mit Bor\r uvka-Phasen an und erhalten den Graphen 
+Da wir in \hyperref[sec:borIdea]{\textit{3.1.1}} gelernt haben, dass
+    Bor\r uvka-Phasen nur Kanten markieren, die im MST/MSF 
+    enthalten sind fangen wir mit Bor\r uvka-Phasen an und erhalten den Graphen 
     $G_1$.
     Dadurch veringern wir
     zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
-    Anschlie"send konstruieren wir $G_2 = G_1(p)$, wir wissen also, dass $G$ 
-    $\frac{n/2}{p}$ $F$-leichte Kanten nach diesem Verfahren enth"alt.\\
+    Sollte wir in in den Bor\r uvka-Phasen terminieren geben wir den Teilgraph
+    mit allen markierten Kanten aus.
+    Die Bor\r uvka Phasen werden also auch das Abbruchkriterium unserer
+    Rekursion sein.\\
+Anschlie"send konstruieren wir $G_2 = G_1(p)$ und f"uhren einen rekursiven
+    Aufruf auf diesem durch. 
+    Wir wissen also durch \hyperref[sec:goodnessRand]{\textit{3.2.1}}, 
+    dass $G$ im Erwartungswert
+    $\frac{n/2}{p}$ $F_2$-leichte Kanten vor dem rekursiven Aufruf enth"alt.\\
 Wir haben in \hyperref[sec:verification]{\textit{2.2.2}} einen 
     Verfikationsalgorithmus definiert, der auch $F_2$-schwere Kanten ausgeben
-    kann.\\
+    kann.
+    Da wir durch \hyperref[sec:fProof]{\textit{2.2.1}} wissen, dass $F_2$-schwere Kanten nicht im MST/MSF von $G$
+    enthalten sein k"onnen, entfernen wir alle $F_2$-schwere Kanten $E_{F_2-heavy}$
+    aus $G_1$,
+    auf dem lediglich die Bor\r uvka-Phasen angewandt wurden und erhalten $G_3$.\\
+F"uhren wir nun nocheinmal einen rekursiven Aufruf auf $G_3$ durch, 
+    so erhalten wir 
+    einen Wald $F_3$ mit intuitiv weniger $F_3$-schweren, als $F_2$-schweren Kanten in $G$.
+    Ferner ist insbesondere in dichten Graphen zu erwarten, dass die Stichproben 
+    auf $G_3$ nur unwahrscheinlich die Anzahl von Verbundenen Komponenten in 
+    $G_3$ um ein wesentliches erh"ohen, bzw. Komponenten aus $G_3$ nicht mehr
+    zusammen h"angen.\\
+Nachdem wir den Wald $F_3$ bestimmt haben geben wir unsere, von den Bor\r uvka-Phasen
+    markierten, Kanten in $C$ vereinigt mit $F_3$ aus.\\
 
 \begin{algorithm}
 \KwData{Graph $G$}
 \KwResult{Approximation eines MST/ MSF in $G$}
 \begin{algorithmic}[1]
     \STATE $G_1, C$ $\leftarrow$\begin{tabular}[H]{l}
-                                 3 Bor\r uvka-Phasen werden auf $G$ angewandt.\\
-                                 Dabei wird der resultierende Graph und die zur\\
-                                 Kokatenierung markierten Kanten zur"uck gegeben.
+                                 3 Bor\r uvka-Phasen werden auf $G$ angewandt.
+                                 Dabei wird der resultierende Graph und\\
+                                 ein Teilgraph $C$ mit den zur
+                                 Kokatenierung markierten Kanten zur"uck gegeben.\\
+                                 \textbf{Wenn} $G$ leer ist oder in den Bor\r uvka-Phasen
+                                 terminiert wird geben wir $C$ aus.\\
                                  \end{tabular}
     \STATE $G_2$ $\leftarrow$ $G_1(p=0,5)$
     \STATE $F_2$ $\leftarrow$ $MST(G_2)$

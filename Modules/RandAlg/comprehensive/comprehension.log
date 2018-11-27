@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  27 NOV 2018 10:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  27 NOV 2018 12:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -499,26 +499,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--38
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--71
+Underfull \hbox (badness 10000) in paragraph at lines 42--73
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 40--71
+Underfull \hbox (badness 10000) in paragraph at lines 42--73
 
  []
 
 [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 72.
+(hyperref)                removing `math shift' on input line 74.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 72.
+(hyperref)                removing `math shift' on input line 74.
 
 ) (./section3/graph_reduction.tex
-Underfull \hbox (badness 10000) in paragraph at lines 74--2
+Underfull \hbox (badness 10000) in paragraph at lines 76--2
 
  []
 
@@ -534,17 +534,17 @@ Package hyperref Warning: Composite letter `\textring+u'
 (hyperref)                removing `\textring' on input line 2.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--39
+Underfull \hbox (badness 10000) in paragraph at lines 7--41
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 5--39
+Underfull \hbox (badness 10000) in paragraph at lines 7--41
 
  []
 
 [3]) (./section3/sampling.tex
-Underfull \hbox (badness 10000) in paragraph at lines 48--2
+Underfull \hbox (badness 10000) in paragraph at lines 50--2
 
  []
 
@@ -554,32 +554,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--14
  []
 
 [4])) (./section4/mst_algorithm.tex
-Underfull \hbox (badness 10000) in paragraph at lines 17--1
+Underfull \hbox (badness 10000) in paragraph at lines 18--1
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 17--1
+Underfull \hbox (badness 10000) in paragraph at lines 18--1
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 3--18
+Underfull \hbox (badness 10000) in paragraph at lines 3--39
 
  []
 
 
-Overfull \hbox (15.0pt too wide) detected at line 34
+Overfull \hbox (15.0pt too wide) detected at line 58
 [][] 
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 38--32
+Underfull \hbox (badness 10000) in paragraph at lines 62--32
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 38--32
+Underfull \hbox (badness 10000) in paragraph at lines 62--32
 
  []
 
@@ -599,13 +599,13 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 7493 strings out of 492995
- 109703 string characters out of 6132704
- 232100 words of memory out of 5000000
- 10913 multiletter control sequences out of 15000+600000
+ 7496 strings out of 492995
+ 109746 string characters out of 6132704
+ 232258 words of memory out of 5000000
+ 10916 multiletter control sequences out of 15000+600000
  11887 words of font info for 46 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 30i,12n,34p,311b,5472s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 30i,12n,34p,311b,5487s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmex10.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/c
@@ -624,10 +624,10 @@ l/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local
 exlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/te
 xlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti8.pfb></usr/local/texl
 ive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on comprehension.pdf (9 pages, 223250 bytes).
+Output written on comprehension.pdf (9 pages, 225257 bytes).
 PDF statistics:
- 215 PDF objects out of 1000 (max. 8388607)
- 184 compressed objects within 2 object streams
+ 220 PDF objects out of 1000 (max. 8388607)
+ 189 compressed objects within 2 object streams
  40 named destinations out of 1000 (max. 500000)
  145 words of extra memory for PDF output out of 10000 (max. 10000000)
 
