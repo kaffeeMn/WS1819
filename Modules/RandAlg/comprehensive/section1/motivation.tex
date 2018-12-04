@@ -2,10 +2,11 @@
 \section{Motivation}
 
 \subsection{MST und MSF}
-Der minimale Spannbaum, oder auch MST, stellt einen azyklischen 
-    zusammenh"angenden Teilgraph aus $G$, der alle Knoten verbindet und
-    dessen Summe von Kantengewichte $\sum_{e \in E_{MST}} w(e)$
-    minimal ist dar.\\
+Der minimale Spannbaum, oder auch MST, bezeichnet einen azyklischen 
+    zusammenh"angenden Teilgraph aus $G$, der sich dadurch kennzeichnet, dass
+    alle Knoten verbunden sind und
+    die Summe von Kantengewichte $\sum_{e \in E_{MST}} w(e)$
+    minimal ist.\\
 Ist $G$ selbst nicht zusammenh"angend, so werden wir einen minimalen Spannwald,
     oder auch MSF,
     als n"achst beste L"osung betrachten.
@@ -15,15 +16,18 @@ Ist $G$ selbst nicht zusammenh"angend, so werden wir einen minimalen Spannwald,
 \subsection{Vorteile eines nichtdeterministischen Anzatzes}
 
 Wir werden in dieser Ausarbeitung zum Kapitel 10.3 aus dem Buch
+    \textit{Randomized Algorithms}, von 
+    Motwani, R., Raghavan, P.
     \cite{randAlg}
     einen
-    randomisierten Ansatz f"ur einen Algorithmus, der einen minimalen Spannbaum
-    in erwarteter Linearzeit aproximiert betrachten.\\
+    randomisierten Ansatz f"ur einen Algorithmus betrachten, 
+    der einen minimalen Spannbaum
+    in erwarteter Linearzeit approximiert betrachten.\\
 Das MST Problem ist in $P$ enthalten und es sind bereits 
     deterministische Algorithmen wie die von
-    Prim, Kruskal, Bor\r uvka bekannt, 
-    die mit einer Worst-Case Laufzeitschranke 
-    von $O(m * log(n))$ das Problem l"osen.
+    Prim, Kruskal und Bor\r uvka bekannt, 
+    die das Problem mit einer Worst-Case Laufzeitschranke 
+    von $O(m * log(n))$ l"osen.
     Zudem existiert der Algorithmus von Bernard Chazelle, f"ur den eine
     Worst-Case Laufzeitschranke von $O(m * log \beta(m,n))$ bekannt ist, wobei
     mit
@@ -36,7 +40,7 @@ Das MST Problem ist in $P$ enthalten und es sind bereits
     kann.\\
 Wozu dient also ein nichtdeterministischer Algorithmus, der im Erwartungswert 
     Linearzeit ben"otigt?
-    - Die Antwort auf diese Frage kann sowohl durch die komplexe Implementierung
+    Die Antwort auf diese Frage kann sowohl durch die komplexe Implementierung
     des Algorithmus von Chazelle, als auch durch die Stabilit"at, bzw. G"ute,
     des vorgestellten Algorithmus hinsichtlich seiner Laufzeit und Approximation,
     sowie nicht zuletzt durch das Betrachten des Algorithmus als akademisches

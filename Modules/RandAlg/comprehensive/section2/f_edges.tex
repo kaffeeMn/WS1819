@@ -16,16 +16,16 @@ $F$-schwere und -leichte Kanten sind ein wesentlicher Bestandteil des
 Wir betrachten neben der Gewichtungsfunktion $w$ nun die Funktion $w_F$, mit
     $$
     w_F(\{u,v\}) =  \begin{cases}
-                        \infty, P(\{u,v\}) = \emptyset\\
+                        \infty, P_e(\{u,v\}) = \emptyset\\
                         max\{w(P_e(\{u,v\}))\}, \text{ sonst}
                     \end{cases}
     $$
 , wobei $w(P_e(\{u,v\}))$ bedeutet, dass $w$ auf alle Kanten des Pfades angewandt
     wurde.\\
-$w_F$, gibt also das Kantengewicht der Kante mit maximalen Gewicht auf dem
+$w_F$, gibt also das Kantengewicht der Kante mit maximalem Gewicht auf dem
     Pfad von $u$ nach $v$ in $F$ aus. Sollte dieser Pfad nicht existieren, so
     nehmen wir an, dass diese Kante unendlich schwer ist.\\
-Ist das Gewicht einer Kante $w(e)$ echt gr"o"ser als das maximale Gewicht auf dem 
+Ist das Gewicht $w(e)$ einer Kante $e$ echt gr"o"ser als das maximale Gewicht auf dem 
     Pfad $P_e(e)$ in $F$, bzw. $w(e) > w_F(e)$, 
     so bezeichnen wir sie als $F$-schwer.
     Sonst ist sie $F$-leicht.
@@ -34,8 +34,8 @@ Ist das Gewicht einer Kante $w(e)$ echt gr"o"ser als das maximale Gewicht auf de
 
 Wir haben bereits erw"ahnt, dass $F$-schwere Kanten nicht in einem MSF, bzw. MST
     enthalten sein k"onnen.
-    Dies werden wir im folgenden beweisen.
-    Aufbauend darauf k"onnen wir dann einen Verifikationsalgorithmus definieren.\\
+    Dies werden wir im Folgenden beweisen
+    und aufbauend darauf dann einen Verifikationsalgorithmus definieren.\\
 
 \subsubsection{Beweis}
 \label{sec:fProof}
@@ -47,7 +47,8 @@ Sei $F$ ein beliebiger Baum in $G$.
 (ii) $\forall e' \in P_e(e) : w(e') < w(e)$\\
 W"are $e$ im $MSF$ von $G$ enthalten, so w"urde das Tauschen einer Kante aus
     $F$ durch $e$ den Wald $F$ verbessern.\\
-Aus (i) folgt, dass durch $e$ ein Zyklus entsteht. Insbesondere bedeutet das, 
+Aus (i) folgt, dass durch hinzunahme von $e$ ein Zyklus entsteht. 
+    Insbesondere bedeutet das, 
     dass wir f"ur $e$ eine Kante auf dem Pfad zwischen $u$ und $v$ tauschen
     m"ussten.
     Aus (ii) folgt jedoch, dass dies $F$ verschlechtern w"urde.
@@ -59,34 +60,38 @@ Der Umkehrschluss, dass alle $F$-leichten Kanten im MSF vorkommen gilt jedoch
     $n = |V_{G_{w_1}}| > 2$, so stellen wir fest, dass jeder Pfad in $G$, der alle
     Knoten verbindet ein MST $F$ von $G$ ist.
     Zudem ist jede Kante $F$-leicht, da alle Kanten gleich gewichtet werden.
-    W"are jede $F$-leichte Kante im MST enthalten, so w"are der MST gleich $G$,
-    da $G$ vollst"andig und $n > 2$ ist, w"are aber mindestens ein Zyklus im 
+    W"are jede $F$-leichte Kante im MST enthalten, so w"are der MST gleich $G$.
+    Da $G$ vollst"andig und $n > 2$ ist, w"are aber mindestens ein Zyklus im 
     MST enthalten und damit eine Baum-, bzw. Wald-Eigenschaft verletzt.\\
     Damit gilt der Umkehrschluss nicht.\\
 \\
-Wir k"onnen also s"amtliche $F$-schwere Kanten f"ur das erfassen des MST 
+Wir k"onnen also s"amtliche $F$-schwere Kanten f"ur das Erfassen des MST 
     ignorieren, bzw. sogar aus $G$ eliminieren.\\
-Diese Erkenntnis nimmt sich auch der MST-Algorithmus zum Nuzten.\\
+Diese Erkenntnis nimmt sich auch der MST-Algorithmus zum Nutzen.\\
 
 \subsubsection{Verifikation durch $F$-schwere/-leichte Kanten}
 \label{sec:verification}
 Es liegt nahe, dass $F$ kein MSF in $G$ ist, wenn eine Kante $\{u,v\}$ 
-    existiert dessen gewicht echt kleiner als das des maximalen Gewichts auf dem
-    Pfad $P_e(\{u,v\})$ in $F$ ist. W"urde man annehmen, dass $F$ ein MSF w"are, 
+    existiert, dessen Gewicht echt kleiner als das des maximalen Gewichts auf dem
+    Pfad $P_e(\{u,v\})$ in $F$ ist. 
+    N"ahme man an, dass $F$ ein MSF w"are, 
     so k"onnte man $E_F$ um die Kante $\{u,v\}$ erweitern und den dadurch 
-    entstandenen Zyklus mittels entfernen der Kante mit maximalen Gewicht auf dem
-    Pfad $P_e(\{u,v\})$ l"osen. Dadurch h"atte man die Zusammenh"angende 
+    entstandenen Zyklus mittels Eliminieren der Kante mit maximalem Gewicht auf dem
+    Pfad $P_e(\{u,v\})$ l"osen. Dadurch h"atte man die zusammenh"angende 
     Komponente als solche gewahrt und eine schwerere durch eine leichtere Kante
-    substituiert. Folglich h"atte man einen leichteren Wald und $F$ w"are damit
-    kein MSF.\\
-Diese Erkenntnis reicht bereits aus um einen Verifikationsalgorithmus zum 
+    substituiert. Folglich h"atte man einen Wald mit geringerem Gewicht
+    und $F$ w"are damit kein MSF.\\
+Diese Erkenntnis reicht bereits aus, um einen Verifikationsalgorithmus zum 
     MST und MSF Problem zu konstruieren.
     So k"onnte man auf $F$ eine Tiefensuche durchf"uhren und f"ur jeden Pfad 
     das maximale Kantengewicht unter dem Start und Endknoten dessen mittels
-    Hashing in einer Hashmap $w_F : E \rightarrow \mathbb{R}$ abspeichern die 
-    $\infty$ ausgibt, wenn f"ur eine Kante kein Wert gesetzt wurde.
+    Hashing unter einer geeigneten Hash-Funktion in einer Hashmap 
+    $h_{w_F} : E \rightarrow \mathbb{R}$ abspeichern. 
+    Die Hashmap soll ferner $\infty$ ausgeben, wenn f"ur eine Kante kein Wert 
+    gesetzt wurde.
+    Dadurch h"atte man in Linearzeit $w_F$ mittels $h_{w_F}$ konstruiert.
     Anschlie"send w"urde man "uber $E_G$ iterieren und sicherstellen, dass gilt
     $\forall e \in E_G: w(e) \leq w_F(e)$.\\
-Man kann den Verfikationsalgorithmus auch so anpassen, dass die F-schweren Kanten
+Man kann den Verifikationsalgorithmus auch so anpassen, dass die F-schweren Kanten
     ausgegeben werden.
     Ferner l"auft der Algorithmus in Linearzeit.\\

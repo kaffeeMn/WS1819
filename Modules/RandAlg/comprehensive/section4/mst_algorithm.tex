@@ -1,45 +1,7 @@
 \section{Der MST-Algorithmus}
-
-Nun da wir Verfahren zum reduzieren von Knoten und Kanten des Graphen $G$ kennen
-    gelernt haben  k"onnen wir anfangen einen Algorithmus zu konstruieren,
-    dessen Ausgabe ein Wald $F$ in $G$ ist.\\
-Die erste Entscheidung die wir treffen m"ussen ist, ob wir zuerst Knoten oder Kanten
-    reduzieren. \\
-Da wir in \hyperref[sec:borIdea]{\textit{3.1.1}} gelernt haben, dass
-    Bor\r uvka-Phasen nur Kanten markieren, die im MST/MSF 
-    enthalten sind fangen wir mit Bor\r uvka-Phasen an und erhalten den Graphen 
-    $G_1$.
-    Dadurch veringern wir
-    zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
-    Sollten wir in in den Bor\r uvka-Phasen terminieren geben wir den Teilgraph
-    mit allen markierten Kanten $C$ aus.
-    Die Bor\r uvka-Phasen werden also auch das Abbruchkriterium unserer
-    Rekursion sein.\\
-Anschlie"send konstruieren wir $G_2 = G_1(p)$ und f"uhren einen rekursiven
-    Aufruf auf diesem durch. 
-    Wir wissen also durch \hyperref[sec:goodnessRand]{\textit{3.2.1}}, 
-    dass $G$ im Erwartungswert
-    $\frac{n/2}{p}$ $F_2$-leichte Kanten vor dem rekursiven Aufruf enth"alt.\\
-Wir haben in \hyperref[sec:verification]{\textit{2.2.2}} einen 
-    Verfikationsalgorithmus definiert, der auch $F_2$-schwere Kanten ausgeben
-    kann.
-    Da wir durch \hyperref[sec:fProof]{\textit{2.2.1}} wissen, dass $F_2$-schwere Kanten nicht im MST/MSF von $G$
-    enthalten sein k"onnen, entfernen wir alle $F_2$-schwere Kanten $E_{F_2-heavy}$
-    aus dem Graphen $G_1$,
-    auf dem lediglich die Bor\r uvka-Phasen angewandt wurden und erhalten $G_3$.\\
-F"uhren wir nun nocheinmal einen rekursiven Aufruf auf $G_3$ durch, 
-    so erhalten wir 
-    einen Wald $F_3$ mit intuitiv weniger $F_3$-schweren, als $F_2$-schweren Kanten in $G$.
-    Ferner ist insbesondere in dichten Graphen zu erwarten, dass die Stichproben 
-    auf $G_3$ nur unwahrscheinlich die Anzahl von Verbundenen Komponenten in 
-    $G_3$ um ein wesentliches erh"ohen, bzw. Komponenten aus $G_3$ nicht mehr
-    zusammen h"angen.
-    Wir verursachen also keinen Schaden durch das Entfernen der $F_2$-schweren
-    Kanten.\\
-Nachdem wir den Wald $F_3$ bestimmt haben geben wir unsere, von den Bor\r uvka-Phasen
-    markierten, Kanten in $C$ vereinigt mit $F_3$ aus.\\
-
+% make figure
 \begin{algorithm}
+$MST$\\
 \KwData{Graph $G$}
 \KwResult{Approximation eines MST/ MSF in $G$}
 \begin{algorithmic}[1]
@@ -59,6 +21,52 @@ Nachdem wir den Wald $F_3$ bestimmt haben geben wir unsere, von den Bor\r uvka-P
 \end{algorithmic}
 \end{algorithm}
 
+\subsection{Aufbau}
+Nun, da wir Verfahren zum Reduzieren von Knoten und Kanten des Graphen $G$ kennen
+    gelernt haben, k"onnen wir anfangen einen Algorithmus zu konstruieren,
+    dessen Ausgabe ein Wald $F$ in $G$ ist.\\
+Die erste Entscheidung, die wir treffen m"ussen ist, ob wir zuerst Knoten oder Kanten
+    reduzieren. \\
+Da wir in \hyperref[sec:borIdea]{\textit{3.1.1}} gelernt haben, dass
+    Bor\r uvka-Phasen nur Kanten markieren, die im MST/MSF 
+    enthalten sind, fangen wir mit Bor\r uvka-Phasen an und erhalten den Graphen 
+    $G_1$.
+    Dadurch verringern wir
+    zun"achst noch deterministisch die Anzahl $F$-leichter Kanten in $G$.
+    Sollten wir in in den Bor\r uvka-Phasen terminieren, geben wir den Teilgraph
+    mit allen markierten Kanten $C$ aus.
+    Die Bor\r uvka-Phasen werden also auch das Abbruchkriterium unserer
+    Rekursion sein.\\
+Anschlie"send konstruieren wir $G_2 = G_1(p)$ und f"uhren einen rekursiven
+    Aufruf auf diesem durch. 
+    Wir wissen also durch \hyperref[sec:goodnessRand]{\textit{3.2.1}}, 
+    dass $G_2$ vor dem ersten rekursiven Aufruf im Erwartungswert
+    $\frac{n/2}{p}$ $F_2$-leichte Kanten enth"alt.\\
+Wir haben in \hyperref[sec:verification]{\textit{2.2.2}} einen 
+    Verifikationsalgorithmus definiert, der auch $F_2$-schwere Kanten ausgeben
+    kann.
+    Da wir durch \hyperref[sec:fProof]{\textit{2.2.1}} wissen, dass $F_2$-schwere Kanten nicht im MST/MSF von $G$
+    enthalten sein k"onnen, entfernen wir alle $F_2$-schwere Kanten $E_{F_2-heavy}$
+    aus dem Graphen $G_1$,
+    auf dem lediglich die Bor\r uvka-Phasen angewandt wurden und erhalten $G_3$.\\
+F"uhren wir nun noch einmal einen rekursiven Aufruf auf $G_3$ durch, 
+    so erhalten wir 
+    einen Wald $F_3$ mit intuitiv weniger $F_3$-schweren, als $F_2$-schweren Kanten in $G$.
+    Ferner ist insbesondere in dichten Graphen zu erwarten, dass die Stichproben, 
+    die in weiteren Rekursionsschritten auf Basis von $G_3$ gebildet werden 
+    nur unwahrscheinlich die zusammenh"angenden Komponenten in unserem Wald
+    aufteilen. 
+    Dies k"onnen wir dadurch begr"unden, dass dichte Graphen nahe $n^2$ Knoten
+    enthalten und wir nicht in jedem rekursiven Aufruf gleich $n/p$ Kanten 
+    entfernen, da die Graphen mit jedem Aufruf vorher durch die Bor\r uvka-Phasen
+    kleiner werden und damit insegesamt im Erwartungswert 
+    $\sum_{i=0}^k (n/8^i)/p = n/p \cdot \frac{1-(1/8)^{k+1}}{7/8}$, wobei $k$
+    die Rekursionstiefe darstellt, Kanten eliminiert werden.
+    Wir verursachen also keinen Schaden durch das Entfernen der $F_2$-schweren
+    Kanten.\\
+Nachdem wir den Wald $F_3$ bestimmt, haben geben wir unsere, von den Bor\r uvka-Phasen
+    markierten, Kanten in $C$ vereinigt mit $F_3$ aus.\\
+
 \subsection{Laufzeit}
 
 $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
@@ -68,7 +76,7 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
     $|V_{G_2}| = n/8$ Knoten und im Erwartungswert $|E_{G_2}| = m/2$ Kanten.
     Folglich ben"otigt die Berechnung von $F_2$  die erwartete Laufzeit 
     $T(n/8,m/2)$.
-    Die Berechnugn $F_2$-schwerer Kanten und die Konstruktion von $G_3$ mittels
+    Die Berechnung $F_2$-schwerer Kanten und die Konstruktion von $G_3$ mittels
     derer ben"otigt ebenfalls $O(m+n)$.
     Nach dem Lemma 10.19 \cite{randAlg} ist die Anzahl von $F$-leichten Kanten in $G$ durch
     $n/p = 2n,$ mit $p = 0,5$ im Erwartungswert gegeben. Da $G_1$

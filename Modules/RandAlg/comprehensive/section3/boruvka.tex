@@ -14,8 +14,8 @@ Hierf"ur k"onnen wir einen beliebigen Knoten $v \in V_G$ und die zu $v$ inzident
     Kante mit minimalem Gewicht $e_{min}$ in einem 
     zusammenh"angenden Graphen $G$ betrachten.\\
 1. Fall $adj(v)$ enth"alt nur eine Kante oder mehrere inzidenten Kanten sind minimal. 
-    Dann ist die minimale Kante Kante zwangsweise im 
-    MST, oder ein MST mit gleichem Gewicht kann durch eine der anderen minimalen
+    Dann ist die minimale Kante zwangsweise im 
+    MST oder ein MST mit gleichem Gewicht kann durch eine der anderen minimalen
     Kanten konstruiert werden.\\
 2. Fall $|adj(v)| > 1$ und nur eine Kante ist minimal. 
     Nehmen wir an, dass ein MST existiert, der $e_{min}$ 
@@ -23,20 +23,20 @@ Hierf"ur k"onnen wir einen beliebigen Knoten $v \in V_G$ und die zu $v$ inzident
     Der MST verbindet alle Knoten.
     Entfernen wir die zu $v$ inzidente Kante im MST
     und ersetzen wir sie durch $e_{min}$, so haben wir keinen Zyklus und das
-    Gewicht des MST veringert. 
+    Gewicht des MST verringert. 
     Damit war der MST nicht minimal.
-    Aus dem Widerspruch folgt, dass die minimale inzidente Kante eines jeden
-    Knoten im MST enthalten sein muss.\\
+    Aus dem Widerspruch folgt, dass die minimale, inzidente Kante eines jeden
+    Knotens im MST enthalten sein muss.\\
 \\
 Des weiteren ist f"ur uns interessant, dass durch die markierten, minimalen
     Kanten kein Zyklus entsteht. 
-    Damit ein Zyklus entstehen w"urde m"usste ein Pfad geschlossen werden, 
-    indem mindestens eine zus"atzliche Kante hinzugenommen wird. 
-    Dessen Kantengewicht m"usste kleiner, als das der bereits inzidenten, 
+    Damit ein Zyklus entsteht, m"usste ein Pfad geschlossen werden, 
+    in dem mindestens eine zus"atzliche Kante hinzugenommen wird. 
+    Dessen Kantengewicht m"usste kleiner als das der bereits inzidenten, 
     minimalen, markierten Kante sein.\\
 Ferner bedeutet das, dass wir durch die zur Kontraktion markierten Kanten
     $E_{min}$ nach einer Bor\r uvka-Phase einen Wald $F$ in $G$ induzieren.
-    Dies wird f"ur uns insebesondere dann interessant, wenn
+    Dies wird f"ur uns insbesondere dann interessant, wenn
     wir rekursiv einen Wald aufbauen m"ochten.\\
 \\
 Eine Bor\r uvka-Phase hat also den folgenden Ablauf:
@@ -51,16 +51,16 @@ Eine Bor\r uvka-Phase hat also den folgenden Ablauf:
 \subsubsection{Reduktion der Knoten}
 Es werden die durch $E_{min}$ verbundenen Komponenten auf je einen Knoten 
     reduziert.
-    Wir interssieren uns f"ur den Worst-Case, also die maximale Anzahl an 
+    Wir interessieren uns f"ur den Worst-Case, also die maximale Anzahl an 
     Komponenten.
-    Die kleinste Verbundene Komponente w"are theoretisch ein
+    Die kleinste verbundene Komponente w"are theoretisch ein
     einzelner Knoten ohne Kanten.
-    An dieser Stelle w"urde aber unser Algorithmus terminieren.
-    Die kleinste Verbundene Komponente die wir in einer Bor\r uvka-Phase 
-    betrachten werden besteht also aus zwei Knoten und einer Kante.
-    Da $G$ zusammenh"angend ist existieren damit maximal $n/2$ verbundene
+    An dieser Stelle w"urde unser Algorithmus aber terminieren.
+    Die kleinste verbundene Komponente, die wir in einer Bor\r uvka-Phase 
+    betrachten werden, besteht also aus zwei Knoten und einer Kante.
+    Da $G$ zusammenh"angend ist, existieren damit maximal $n/2$ verbundene
     Komponenten.\\
 Wir stellen fest, dass eine Bor\r uvka-Phase die Menge an Knoten in $G$ auf 
     maximal die H"alfte reduziert, n"amlich genau dann, wenn die markierten 
-    Kanten ein perfektes Matching beim bestimmen der verbundenen Komponenten
-    induzieren.\\
+    Kanten ein perfektes Matching beim Bestimmen der verbundenen Komponenten
+    ergeben.\\
