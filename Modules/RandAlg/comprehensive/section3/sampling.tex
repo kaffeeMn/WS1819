@@ -7,7 +7,7 @@ Wir erfassen randomisierte Stichproben, indem wir f"ur einen Graphen $G$ den
     Den Entscheidungsvorgang, ob eine Kante mit Wahrscheinlichkeit $p$
     in $G(p)$ aufgenommen wird bezeichnen wir im Folgenden als Zufallsexperiment.
     Ferner gilt $V_{G(p)} = V_G$.\\
-Uns sollte bewusst sein, dass im Erwartungswert $|E_{G(p)}| = m * p$ Kanten
+Uns sollte bewusst sein, dass im Erwartungswert $|E_{G(p)}| = m \cdot p$ Kanten
     in $G(p)$ enthalten sind.
     Dies ist f"ur uns im Kontext des Reduzierens von Kanten zielf"uhrend.\\
     %Ferner ist die Konstruktion von $G(p)$ nicht komplex.\\
@@ -22,21 +22,22 @@ Wir haben festgestellt, dass randomisierte Stichproben uns die M"oglichkeit
     ist m"oglichst wenige $F$-leichte Kanten in $G$ hinsichtlich einer 
     Approximation $F$ des MST/MSF zu haben.\\
 Im Folgenden werden wir zeigen, dass die Anzahl von $F_{MSF}$-leichten Kanten in $G$ 
-    bez"uglich des MSF $F_{MSF}$ von unserer Stichprobe $G(p)$ im Erwartungswert 
-    nach oben durch $n/p$ beschr"ankt ist. 
+    bez"uglich des MSF $F_{MSF}$ von unserer Stichprobe $G(p)$ 
+    nach oben durch einen Erwartungswert von $n/p$ beschr"ankt ist. 
     Diese Annahme folgt aus dem Lemma 10.19 aus dem Buch \cite{randAlg}.\\
 Um dies zu beweisen, werden wir zeigen, dass die Annahme von Lemma 10.19 des
     Buches, n"amlich, dass die Zahl $F_{MSF}$-leichter Kanten in $G$ durch
     eine Zufallsvariable mit negativer Binomialverteilung und den Parametern
-    $n$, $p$ stochastisch dominiert wird, korrekt ist.\\
+    $n$, $p$ stochastisch dominiert wird, korrekt ist.
+    Dazu lehnen wir uns an den Beweis zum Lemma an.\\
 \\
 Zun"achst m"ochten wir festlegen, dass im Folgenden alle Kanten aus $G$ nach 
     ihrer Gewichtung aufsteigend sortiert betrachtet werden.
     Dies wird f"ur uns insbesondere dann handlich sein, wenn wir "uber die zu 
     betrachtende Kante wissen m"ochten, ob sie $F$-leicht ist.\\
 Nun, da wir uns auf eine Iteration der Kanten festgelegt haben, m"ochten wir 
-    $G(p=0,5)$ wie "ublich durch das Hinzunehmen der betrachteten Kante mit
-    der Wahrscheinlichkeit $p$ konstruieren.
+    $G(p)$ wie "ublich durch das Hinzunehmen der betrachteten Kante mit
+    der Wahrscheinlichkeit $p=0,5$ konstruieren.
     W"ahrend wir $G(p)$ konstruieren, k"onnen wir auch simultan, bzw. 
     \glqq online\grqq\ den MSF $F_{MSF}$ von $G(p)$ konstruieren.
     Dies ist beispielsweise durch einen Ansatz, wie den von Kruskal m"oglich, bei
@@ -49,13 +50,14 @@ Nun, da wir uns auf eine Iteration der Kanten festgelegt haben, m"ochten wir
     $\{u,v\}$
     aus $G$ genau dann $F_{MSF}$-leicht ist, wenn $u$, $v$ in verschieden 
     verbundenen Komponenten in $F_{MSF}$ liegen.
-    Die Korrektheit von $F_{MSF}$ als MSF von $G(p)$ folgt aus der Sortierung der Kanten.\\
+    Die Korrektheit von $F_{MSF}$ als MSF von $G(p)$ folgt aus der Vorsortierung der Kanten,
+    bzw. aus der Korrektheit des Algorithmus von Kruskal.\\
 Wir k"onnen bereits folgende Eigenschaften zur Konsistenz unseres Verfahrens
     beobachten:\\ 
 (i) Ob die zu betrachtende Kante $F_{MSF}$-leicht oder -schwer ist, 
-    ist alleinig von den vorhergehenden Zufallsexperimenten abh"angig,
-    (ii) es werden keine Kanten aus $F_{MSF}$ entfernt,
-    (iii) eine Kante ist genau dann nach dem $i$-ten Zufallsexperiment 
+    ist alleinig von den vorhergehenden Zufallsexperimenten abh"angig,\\
+(ii) es werden keine Kanten aus $F_{MSF}$ entfernt,\\
+(iii) eine Kante ist genau dann nach dem $i$-ten Zufallsexperiment 
     $F_{MSF}$-leicht, wenn sie auch vor dem $i$-ten Zufallsexperiment $F_{MSF}$-leicht
     war.\\
 Definieren wir nun den Begriff von Phasen in unserem Zufallsexperiment, um auf
@@ -76,19 +78,25 @@ Nehmen wir nun an, dass wir nach Ablauf unseres Verfahrens $F_{MST}$ mit
     $|E_{F_{MST}}| = s$ erhalten. Aus (i), (ii), (iii) folgt insbesondere, dass bis zum Ende
     der $s$-ten Phase im Erwartungswert pro Phase $1/p$ $F_{MSF}$-leichte
     Kanten betrachtet wurden. Dies entspricht der geometrischen Verteilung mit
-    Parameter $p$. Da wir auch davon ausgehen k"onnten, dass jede $F_{MST}$-leichte
-    Kante sofort hinzugenommen wurde, m"ussen wir, um eine Zufallsvariable zu 
+    Parameter $p$.
+    Da es $F_{MST}$-leichte Kanten geben kann, die in der $s$-ten Phase noch
+    betrachtet, aber nicht mehr hinzugenommen wurden,
+    m"ussen wir, um eine Zufallsvariable zu 
     erhalten, die unser Verfahren stochastisch dominiert, noch solange weitere 
     Zufallsexperimente f"ur Pseudokanten durchf"uhren, bis zus"atzliche 
-    $c=n-s$ Kanten hinzugenommen w"urden.
-    Die Zufallsvariable, die die Anzahl von Zufallsexperimenten beschreibt sei
+    $c=(n-1)-s$ Pseudokanten hinzugenommen wurden.
+    Die Zufallsvariable, die die Anzahl von Zufallsexperimenten unter 
+    Ber"ucksichtigung der Pseudokanten
+    beschreibt sei
     $X_{zexp}$.
-    Da $s$ maximal gleich $n-1$ sein kann, wird die Anzahl von $F_{MST}$-leichten
-    Kanten durch $X_{zexp}$ stochastisch dominiert.
+    Unser Verfahten unter Zunahme der Pseudokanten dominiert also das Verfahren,
+    das w"ahrend der $s$-ten Phase endet,
+    Da $s$ maximal gleich $n-1 = s+c$ sein kann.
     Die maximale erwartete Anzahl von $F_{MST}$-leichten Kanten in $G$ ist folglich durch den
     Erwartungswert von $X_{zexp}$ nach oben beschr"ankt.\\
 $X_{zexp}$ entspricht der negativen Binomialverteilung, da wir eine Anzahl von
     $n$ Erfolgen je mit Wahrscheinlichkeit $p$ erreichen m"ochten. 
-    Folglich ist die erwartete Anzahl von $F_{MST}$-leichten Kanten in $G$ mit
+    Folglich ist die erwartete Anzahl von $F_{MST}$-leichten Kanten in $G$ 
+    nach oben durch
     einem Erwartungswert von
-    $Pr[X_{zexp}] = n/p$ nach oben beschr"ankt.\\
+    $E[X_{zexp}] = n/p$ beschr"ankt.\\

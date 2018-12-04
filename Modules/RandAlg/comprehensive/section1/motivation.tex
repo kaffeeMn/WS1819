@@ -5,7 +5,7 @@
 Der minimale Spannbaum, oder auch MST, bezeichnet einen azyklischen 
     zusammenh"angenden Teilgraph aus $G$, der sich dadurch kennzeichnet, dass
     alle Knoten verbunden sind und
-    die Summe von Kantengewichte $\sum_{e \in E_{MST}} w(e)$
+    die Summe von Kantengewichten $\sum_{e \in E_{MST}} w(e)$
     minimal ist.\\
 Ist $G$ selbst nicht zusammenh"angend, so werden wir einen minimalen Spannwald,
     oder auch MSF,
@@ -22,16 +22,16 @@ Wir werden in dieser Ausarbeitung zum Kapitel 10.3 aus dem Buch
     einen
     randomisierten Ansatz f"ur einen Algorithmus betrachten, 
     der einen minimalen Spannbaum
-    in erwarteter Linearzeit approximiert betrachten.\\
+    in erwarteter Linearzeit approximiert.\\
 Das MST Problem ist in $P$ enthalten und es sind bereits 
     deterministische Algorithmen wie die von
     Prim, Kruskal und Bor\r uvka bekannt, 
     die das Problem mit einer Worst-Case Laufzeitschranke 
-    von $O(m * log(n))$ l"osen.
+    von $O(m \cdot log(n))$ l"osen.
     Zudem existiert der Algorithmus von Bernard Chazelle, f"ur den eine
-    Worst-Case Laufzeitschranke von $O(m * log \beta(m,n))$ bekannt ist, wobei
+    Worst-Case Laufzeitschranke von $O(m \cdot log \beta(m,n))$ bekannt ist, wobei
     mit
-    $\beta(m,n) = \{i | log^{(i)} n \leq m / n\}$ die inverse Ackermann Funktion
+    $\beta(m,n) = min\{i | log^{(i)} n \leq m / n\}$ die inverse Ackermann Funktion
     verwendet wird. 
     $log^{(i)} n$ ist hierbei die $i$-te Anwendung von $log$ auf $n$.
     Dementsprechend steigt die Funktion $\beta$ so schwach, dass die

@@ -1,33 +1,36 @@
 %!TEX root = ./graph_reduction.tex
 \subsection{Bor\r uvka-Phasen}
 
-\subsubsection{Idee}
+\subsubsection{Idee und Ablauf}
 \label{sec:borIdea}
 
 Bor\r uvka-Phasen beruhen auf der Erkenntnis, dass in einem beliebigen 
     ungerichteten Graphen $G$ f"ur jeden Knoten $v \in V$ die inzidente Kante mit 
     minimaler Gewichtung 
     $e_{v^{min}} := \{v, u\}, u \in adj(v): 
-        \nexists e' = \{v, u'\}, u' \in adj(v): w(e') < w(e)$
+        \nexists e' = \{v, u'\}, u' \in adj(v): w(e') < w(e_{v^{min}})$
     im MST von $G$ enthalten ist.\\
 Hierf"ur k"onnen wir einen beliebigen Knoten $v \in V_G$ und die zu $v$ inzidente
     Kante mit minimalem Gewicht $e_{min}$ in einem 
     zusammenh"angenden Graphen $G$ betrachten.\\
 1. Fall $adj(v)$ enth"alt nur eine Kante oder mehrere inzidenten Kanten sind minimal. 
     Dann ist die minimale Kante zwangsweise im 
-    MST oder ein MST mit gleichem Gewicht kann durch eine der anderen minimalen
+    MST enthalten oder ein MST mit gleichem Gewicht kann durch jede der minimalen
     Kanten konstruiert werden.\\
 2. Fall $|adj(v)| > 1$ und nur eine Kante ist minimal. 
     Nehmen wir an, dass ein MST existiert, der $e_{min}$ 
     nicht enth"alt. 
     Der MST verbindet alle Knoten.
-    Entfernen wir die zu $v$ inzidente Kante im MST
-    und ersetzen wir sie durch $e_{min}$, so haben wir keinen Zyklus und das
-    Gewicht des MST verringert. 
-    Damit war der MST nicht minimal.
+    Sei $e$ die zu $v$ inzidente Kante im MST.
+    Nehmen wir $e_{min}$ in den MST auf, so erhalten wir einen Zyklus "uber $v$.
+    Entferenen wir $e$, so ist der Zyklus aufgel"ost.
+    Ferner wissen wir $w(e_{min}) < w(e)$, da $e_{min}$ und $e$ zu $v$ inzident
+    sind und $e_{min}$ die einzige minimale, inzidente Kante ist.
+    Folglich haben wir nicht nur den Zyklus wieder aufgel"ost und die 
+    Baumeigenschaften gewahrt, sondern auch das gewicht des MST reduziert.
+    Damit war der MST nicht minimal und auch kein MST.
     Aus dem Widerspruch folgt, dass die minimale, inzidente Kante eines jeden
-    Knotens im MST enthalten sein muss.\\
-\\
+    Knotens im MST von $G$ enthalten sein muss.\\
 Des weiteren ist f"ur uns interessant, dass durch die markierten, minimalen
     Kanten kein Zyklus entsteht. 
     Damit ein Zyklus entsteht, m"usste ein Pfad geschlossen werden, 

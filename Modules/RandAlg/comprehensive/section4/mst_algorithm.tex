@@ -41,10 +41,10 @@ Anschlie"send konstruieren wir $G_2 = G_1(p)$ und f"uhren einen rekursiven
     Aufruf auf diesem durch. 
     Wir wissen also durch \hyperref[sec:goodnessRand]{\textit{3.2.1}}, 
     dass $G_2$ vor dem ersten rekursiven Aufruf im Erwartungswert
-    $\frac{n/2}{p}$ $F_2$-leichte Kanten enth"alt.\\
-Wir haben in \hyperref[sec:verification]{\textit{2.2.2}} einen 
-    Verifikationsalgorithmus definiert, der auch $F_2$-schwere Kanten ausgeben
-    kann.
+    $\frac{n/8}{p}$ $F_2$-leichte Kanten enth"alt.\\
+Wir haben in \hyperref[sec:verification]{\textit{2.2.2}} gelernt, dass
+    Verifikationsalgorithmen existieren, die auch $F_2$-schwere Kanten ausgeben
+    k"onnen.
     Da wir durch \hyperref[sec:fProof]{\textit{2.2.1}} wissen, dass $F_2$-schwere Kanten nicht im MST/MSF von $G$
     enthalten sein k"onnen, entfernen wir alle $F_2$-schwere Kanten $E_{F_2-heavy}$
     aus dem Graphen $G_1$,
@@ -56,7 +56,7 @@ F"uhren wir nun noch einmal einen rekursiven Aufruf auf $G_3$ durch,
     die in weiteren Rekursionsschritten auf Basis von $G_3$ gebildet werden 
     nur unwahrscheinlich die zusammenh"angenden Komponenten in unserem Wald
     aufteilen. 
-    Dies k"onnen wir dadurch begr"unden, dass dichte Graphen nahe $n^2$ Knoten
+    Dies k"onnen wir dadurch begr"unden, dass dichte Graphen nahe $n^2$ Kanten
     enthalten und wir nicht in jedem rekursiven Aufruf gleich $n/p$ Kanten 
     entfernen, da die Graphen mit jedem Aufruf vorher durch die Bor\r uvka-Phasen
     kleiner werden und damit insegesamt im Erwartungswert 
@@ -76,8 +76,10 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
     $|V_{G_2}| = n/8$ Knoten und im Erwartungswert $|E_{G_2}| = m/2$ Kanten.
     Folglich ben"otigt die Berechnung von $F_2$  die erwartete Laufzeit 
     $T(n/8,m/2)$.
-    Die Berechnung $F_2$-schwerer Kanten und die Konstruktion von $G_3$ mittels
-    derer ben"otigt ebenfalls $O(m+n)$.
+    Die Berechnung $F_2$-schwerer Kanten kann 
+    unter einem Ansatz, wie den von V. King \cite{simpleVer} bel"auft sich in Linearzeit.
+    Die Konstruktion von $G_3$ mittels Eleminierung der $F_2$-schweren Kanten
+    ben"otigt ebenfalls $O(m+n)$.
     Nach dem Lemma 10.19 \cite{randAlg} ist die Anzahl von $F$-leichten Kanten in $G$ durch
     $n/p = 2n,$ mit $p = 0,5$ im Erwartungswert gegeben. Da $G_1$
     aber nur $n/8$ Knoten hat, k"onnen wir die Anzahl an Kanten in $G_3$
@@ -86,7 +88,8 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
     $T(n/2, n/4)$.
     Die Vereinigung von $C$ und $F$ in Zeile 6 ben"otigt $O(n+m)$.\\
 Aus den Laufzeiten der Teilschritte folgt
-    $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m)$.
+    $T(n,m) \leq T(n/8, m/2) + T(n/8, n/4) + c(n+m), c \in \mathbb{N}$,
+    mit c als Konstante f"ur die Anzahl von Aufrufen, die Linearzeit ben"otigen.
     Nach der Literatur kann der rekursive Anteil der Ungleichung durch $2c(n+m)$ 
     abgesch"atzt werden.
     %Ein Beweis, dass $T(n,m)$ tats"achlich in $O(n+m)$ enthalten ist befindet
