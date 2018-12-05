@@ -9,7 +9,7 @@ $MST$\\
                                  3 Bor\r uvka-Phasen werden auf $G$ angewandt.
                                  Dabei wird der resultierende Graph und\\
                                  ein Teilgraph $C$ mit den zur
-                                 Kokatenierung markierten Kanten zur"uck gegeben.\\
+                                 Kontraktion markierten Kanten zur"uck gegeben.\\
                                  \textbf{Wenn} $G$ leer ist oder in den Bor\r uvka-Phasen
                                  terminiert wird geben wir $F=C$ aus.\\
                                  \end{tabular}
@@ -64,7 +64,7 @@ F"uhren wir nun noch einmal einen rekursiven Aufruf auf $G_3$ durch,
     die Rekursionstiefe darstellt, Kanten eliminiert werden.
     Wir verursachen also keinen Schaden durch das Entfernen der $F_2$-schweren
     Kanten.\\
-Nachdem wir den Wald $F_3$ bestimmt, haben geben wir unsere, von den Bor\r uvka-Phasen
+Nachdem wir den Wald $F_3$ bestimmt haben, geben wir unsere, von den Bor\r uvka-Phasen
     markierten, Kanten in $C$ vereinigt mit $F_3$ aus.\\
 
 \subsection{Laufzeit}
@@ -80,12 +80,12 @@ $T(n,m)$ sei die erwartete Laufzeit des MST-Algorithmus f"ur einen Graphen $G$.
     unter einem Ansatz, wie den von V. King \cite{simpleVer} durchgef"uhrt werden
     und erfolgt dann in Linearzeit.
     Die Konstruktion von $G_3$ mittels Eleminierung der $F_2$-schweren Kanten
-    ben"otigt ebenfalls $O(m+n)$.
+    in Zeile 4 ben"otigt ebenfalls $O(m+n)$.
     Nach dem Lemma 10.19 \cite{randAlg} ist die Anzahl von $F$-leichten Kanten in $G$ durch
     $n/p = 2n,$ mit $p = 0,5$ im Erwartungswert gegeben. Da $G_1$
     aber nur $n/8$ Knoten hat, k"onnen wir die Anzahl an Kanten in $G_3$
     durch $2 \cdot n/8 = n/4$ im Erwartungswert absch"atzen.
-    Damit bel"auft sich die erwartete Laufzeit der Berechnung von $F_3$ auf
+    Damit bel"auft sich die erwartete Laufzeit der Berechnung von $F_3$ in Zeile 5 auf
     $T(n/2, n/4)$.
     Die Vereinigung von $C$ und $F$ in Zeile 6 ben"otigt $O(n+m)$.\\
 Aus den Laufzeiten der Teilschritte folgt
@@ -102,7 +102,7 @@ Aus den Laufzeiten der Teilschritte folgt
                  & + c(n+m)&&\\
 \end{flalign*}
 , die wir durch einsetzen erhalten, so k"onnen wir diese Absch"atzung 
-    nachvollziehen, da wir je folgenden Rekursionsschritt nicht mehr als $c \cdot (n/8+n/8+n/4+m/2) = c \cdot (n+m) \cdot 1/2$
+    nachvollziehen, da wir in jedem folgenden Rekursionsschritt nicht mehr als $c \cdot (n/8+n/8+n/4+m/2) = c \cdot (n+m) \cdot 1/2$
     aufsummieren und $n$, $m$ selbst um einen st"arkeren Faktor, als die Anzahl
     rekursiver Aufrufe reduziert werden. Folglich gilt
     $T(n,m) \leq\ T(n/8, m/2) + T(n/8, n/4) + c(n+m) \leq c \cdot (n+m) \cdot \sum_{i=0}^{\infty} (1/2)^i = 2c(n+m)$.\\
