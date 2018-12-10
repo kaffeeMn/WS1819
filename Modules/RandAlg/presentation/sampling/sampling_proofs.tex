@@ -4,7 +4,7 @@
         \cellcolor{GreenTOL!40!}
         Theorem\\
         \cellcolor{GreenTOL!20!}
-        F"ur den MSF $F$ von $G(p), p \in (0,1]$ gibt es $\frac{n_G}{p}$
+        F"ur den MSF $F$ von $G(p), p \in (0,1]$ gibt es $\frac{n}{p}$
         $F$ -leichte Kanten in $G$\\[0.3cm]
     \end{tabular}
     \end{center}
@@ -29,8 +29,62 @@
                 \item Konstruiere $G(p)$ nach der Kantenreihenfolge
             }
             \only<5>{
-                \item Ist betrachtete Kante $F$-leicht wird sie in $F$ aufgenommen
+                \item Ist die betrachtete Kante $F$-leicht wird sie in $F$ aufgenommen
             }
         \end{itemize}
+    \end{overlayarea}
+\end{frame}
+\begin{frame}{Beweis: Phasen}
+    \begin{overlayarea}{\textwidth}{1.5cm}
+    \begin{itemize}
+        \only<1>{
+            \item Wann wird die n"achste Kante hinzugenommen?
+        }\only<2,3,4,5,6>{
+            \item Wann wird die n"achste $F$-leichte Kante hinzugenommen?
+        }\only<4>{
+            \item Wie oft \glqq w"urfeln\grqq?
+        }\only<5,6>{
+            \item Wie oft \glqq w"urfeln\grqq? \textcolor{blue}{- $1/p$}
+        }\only<6>{
+        \item Anzahl an Phasen insgesamt: $s \leq n-1, s \in \mathbb{N}$
+        }
+    \end{itemize}
+    \end{overlayarea}
+    \gap
+    \begin{overlayarea}{\textwidth}{1cm}
+    \only<3,4,5,6>{
+        \begin{tabular}[h]{lll}
+            $k$-te Phase $\overset{def}{=}$ &Zufallsexperimente 
+                                                & ab $k-1$ Kanten in $F$,\\
+                                                && bis $k$ Kanten in $F$\\
+        \end{tabular}
+    }
+    \end{overlayarea}
+\end{frame}
+\begin{frame}{Beweis: Stochastische Dominanz}
+    \begin{overlayarea}{\textwidth}{3cm}
+    \begin{itemize}
+        \only<1,2,3,4,5>{
+            \item Differenz der Kanten $c = (n-1) - s$
+        }\only<2,3,4,5>{
+            \item weitere $c$-Phasen $\Rightarrow$ erwartet mehr $F$-leichte Kanten 
+                    in $F$\\
+        }\only<3,4,5>{
+            \item $s+c = n-1$ Phasen, bzw. $n$ Erfolge
+        }\only<4,5>{
+            \item Erfolgswahrscheinlichkeit: $p$ $\Rightarrow$ negative 
+            Binomialverteilung
+        }
+    \end{itemize}
+    \end{overlayarea}
+    \begin{overlayarea}{\textwidth}{2cm}
+    \ \\
+    \only<5>{
+        $X_{np} \overset{def}{=}$ negative Binomialverteilung, Parameter $n, p$\\
+        $X_{sp} \overset{def}{=}$ negative Binomialverteilung, Parameter $s, p$\\
+        $X_{np}$ dominiert $X_{sp}$, mit: $$
+            n/p = E[X_{np}] \geq E[X_{sp}] = s/p
+            $$
+    }
     \end{overlayarea}
 \end{frame}

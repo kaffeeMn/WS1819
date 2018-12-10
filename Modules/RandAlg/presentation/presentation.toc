@@ -3,4 +3,4 @@
 \beamer@sectionintoc {3}{$F$-leicht/-schwer}{10}{0}{3}
 \beamer@sectionintoc {4}{Bor\r uvka Phasen}{23}{0}{4}
 \beamer@sectionintoc {5}{Randomisierte Stichproben}{32}{0}{5}
-\beamer@sectionintoc {6}{Der MST-Algorithmus}{41}{0}{6}
+\beamer@sectionintoc {6}{Der MST-Algorithmus}{52}{0}{6}

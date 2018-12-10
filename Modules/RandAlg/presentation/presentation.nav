@@ -51,19 +51,23 @@
 \headcommand {\beamer@framepages {34}{35}}
 \headcommand {\slideentry {5}{0}{4}{36/40}{}{0}}
 \headcommand {\beamer@framepages {36}{40}}
-\headcommand {\sectionentry {6}{Der MST-Algorithmus}{41}{Der MST-Algorithmus}{0}}
-\headcommand {\beamer@sectionpages {32}{40}}
-\headcommand {\beamer@subsectionpages {32}{40}}
-\headcommand {\slideentry {6}{0}{1}{41/41}{}{0}}
-\headcommand {\beamer@framepages {41}{41}}
-\headcommand {\slideentry {6}{0}{2}{42/48}{}{0}}
-\headcommand {\beamer@framepages {42}{48}}
-\headcommand {\slideentry {6}{0}{3}{49/51}{}{0}}
-\headcommand {\beamer@framepages {49}{51}}
-\headcommand {\slideentry {6}{0}{4}{52/61}{}{0}}
-\headcommand {\beamer@framepages {52}{61}}
-\headcommand {\beamer@partpages {1}{61}}
-\headcommand {\beamer@subsectionpages {41}{61}}
-\headcommand {\beamer@sectionpages {41}{61}}
-\headcommand {\beamer@documentpages {61}}
-\headcommand {\def \inserttotalframenumber {16}}
+\headcommand {\slideentry {5}{0}{5}{41/46}{}{0}}
+\headcommand {\beamer@framepages {41}{46}}
+\headcommand {\slideentry {5}{0}{6}{47/51}{}{0}}
+\headcommand {\beamer@framepages {47}{51}}
+\headcommand {\sectionentry {6}{Der MST-Algorithmus}{52}{Der MST-Algorithmus}{0}}
+\headcommand {\beamer@sectionpages {32}{51}}
+\headcommand {\beamer@subsectionpages {32}{51}}
+\headcommand {\slideentry {6}{0}{1}{52/52}{}{0}}
+\headcommand {\beamer@framepages {52}{52}}
+\headcommand {\slideentry {6}{0}{2}{53/59}{}{0}}
+\headcommand {\beamer@framepages {53}{59}}
+\headcommand {\slideentry {6}{0}{3}{60/62}{}{0}}
+\headcommand {\beamer@framepages {60}{62}}
+\headcommand {\slideentry {6}{0}{4}{63/72}{}{0}}
+\headcommand {\beamer@framepages {63}{72}}
+\headcommand {\beamer@partpages {1}{72}}
+\headcommand {\beamer@subsectionpages {52}{72}}
+\headcommand {\beamer@sectionpages {52}{72}}
+\headcommand {\beamer@documentpages {72}}
+\headcommand {\def \inserttotalframenumber {18}}
