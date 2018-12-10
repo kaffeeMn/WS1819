@@ -1,2 +1,36 @@
 \begin{frame}{Verschlechtern wir den MSF?}
+    \begin{center}
+    \begin{tabular}[h]{l}
+        \cellcolor{GreenTOL!40!}
+        Theorem\\
+        \cellcolor{GreenTOL!20!}
+        F"ur den MSF $F$ von $G(p), p \in (0,1]$ gibt es $\frac{n_G}{p}$
+        $F$ -leichte Kanten in $G$\\[0.3cm]
+    \end{tabular}
+    \end{center}
+    \gap
+    Beweisidee:\\
+    \begin{overlayarea}{\textwidth}{4cm}
+        \ \\
+        \begin{itemize}
+            \only<2,3,4,5>{
+                \item  Seien die Kanten von $G$ aufsteigend sortiert\\
+            } 
+            \only<2>{
+                $$
+                    e_1,        &\ldots     &, e_{m_G},\
+                    w(e_1) \leq &\ldots     &\leq w(e_{m_G})
+                $$
+            }
+            \only<3,4,5>{
+                \item Sei $F = (V_G, \emptyset)$
+            }
+            \only<4,5>{
+                \item Konstruiere $G(p)$ nach der Kantenreihenfolge
+            }
+            \only<5>{
+                \item Ist betrachtete Kante $F$-leicht wird sie in $F$ aufgenommen
+            }
+        \end{itemize}
+    \end{overlayarea}
 \end{frame}

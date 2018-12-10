@@ -1,4 +1,4 @@
-\begin{frame}{Laufzeit}
+\begin{frame}{Laufzeit: "Uberblick}
     \vspace{-1cm} 
     \begin{overlayarea}{\textwidth}{6cm}
     \begin{algorithm}[H]
@@ -35,3 +35,57 @@
     \end{overlayarea}
 \end{frame}
 
+\begin{frame}{Laufzeit: Rekursionsgleicung}
+    \vspace{-2cm}
+    \begin{overlayarea}{\textwidth}{4cm}
+        \begin{flalign*}
+            T(m,n)  &\leq \only<1,2,3>{$\textcolor{red}{?}$ }
+                        \only<4,5,6,7,8,9,10>{$T(n/8, m/2)$}
+                        + \only<1,2,3,4>{$\textcolor{red}{?}$ }
+                          \only<5,6,7,8,9,10>{$T(n/8, n/4)$ }
+                        + c(m+n)&&\\
+                    \only<6>{
+                        &\leq (T(n/8^2, m/2^2) + T(n/8^2, \frac{m/2}{4}) + c(n/8+m/2))&&\\
+                        & + (T(n/8^2, \frac{n/4}{2}) + T(n/8^2, n/4^2) + c(n/8+n/4))&&\\
+                        & + c(n+m)&&\\
+                    }
+                    \only<7>{
+                        &\leq (T(n/8^2, m/2^2) + T(n/8^2, \frac{m/2}{4})&&\\
+                        & + T(n/8^2, \frac{n/4}{2}) + T(n/8^2, n/4^2)&&\\
+                        & + c(n/8+n/4) + c(n/8+m/2)) + c(n+m)&&\\
+                    }
+                    \only<8,9,10>{
+                        &\leq (T(n/8^2, m/2^2) + T(n/8^2, \frac{m/2}{4})&&\\
+                        & + T(n/8^2, \frac{n/4}{2}) + T(n/8^2, n/4^2)&&\\
+                        & + c(n/2+m/2)) + c(n+m)&&\\
+                    }
+                    \only<9,10>{
+                        &\leq c (n+m) \cdot \sum_{i=0}^{\infty} (1/2)^i&&\\
+                    }
+                    \only<10>{
+                        &= 2 \cdot c(n+m)&&\\
+                    }
+        \end{flalign*}
+        , mit $c \in \mathbb{N}$ konstant\\
+        \gap
+        \begin{tabular}[H]{ll}
+            \only<2,3,4,5>{\cellcolor{GreenTOL!40!}
+            $G_1$   
+            &\cellcolor{GreenTOL!20!}
+            $n_1 = n/8, m_1 = m$\\
+            }\only<3,4,5>{\cellcolor{GreenTOL!40!}
+            $G_2$   
+            &\cellcolor{GreenTOL!20!}
+            $n_2 = n/8, m_2 = m/2$\\
+            }\only<4>{\cellcolor{GreenTOL!40!}
+            $G_3$   
+            &\cellcolor{GreenTOL!20!}
+            $n_3 = \frac{n/8}{0,5}, m_3 = m/2$\\
+            }\only<5>{\cellcolor{GreenTOL!40!}
+            $G_3$   
+            &\cellcolor{GreenTOL!20!}
+            $n_3 = n/4, m_3 = m/2$\\
+            }\\
+        \end{tabular}
+    \end{overlayarea}
+\end{frame}
