@@ -3,9 +3,8 @@
     \begin{overlayarea}{\textwidth}{4cm}
         \only<1>{Sei $G$:}
         \only<2>{Sei $F$:}
-        \only<3>{Dann ist etwas an \textcolor{blue}{diesen Kanten} besonders.}
-        \ \\
-        \gap
+        \only<3>{Dann ist etwas an \textcolor{blue}{diesen Kanten} besonders.}\ \\
+        \begin{center}
         \begin{tikzpicture}
             \node[state](A) at (0,0)  {A};
             \node[state](B) at (3,0)  {B};
@@ -63,6 +62,7 @@
                     edge [-, below] node {7}  (H)
                 ;}
         \end{tikzpicture}
+        \end{center}
     \end{overlayarea}
 \end{frame}
 
@@ -86,8 +86,8 @@
     \begin{overlayarea}{\textwidth}{4cm}
         \only<2>{Zyklus D$,$E$,$H$,$D$ \lightning$}
         \only<3>{$w(\{$D$,$H$\}) > w(\{$E$,$H$\})$}
-        \only<4>{$w(\{$D$,$H$\}) > w(\{$D$,$E$\})$}\ \\
-        \gap
+        \only<4>{$w(\{$D$,$H$\}) > w(\{$D$,$E$\})$}\ \\ \ \\
+        \begin{center}
         \begin{tikzpicture}
             \node[state](A) at (0,0)  {A};
             \node[state](B) at (3,0)  {B};
@@ -174,5 +174,6 @@
                     edge [-, below] node {7}  (H)
                 ;}
         \end{tikzpicture}
+    \end{center}
     \end{overlayarea}
 \end{frame}

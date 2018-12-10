@@ -8,14 +8,15 @@
     \end{enumerate}
 \end{frame}
 \begin{frame}{Ablauf}
-    \begin{overlayarea}{\textwidth}{14cm}
+    \begin{overlayarea}{\textwidth}{15cm}
         \gap
         \only<1>{1. Kontraktierende Kanten markieren}
         \only<2>{2. Verbundene Komponenten bestimmen}
         \only<3>{3. Verbundene Komponenten durch einzelne Knoten ersetzen}
         \only<4>{4. Selbstschleifen entfernen}
-        \only<1,2,4>{\ \\ \gap}
-       \begin{tikzpicture}[minND/.style={circle,
+        \only<4>{\ \\ \gap}
+        \begin{center}
+        \begin{tikzpicture}[minND/.style={circle,
                                           anchor=center,
                                           draw=black,
                                           text width=2.5mm,
@@ -197,5 +198,6 @@
                     edge [-, below] node {7} (H)
                 ;}
         \end{tikzpicture}
+        \end{center}
     \end{overlayarea}
 \end{frame}

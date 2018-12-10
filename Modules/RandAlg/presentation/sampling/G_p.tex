@@ -1,9 +1,10 @@
 \begin{frame}{Kanten \glqq w"urfeln\grqq}
-    \begin{overlayarea}{\textwidth}{4cm}
+    \begin{overlayarea}{\textwidth}{1cm}
         \only<1>{$G_1:$}
         \only<2>{$G_1(p=0,5):$}
-        \ \\ 
-        \gap
+    \end{overlayarea}
+    \begin{overlayarea}{\textwidth}{4cm}
+        \begin{center}
         \begin{tikzpicture}
             \node[state](A) at (0,0)  {A};
             \node[state](B) at (3,0)  {B};
@@ -45,5 +46,6 @@
                         edge [-, left ] node {10} (H)
                     ;}
         \end{tikzpicture}
+        \end{center}
     \end{overlayarea}
 \end{frame}
