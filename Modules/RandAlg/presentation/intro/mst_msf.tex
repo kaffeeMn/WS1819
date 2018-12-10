@@ -1,0 +1,97 @@
+% 1. Intro:
+% vllt. Konventionen an die Tafel
+\section{Was wollen wir erreichen?}
+% MST
+\begin{frame}{MST}
+    \begin{overlayarea}{\textwidth}{4cm}
+        \begin{tikzpicture}
+            \node[state](A) at (0,0)  {A};
+            \node[state](B) at (3,0)  {B};
+            \node[state](C) at (0,-3) {C};
+            \node[state](D) at (3,-3) {D};
+            \node[state](E) at (6,0)  {E};
+            \node[state](F) at (9,0)  {F};
+            \node[state](G) at (9,-3) {G};
+            \node[state](H) at (6,-3) {H};
+            \only<1>{\path
+                (A) 
+                    edge [-, above] node {6}  (B)
+                    edge [-, left ] node {7}  (C)
+                (B)                                        
+                    edge [-, left ] node               {8}  (C)
+                    edge [-, left ] node {11} (D)
+                (D)                                        
+                    edge [-, left ] node {12} (E)
+                    edge [-, below] node               {13} (H)
+                (E)                                        
+                    edge [-, above] node {6}  (F)
+                    edge [-, left ] node               {8}  (G)
+                    edge [-, left ] node               {10} (H)
+                (F)                                        
+                    edge [-, left ] node {7}  (G)
+                (G)                                        
+                    edge [-, below] node {7}  (H)
+                ;}
+            \only<2>{\path
+                (A) 
+                    edge [-, above, color=orange] node {6}  (B)
+                    edge [-, left , color=orange] node {7}  (C)
+                (B)                                        
+                    edge [-, left ] node               {8}  (C)
+                    edge [-, left , color=orange] node {11} (D)
+                (D)                                        
+                    edge [-, left , color=orange] node {12} (E)
+                    edge [-, below] node               {13} (H)
+                (E)                                        
+                    edge [-, above, color=orange] node {6}  (F)
+                    edge [-, left ] node               {8}  (G)
+                    edge [-, left ] node               {10} (H)
+                (F)                                        
+                    edge [-, left , color=orange] node {7}  (G)
+                (G)                                        
+                    edge [-, below, color=orange] node {7}  (H)
+                ;}
+        \end{tikzpicture}
+    \end{overlayarea}
+\end{frame}
+
+\begin{frame}{MSF}
+    \begin{tikzpicture}
+        \node[state](A) at (0,0)  {A};
+        \node[state](B) at (3,0)  {B};
+        \node[state](C) at (0,-3) {C};
+        \node[state](D) at (3,-3) {D};
+        \node[state](E) at (6,0)  {E};
+        \node[state](H) at (6,-3) {H};
+        \node[state](F) at (9,0)  {F};
+        \node[state](G) at (9,-3) {G};
+        \only<1>{
+        \path
+            (A) edge [-, above] node {6} (B)
+                edge [-, left ] node {7} (C)
+            (B)
+                edge [-, left] node {8} (C)
+            (D)
+                edge [-, left ] node {12} (E)
+                edge [-, below] node {13} (H)
+            (E)
+                edge [-, left ] node {10} (H)
+            ;
+        }
+        \only<2>{
+        \path
+            (A) edge [-, above, color=orange] node {6} (B)
+                edge [-, left , color=orange] node {7} (C)
+            (B)
+                edge [-, left] node {8} (C)
+            (D)
+                edge [-, left , color=orange] node {12} (E)
+                edge [-, below] node {13} (H)
+            (E)
+                edge [-, left , color=orange] node {10} (H)
+            ;
+        }
+    \end{tikzpicture}
+\end{frame}
+
+

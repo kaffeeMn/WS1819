@@ -1,0 +1,37 @@
+\begin{frame}{Laufzeit}
+    \vspace{-1cm} 
+    \begin{overlayarea}{\textwidth}{6cm}
+    \begin{algorithm}[H]
+    \begin{algorithmic}[1]
+        \begin{tabular}[H]{rl}
+            \only<2,3>{\textcolor{blue}{$O(n+m)$}}
+            & \STATE $G_1, C$ $\leftarrow$
+                                   \begin{tabular}[H]{l}
+                                       3 Bor\r uvka-Phasen\\
+                                       \textbf{Wenn} $G$ leer\\
+                                       \ \ \ \ \ \ \ \ oder Bor\r uvka-Phasen
+                                       terminieren:\\
+                                       \ \ \ \ \ \ \ \ \textbf{return} $F=C$\\
+                                   \end{tabular}\\
+            \\
+            \only<2,3>{\textcolor{blue}{$O(n+m)$}}
+            & \STATE $G_2$ $\leftarrow$ $G_1(p=0,5)$\\
+            \\
+            \only<3>{\textcolor{red}{?}}
+            & \STATE $F_2$ $\leftarrow$ $MST(G_2)$\\
+            \\
+            \only<2,3>{\textcolor{blue}{$O(n+m)$}}
+            & \STATE $G_3$ $\leftarrow$ $(V_{G_1}, E_{G_1} - E_{F_2-heavy})$\\
+            \\
+            \only<3>{\textcolor{red}{?}}
+            & \STATE $F_3$ $\leftarrow$ $MST(G_3)$\\
+            \\
+            \only<2,3>{\textcolor{blue}{$O(n+m)$}}
+            & \RETURN $F = C \cup F_3$\\
+            \ \ \ \ \ \ \ \ \ \ \ \ \ \ &\\
+        \end{tabular}
+    \end{algorithmic}
+    \end{algorithm}
+    \end{overlayarea}
+\end{frame}
+

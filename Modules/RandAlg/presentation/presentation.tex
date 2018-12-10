@@ -1,0 +1,97 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% document and size %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[10pt]{beamer}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% special libraries %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{ngerman}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{fancyhdr}
+\usepackage[export]{adjustbox}
+\usepackage{lipsum}
+\usepackage{lmodern}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+\usepackage{algorithmic}
+\usepackage[]{algorithm2e}
+%\usepackage[dvipsnames]{xcolor}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% custum commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\gap}{\ \\ \ \\}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT TOUCH %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% setup of the metropolis theme
+\setbeamerfont{footnote}{size=\scriptsize}
+\setbeamertemplate{footline}{}
+\setbeamercolor{footnote}{fg=white,bg=mDarkTeal}
+
+\usetheme[progressbar=frametitle]{metropolis}
+\usepackage{appendixnumberbeamer}
+
+\usepackage{booktabs}
+\usepackage[scale=2]{ccicons}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\usepackage{xspace}
+\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
+
+% thick lines
+\tikzset{every picture/.style={line width=1.5pt}} 
+
+% for the title page
+\title{Der linearzeit MST-Algorithmus}
+\subtitle{Der schnellste Algorithmus f"ur das MST/ MSF Problem}
+\date{}
+\author{Max Springenberg}
+\institute{Proseminar: Randomisierte Algorithmen, TU Dortmund}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\maketitle
+
+%% Ablauf:
+% 1. Intro:
+%   Motivation
+\include{intro/motivation}
+%   MST und Kontext/ vllt. Konventionen
+\include{intro/mst_msf}
+%
+% 2. F-leicht/ -schwer:
+\include{f_edges/f_edges}
+%   Beweis zu F-schweren und leichten Kanten
+\include{f_edges/f_heavy}
+\include{f_edges/f_light}
+%   lineare Klassifikation erwaehnen, aber keinen Algorithmus vorstellen
+%
+% 3. Reduzieren des Graphen:
+%   Einstieg: Teaser Rekursion
+%   3.1 Boruvka:
+%       Prinzip erklaeren
+\include{boruvka/boruvka_phases}
+%       Reduktion auf n/2 beweisen
+\include{boruvka/boruvka_proofs}
+%   3.2 Stichproben:
+\include{sampling/sampling}
+%       G(p) definieren, bzw. erklaeren
+%       Reduktion auf m/2 erlaeutern
+\include{sampling/G_p}
+%       Beweis mit Stochastischer Dominanz der F-Leichten Kanten durch n/p
+\include{sampling/sampling_proofs}
+%
+% 4. Der Algorithmus:
+\include{mst/mst}
+%   4.1. Erkenntnisse Rekapitulieren:
+%       lineare Verifikation F-schwerer Kanten
+%       Guete des Samplings
+%       Reduktionen der Knoten und Kanten!
+%   4.2. Der Algorithmus:
+%       ggf. am Whiteboard zusammen Anschreiben wenn die Zeit dazu noch ist
+\include{mst/algorithm}
+%       Laufzeit anhand des angeschriebenen Beweisen
+\include{mst/runtime}
+%
+% TODO Abschluss
+% Randomisierte Stichproben
+\end{document}

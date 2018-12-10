@@ -1,0 +1,25 @@
+\begin{frame}
+    \begin{overlayarea}{\textwidth}{4cm}
+    \begin{algorithm}[H]
+        $MST$\\
+        \KwData{Graph $G$}
+        \KwResult{Approximation eines MST/ MSF in $G$} \ \\
+        \begin{algorithmic}[1]
+            \only<2,3,4,5,6,7>{\STATE $G_1, C$ $\leftarrow$
+                               \begin{tabular}[H]{l}
+                                   3 Bor\r uvka-Phasen\\
+                                   \textbf{Wenn} $G$ leer oder Bor\r uvka-Phasen
+                                   terminieren:\\
+                                   \ \ \ \ \ \ \ \ \textbf{return} $F=C$\\
+                               \end{tabular}}
+            \only<3,4,5,6,7>{\STATE $G_2$ $\leftarrow$ $G_1(p=0,5)$}
+            \only<4,5,6,7>{\STATE $F_2$ $\leftarrow$ $MST(G_2)$}
+            \only<5,6,7>{\STATE $G_3$ 
+                         $\leftarrow$ $(V_{G_1}, E_{G_1} - E_{F_2-heavy})$}
+            \only<6,7>{\STATE $F_3$ $\leftarrow$ $MST(G_3)$}
+            \only<7>{\RETURN $F = C \cup F_3$}
+        \end{algorithmic}
+        \end{algorithm}
+    \end{overlayarea}
+\end{frame}
+

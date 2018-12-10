@@ -1,0 +1,41 @@
+\begin{frame}{$F$-leichte Kanten im MSF?}
+    $G_{w_1}$\only<2,3,4>{, MST \textcolor{orange}{$F$}}:\\
+    \gap
+    \begin{overlayarea}{\textwidth}{4cm}
+        \begin{center}
+            \begin{tikzpicture}
+                \node[state](A) at (3,0)  {A};
+                \node[state](B) at (6,-3)  {B};
+                \node[state](C) at (0,-3) {C};
+                \only<1>{\path
+                    (A) 
+                        edge [-, above] node {1} (B)
+                        edge [-, left ] node {1} (C)
+                    (B)                       
+                        edge [-, above] node {1} (C)
+                    ;}
+                \only<2>{\path
+                    (A) 
+                        edge [-, above, color=orange] node {1} (B)
+                        edge [-, left , color=orange] node {1} (C)
+                    (B)                                        
+                        edge [-, above] node {1} (C)
+                    ;}
+                \only<3>{\path
+                    (A) 
+                        edge [-, above, color=orange] node {1} (B)
+                        edge [-, left ] node {1} (C)
+                    (B)
+                        edge [-, above, color=orange] node {1} (C)
+                    ;}
+                \only<4>{\path
+                    (A) 
+                        edge [-, above] node {1} (B)
+                        edge [-, left , color=orange] node {1} (C)
+                    (B)
+                        edge [-, above, color=orange] node {1} (C)
+                    ;}
+            \end{tikzpicture}\\
+        \end{center}
+    \end{overlayarea}
+\end{frame}

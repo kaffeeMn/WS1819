@@ -1,0 +1,6 @@
+\beamer@sectionintoc {1}{Motivation}{2}{0}{1}
+\beamer@sectionintoc {2}{Was wollen wir erreichen?}{5}{0}{2}
+\beamer@sectionintoc {3}{$F$-leicht/-schwer}{10}{0}{3}
+\beamer@sectionintoc {4}{Bor\r uvka Phasen}{23}{0}{4}
+\beamer@sectionintoc {5}{Randomisierte Stichproben}{30}{0}{5}
+\beamer@sectionintoc {6}{Der MST-Algorithmus}{35}{0}{6}
