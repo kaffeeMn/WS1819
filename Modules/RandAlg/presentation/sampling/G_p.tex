@@ -45,6 +45,27 @@
                     (E)
                         edge [-, left ] node {10} (H)
                     ;}
+            \only<3>{\path
+                    (A) 
+                        edge [-, above, color=orange] node {6}  (B)
+                        edge [-, left , color=orange] node {7}  (C)
+                    (B)                                        
+                        edge [-, left ] node {8}  (C)
+                        edge [-, left , color=blue] node {11} (D)
+                    (D)                                        
+                        edge [-, left , color=orange] node {12} (E)
+                        edge [-, below] node {13} (H)
+                    (E)                                        
+                        edge [-, above, color=blue] node {6}  (F)
+                        edge [-, left , color=blue] node {8}  (G)
+                        edge [-, left , color=orange] node {10} (H)
+                    (F)                                        
+                        edge [-, left , color=blue] node {7}  (G)
+                    (G)                                        
+                        edge [-, below, color=blue] node {7}  (H)
+ 
+                    ;}
+ 
         \end{tikzpicture}
         \end{center}
     \end{overlayarea}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  11 DEC 2018 10:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  11 DEC 2018 20:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1832,7 +1832,7 @@ Overfull \hbox (41.59204pt too wide) in paragraph at lines 10--10
 \openout2 = `sampling/G_p.aux'.
 
  (./sampling/G_p.tex
-Overfull \vbox (3.6301pt too high) detected at line 51
+Overfull \vbox (3.6301pt too high) detected at line 72
  []
 
 [34
@@ -1840,19 +1840,21 @@ Overfull \vbox (3.6301pt too high) detected at line 51
 
 
 ]
-Overfull \vbox (3.6301pt too high) detected at line 51
+Overfull \vbox (3.6301pt too high) detected at line 72
  []
 
 [35
+
+]
+Overfull \vbox (3.6301pt too high) detected at line 72
+ []
+
+[36
 
 ])
 \openout2 = `sampling/sampling_proofs.aux'.
 
  (./sampling/sampling_proofs.tex
-Overfull \hbox (0.1908pt too wide) in paragraph at lines 36--36
- [] 
- []
-
 
 ! LaTeX Error: Something's wrong--perhaps a missing \item.
 
@@ -1864,15 +1866,11 @@ l.36 \end{frame}
                 
 ? R
 OK, entering \nonstopmode...
-[36
+[37
 
 
 
 ]
-Overfull \hbox (0.1908pt too wide) in paragraph at lines 36--36
- [] 
- []
-
 ! Misplaced alignment tab character &.
 \beamer@doifinframe -> $$ e_1, &
                                 \ldots &, e_{m_G},\^^Mw(e_1) \leq &\ldots &\...
@@ -1921,38 +1919,17 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-[37
-
-]
-Overfull \hbox (0.1908pt too wide) in paragraph at lines 36--36
- [] 
- []
-
 [38
 
-]
-Overfull \hbox (0.1908pt too wide) in paragraph at lines 36--36
- [] 
- []
+] [39
 
-[39
-
-]
-Overfull \hbox (0.1908pt too wide) in paragraph at lines 36--36
- [] 
- []
-
-[40
+] [40
 
 ] [41
 
 ] [42
 
-]
-Overfull \vbox (1.1432pt too high) detected at line 63
- []
-
-[43
+] [43
 
 ]
 Overfull \vbox (1.1432pt too high) detected at line 63
@@ -1967,6 +1944,12 @@ Overfull \vbox (1.1432pt too high) detected at line 63
 [45
 
 ]
+Overfull \vbox (1.1432pt too high) detected at line 63
+ []
+
+[46
+
+]
 Overfull \vbox (9.46957pt too high) detected at line 63
  []
 
@@ -1974,7 +1957,7 @@ Overfull \vbox (9.46957pt too high) detected at line 63
 Overfull \vbox (1.1432pt too high) detected at line 63
  []
 
-[46
+[47
 
 ]
 ! Illegal parameter number in definition of \test.
@@ -2022,44 +2005,6 @@ You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-Missing character: There is no ; in font nullfont!
-! Illegal parameter number in definition of \beamer@doifinframe.
-<to be read again> 
-                    
-l.129 \end{frame}
-                 
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-[47
-
-]
-! Illegal parameter number in definition of \beamer@doifinframe.
-<to be read again> 
-                    
-l.129 \end{frame}
-                 
-You meant to type ## instead of #, right?
-Or maybe a } was forgotten somewhere earlier, and things
-are all screwed up? I'm going to assume that you meant ##.
-
-! You can't use `macro parameter character #' in restricted horizontal mode.
-\beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
-                                                   braces \draw [ decoration...
-l.129 \end{frame}
-                 
-Sorry, but I'm not programmed to handle this case;
-I'll just pretend that you didn't ask for it.
-If you're in the wrong mode, you might be able to
-return to the right one by typing `I}' or `I$' or `I\par'.
-
-Missing character: There is no b in font nullfont!
-Missing character: There is no r in font nullfont!
-Missing character: There is no a in font nullfont!
-Missing character: There is no c in font nullfont!
-Missing character: There is no e in font nullfont!
-Missing character: There is no s in font nullfont!
 Missing character: There is no ; in font nullfont!
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
@@ -2175,10 +2120,6 @@ Missing character: There is no c in font nullfont!
 Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no ; in font nullfont!
-
-Overfull \vbox (11.50203pt too high) detected at line 129
- []
-
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
@@ -2221,7 +2162,49 @@ Missing character: There is no ; in font nullfont!
 Overfull \vbox (11.50203pt too high) detected at line 129
  []
 
+! Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.129 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
 [52
+
+]
+! Illegal parameter number in definition of \beamer@doifinframe.
+<to be read again> 
+                    
+l.129 \end{frame}
+                 
+You meant to type ## instead of #, right?
+Or maybe a } was forgotten somewhere earlier, and things
+are all screwed up? I'm going to assume that you meant ##.
+
+! You can't use `macro parameter character #' in restricted horizontal mode.
+\beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
+                                                   braces \draw [ decoration...
+l.129 \end{frame}
+                 
+Sorry, but I'm not programmed to handle this case;
+I'll just pretend that you didn't ask for it.
+If you're in the wrong mode, you might be able to
+return to the right one by typing `I}' or `I$' or `I\par'.
+
+Missing character: There is no b in font nullfont!
+Missing character: There is no r in font nullfont!
+Missing character: There is no a in font nullfont!
+Missing character: There is no c in font nullfont!
+Missing character: There is no e in font nullfont!
+Missing character: There is no s in font nullfont!
+Missing character: There is no ; in font nullfont!
+
+Overfull \vbox (11.50203pt too high) detected at line 129
+ []
+
+[53
 
 ]
 ! Illegal parameter number in definition of \test.
@@ -2286,7 +2269,7 @@ You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-[53
+[54
 
 ]
 ! You can't use `macro parameter character #' in restricted horizontal mode.
@@ -2315,7 +2298,7 @@ You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
 are all screwed up? I'm going to assume that you meant ##.
 
-[54
+[55
 
 ]
 ! You can't use `macro parameter character #' in restricted horizontal mode.
@@ -2339,12 +2322,12 @@ Missing character: There is no ; in font nullfont!
 Overfull \vbox (43.47116pt too high) detected at line 183
  []
 
-[55
+[56
 
 ])
 \openout2 = `mst/mst.aux'.
 
- (./mst/mst.tex [56
+ (./mst/mst.tex [57
 
 
 
@@ -2364,37 +2347,37 @@ l.24 \end{frame}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-[57
+[58
 
 
-
-] [58
 
 ] [59
+
+] [60
 
 ]
 Overfull \vbox (9.7329pt too high) detected at line 24
  []
 
-[60
+[61
 
 ]
 Overfull \vbox (23.8939pt too high) detected at line 24
  []
 
-[61
+[62
 
 ]
 Overfull \vbox (37.33275pt too high) detected at line 24
  []
 
-[62
+[63
 
 ]
 Overfull \vbox (50.13266pt too high) detected at line 24
  []
 
-[63
+[64
 
 ])
 \openout2 = `mst/runtime.aux'.
@@ -2632,244 +2615,9 @@ If that doesn't work, type  X <return>  to quit.
 Overfull \vbox (42.28215pt too high) detected at line 36
  []
 
-[64
-
-
-
-]
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.36 \end{frame}
-                
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-Overfull \vbox (42.28215pt too high) detected at line 36
- []
-
 [65
+
+
 
 ]
 
@@ -3107,45 +2855,237 @@ Overfull \vbox (42.28215pt too high) detected at line 36
 [66
 
 ]
-! Missing } inserted.
-<inserted text> 
-                }
-l.92 \end{frame}
-                
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
 
-! Missing { inserted.
-<inserted text> 
-                {
-l.92 \end{frame}
-                
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
+! LaTeX Error: Something's wrong--perhaps a missing \item.
 
-! Missing } inserted.
-<inserted text> 
-                }
-l.92 \end{frame}
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-! Missing { inserted.
-<inserted text> 
-                {
-l.92 \end{frame}
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
                 
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: Something's wrong--perhaps a missing \item.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.36 \end{frame}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+Overfull \vbox (42.28215pt too high) detected at line 36
+ []
 
 [67
 
@@ -3233,10 +3173,6 @@ I've put in what seems to be necessary to fix
 the current column of the current alignment.
 Try to go on, since this might almost work.
 
-
-Overfull \vbox (6.02188pt too high) detected at line 92
- []
-
 [69
 
 ]
@@ -3281,7 +3217,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (20.93137pt too high) detected at line 92
+Overfull \vbox (6.02188pt too high) detected at line 92
  []
 
 [70
@@ -3328,7 +3264,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (19.8218pt too high) detected at line 92
+Overfull \vbox (6.02188pt too high) detected at line 92
  []
 
 [71
@@ -3375,7 +3311,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (49.87111pt too high) detected at line 92
+Overfull \vbox (20.93137pt too high) detected at line 92
  []
 
 [72
@@ -3422,7 +3358,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (49.87111pt too high) detected at line 92
+Overfull \vbox (19.8218pt too high) detected at line 92
  []
 
 [73
@@ -3516,7 +3452,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (84.1455pt too high) detected at line 92
+Overfull \vbox (49.87111pt too high) detected at line 92
  []
 
 [75
@@ -3563,12 +3499,106 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (100.94542pt too high) detected at line 92
+Overfull \vbox (49.87111pt too high) detected at line 92
  []
 
 [76
 
-]) [77
+]
+! Missing } inserted.
+<inserted text> 
+                }
+l.92 \end{frame}
+                
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.92 \end{frame}
+                
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.92 \end{frame}
+                
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.92 \end{frame}
+                
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+
+Overfull \vbox (84.1455pt too high) detected at line 92
+ []
+
+[77
+
+]
+! Missing } inserted.
+<inserted text> 
+                }
+l.92 \end{frame}
+                
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.92 \end{frame}
+                
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.92 \end{frame}
+                
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.92 \end{frame}
+                
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+
+Overfull \vbox (100.94542pt too high) detected at line 92
+ []
+
+[78
+
+]) [79
 
 
  </usr/local/texlive/2017/texmf-dist/tex/latex/beamer/art/beamericonarticle.pdf
@@ -3603,13 +3633,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 ### simple group (level 1) entered at line 1061 ({)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 34627 strings out of 492995
- 824907 string characters out of 6132704
+ 34631 strings out of 492995
+ 824945 string characters out of 6132704
  1183174 words of memory out of 5000000
  37174 multiletter control sequences out of 15000+600000
  67796 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 64i,25n,98p,1895b,13221s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 64i,25n,98p,1895b,13229s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-mathi
 t.enc}{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/us
 r/local/texlive/2017/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texliv
@@ -3629,10 +3659,10 @@ msso8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2017/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on presentation.pdf (77 pages, 341829 bytes).
+Output written on presentation.pdf (79 pages, 345153 bytes).
 PDF statistics:
- 574 PDF objects out of 1000 (max. 8388607)
- 461 compressed objects within 5 object streams
- 162 named destinations out of 1000 (max. 500000)
+ 586 PDF objects out of 1000 (max. 8388607)
+ 471 compressed objects within 5 object streams
+ 166 named destinations out of 1000 (max. 500000)
  96 words of extra memory for PDF output out of 10000 (max. 10000000)
 

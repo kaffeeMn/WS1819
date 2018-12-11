@@ -1,11 +1,11 @@
 \begin{frame}{Verschlechtern wir den MSF?}
     \begin{center}
-    \begin{tabular}[h]{l}
+    \begin{tabular}[h]{p{8cm}}
         \cellcolor{GreenTOL!40!}
-        Theorem\\
+        Lemma 10.19 (vereinfacht)\\
         \cellcolor{GreenTOL!20!}
-        F"ur den MSF $F$ von $G(p), p \in (0,1]$ gibt es $\frac{n}{p}$
-        $F$ -leichte Kanten in $G$\\[0.3cm]
+        F"ur den MSF $F$ von $G(p), p \in (0,1]$ erwarten wir nicht mehr als
+		$\frac{n}{p}$ $F$ -leichte Kanten in $G$.\\[0.3cm]
     \end{tabular}
     \end{center}
     \gap
@@ -44,9 +44,9 @@
         }\only<4>{
             \item Wie oft \glqq w"urfeln\grqq?
         }\only<5,6>{
-            \item Wie oft \glqq w"urfeln\grqq? \textcolor{blue}{- $1/p$}
+            \item Wie oft \glqq w"urfeln\grqq? \textcolor{orange}{- $1/p$}
         }\only<6>{
-        \item Anzahl an Phasen insgesamt: $s \leq n-1, s \in \mathbb{N}$
+        \item Letzte Phase: $s \leq n-1, s \in \mathbb{N}$
         }
     \end{itemize}
     \end{overlayarea}
@@ -65,7 +65,7 @@
     \begin{overlayarea}{\textwidth}{3cm}
     \begin{itemize}
         \only<1>{
-            \item Differenz der Kanten $c = (n-1) - s < n-s$
+            \item Differenz der Phasen $c = (n-1) - s < n-s$
         }\only<2,3,4,5,6>{
             \item Differenz der Kanten 
                     $\textcolor{red}{c} = (n-1) - \textcolor{blue}{s} 
@@ -74,7 +74,7 @@
             \item weitere $c$-Phasen $\Rightarrow$ erwartet mehr $F$-leichte Kanten 
                     in $G$\\
         }\only<4,5,6>{
-            \item $s+c = n-1$ Phasen, bzw. $n-1$ Erfolge
+            \item $n-1$ Phasen/ Erfolge
         }\only<6>{
             \item Erfolgswahrscheinlichkeit: $p$ $\Rightarrow$ negative 
             Binomialverteilung
@@ -164,7 +164,7 @@
                 },
                 decorate] 
             (c1.west) -- (c3.east) 
-            node [pos=0.5,anchor=north,yshift=-0.55cm] {\textcolor{blue}{$c$}}; 
+            node [pos=0.5,anchor=north,yshift=-0.55cm] {\textcolor{red}{$c$}}; 
         ;
     \end{tikzpicture}
     \end{center}
