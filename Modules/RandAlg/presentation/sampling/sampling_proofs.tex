@@ -4,8 +4,8 @@
         \cellcolor{GreenTOL!40!}
         Lemma 10.19 (vereinfacht)\\
         \cellcolor{GreenTOL!20!}
-        F"ur den MSF $F$ von $G(p), p \in (0,1]$ erwarten wir nicht mehr als
-		$\frac{n}{p}$ $F$ -leichte Kanten in $G$.\\[0.3cm]
+        F"ur den MSF $F$ von $G(p)$, wobei $p \in (0,1]$ erwarten wir nicht mehr als
+		$n/p$ $F$-leichte Kanten in $G$.\\[0.3cm]
     \end{tabular}
     \end{center}
     \gap
@@ -65,18 +65,17 @@
     \begin{overlayarea}{\textwidth}{3cm}
     \begin{itemize}
         \only<1>{
-            \item Differenz der Phasen $c = (n-1) - s < n-s$
+            \item Differenz der Phasen $c = (n-1) - s$
         }\only<2,3,4,5,6>{
-            \item Differenz der Kanten 
-                    $\textcolor{red}{c} = (n-1) - \textcolor{blue}{s} 
-                                        < n-\textcolor{blue}{s}$
+            \item Differenz der Phasen
+                    $\textcolor{red}{c} = (n-1) - \textcolor{blue}{s}$
         }\only<3,4,5,6>{
-            \item weitere $c$-Phasen $\Rightarrow$ erwartet mehr $F$-leichte Kanten 
+            \item weitere $c$-Phasen, impliziert: erwartet mehr $F$-leichte Kanten 
                     in $G$\\
         }\only<4,5,6>{
             \item $n-1$ Phasen/ Erfolge
         }\only<6>{
-            \item Erfolgswahrscheinlichkeit: $p$ $\Rightarrow$ negative 
+            \item Erfolgswahrscheinlichkeit $p$, impiziert: negative 
             Binomialverteilung
         }
     \end{itemize}
@@ -120,7 +119,14 @@
                     decorate] 
                 (c1.west) -- (c3.east) 
                 node [pos=0.5,anchor=north,yshift=-0.55cm] {\textcolor{red}{$c$}}; 
-        
+            \draw [ decoration={
+                        brace,
+                        mirror,
+                        raise=0.5cm
+                    },
+                    decorate] 
+                (0,-0.5) -- (5,-0.5) 
+                node [pos=0.5,anchor=north,yshift=-0.55cm] {$n-1$}; 
         }
             ;
         \end{tikzpicture}
@@ -165,9 +171,18 @@
                 decorate] 
             (c1.west) -- (c3.east) 
             node [pos=0.5,anchor=north,yshift=-0.55cm] {\textcolor{red}{$c$}}; 
+        \draw [ decoration={
+                        brace,
+                        mirror,
+                        raise=0.5cm
+                    },
+                    decorate] 
+                (0,-0.5) -- (5,-0.5) 
+                node [pos=0.5,anchor=north,yshift=-0.55cm] {$n-1$};
         ;
     \end{tikzpicture}
     \end{center}
+	\vspace{-0.5cm}
     \begin{overlayarea}{\textwidth}{2cm}
     \ \\
     \only<2,3>{
@@ -175,9 +190,13 @@
         $X_{sp} \overset{def}{=}$ negative Binomialverteilung, Parameter $s, p$\\
     }
     \only<3>{
-        $X_{np}$ dominiert $X_{sp}$, mit: $$
-            n/p > (n-1)/p = E[X_{np}] \geq E[X_{sp}] = s/p
-            $$
+        $X_{np}$ dominiert $X_{sp}$, mit: 
+        \begin{center}
+        \begin{tabular}[h]{ll}
+            F"ur alle $z \in \mathbb{R}: & Pr[X_{np} > z] \geq Pr[X_{sp} > z]$\\
+            oder auch:                   &$n/p > (n-1)/p = E[X_{np}] \geq E[X_{sp}] = s/p$\\
+        \end{tabular}
+        \end{center}
     }
     \end{overlayarea}
 \end{frame}
