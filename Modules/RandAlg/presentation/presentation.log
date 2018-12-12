@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  12 DEC 2018 01:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2018.4.10)  12 DEC 2018 07:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1863,7 +1863,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.36 \end{frame}
+l.37 \end{frame}
                 
 ? R
 OK, entering \nonstopmode...
@@ -1875,7 +1875,7 @@ OK, entering \nonstopmode...
 ! Misplaced alignment tab character &.
 \beamer@doifinframe -> $$ e_1, &
                                 \ldots &, e_{m_G},\^^Mw(e_1) \leq &\ldots &\...
-l.36 \end{frame}
+l.37 \end{frame}
                 
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1887,7 +1887,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \beamer@doifinframe -> $$ e_1, &\ldots &
                                         , e_{m_G},\^^Mw(e_1) \leq &\ldots &\...
-l.36 \end{frame}
+l.37 \end{frame}
                 
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1899,7 +1899,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \beamer@doifinframe ..., e_{m_G},\^^Mw(e_1) \leq &
                                                   \ldots &\leq w(e_{m_G}) $$ 
-l.36 \end{frame}
+l.37 \end{frame}
                 
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1911,7 +1911,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 \beamer@doifinframe ...},\^^Mw(e_1) \leq &\ldots &
                                                   \leq w(e_{m_G}) $$ 
-l.36 \end{frame}
+l.37 \end{frame}
                 
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1933,29 +1933,29 @@ might try typing `S' now just to see what is salvageable.
 ] [43
 
 ]
-Overfull \vbox (1.1432pt too high) detected at line 63
+Overfull \vbox (1.1432pt too high) detected at line 64
  []
 
 [44
 
 ]
-Overfull \vbox (1.1432pt too high) detected at line 63
+Overfull \vbox (1.1432pt too high) detected at line 64
  []
 
 [45
 
 ]
-Overfull \vbox (1.1432pt too high) detected at line 63
+Overfull \vbox (1.1432pt too high) detected at line 64
  []
 
 [46
 
 ]
-Overfull \vbox (9.46957pt too high) detected at line 63
+Overfull \vbox (9.46957pt too high) detected at line 64
  []
 
 
-Overfull \vbox (1.1432pt too high) detected at line 63
+Overfull \vbox (1.1432pt too high) detected at line 64
  []
 
 [47
@@ -1964,7 +1964,7 @@ Overfull \vbox (1.1432pt too high) detected at line 63
 ! Illegal parameter number in definition of \test.
 <to be read again> 
                     
-l.132         \end{tikzpicture}
+l.133         \end{tikzpicture}
                                
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -1973,7 +1973,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \iterate.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -1982,7 +1982,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \iterate.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -1991,7 +1991,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2000,7 +2000,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2010,7 +2010,7 @@ Missing character: There is no ; in font nullfont!
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2022,7 +2022,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2031,7 +2031,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.135 \end{frame}
+l.136 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2048,7 +2048,7 @@ Missing character: There is no ; in font nullfont!
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2060,7 +2060,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2069,7 +2069,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.135 \end{frame}
+l.136 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2086,7 +2086,7 @@ Missing character: There is no ; in font nullfont!
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2098,7 +2098,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2107,7 +2107,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.135 \end{frame}
+l.136 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2124,7 +2124,7 @@ Missing character: There is no ; in font nullfont!
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2136,7 +2136,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2145,7 +2145,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.135 \end{frame}
+l.136 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2160,13 +2160,13 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \vbox (28.70047pt too high) detected at line 135
+Overfull \vbox (28.70047pt too high) detected at line 136
  []
 
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2178,7 +2178,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.135 \end{frame}
+l.136 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2187,7 +2187,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.135 \end{frame}
+l.136 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2202,7 +2202,7 @@ Missing character: There is no e in font nullfont!
 Missing character: There is no s in font nullfont!
 Missing character: There is no ; in font nullfont!
 
-Overfull \vbox (28.70047pt too high) detected at line 135
+Overfull \vbox (28.70047pt too high) detected at line 136
  []
 
 [53
@@ -2211,7 +2211,7 @@ Overfull \vbox (28.70047pt too high) detected at line 135
 ! Illegal parameter number in definition of \test.
 <to be read again> 
                     
-l.183     \end{tikzpicture}
+l.184     \end{tikzpicture}
                            
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2220,7 +2220,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \iterate.
 <to be read again> 
                     
-l.202 \end{frame}
+l.203 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2229,7 +2229,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \iterate.
 <to be read again> 
                     
-l.202 \end{frame}
+l.203 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2238,7 +2238,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.202 \end{frame}
+l.203 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2247,7 +2247,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.202 \end{frame}
+l.203 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2264,7 +2264,7 @@ Missing character: There is no ; in font nullfont!
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.202 \end{frame}
+l.203 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2276,7 +2276,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.202 \end{frame}
+l.203 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2293,7 +2293,7 @@ Missing character: There is no ; in font nullfont!
 ! Illegal parameter number in definition of \beamer@doifinframe.
 <to be read again> 
                     
-l.202 \end{frame}
+l.203 \end{frame}
                  
 You meant to type ## instead of #, right?
 Or maybe a } was forgotten somewhere earlier, and things
@@ -2305,7 +2305,7 @@ are all screwed up? I'm going to assume that you meant ##.
 ! You can't use `macro parameter character #' in restricted horizontal mode.
 \beamer@doifinframe ...l=red] (c3) at (5,0) {}; ##
                                                    braces \draw [ decoration...
-l.202 \end{frame}
+l.203 \end{frame}
                  
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
@@ -2322,7 +2322,7 @@ Missing character: There is no ; in font nullfont!
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.202 \end{frame}
+l.203 \end{frame}
                  
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2333,13 +2333,13 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.202 \end{frame}
+l.203 \end{frame}
                  
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \vbox (35.33217pt too high) detected at line 202
+Overfull \vbox (35.33217pt too high) detected at line 203
  []
 
 [56
@@ -3425,7 +3425,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (49.87111pt too high) detected at line 91
+Overfull \vbox (48.9266pt too high) detected at line 91
  []
 
 [74
@@ -3472,7 +3472,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (49.87111pt too high) detected at line 91
+Overfull \vbox (48.9266pt too high) detected at line 91
  []
 
 [75
@@ -3519,7 +3519,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (49.87111pt too high) detected at line 91
+Overfull \vbox (48.9266pt too high) detected at line 91
  []
 
 [76
@@ -3566,7 +3566,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (84.1455pt too high) detected at line 91
+Overfull \vbox (83.20099pt too high) detected at line 91
  []
 
 [77
@@ -3613,7 +3613,7 @@ the current column of the current alignment.
 Try to go on, since this might almost work.
 
 
-Overfull \vbox (100.94542pt too high) detected at line 91
+Overfull \vbox (100.00092pt too high) detected at line 91
  []
 
 [78
@@ -3694,7 +3694,7 @@ msso8.pfb></usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy10.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/lm/lmsy7.pfb></usr/local
 /texlive/2017/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/l
 ocal/texlive/2017/texmf-dist/fonts/type1/public/stmaryrd/stmary10.pfb>
-Output written on presentation.pdf (83 pages, 349933 bytes).
+Output written on presentation.pdf (83 pages, 350145 bytes).
 PDF statistics:
  607 PDF objects out of 1000 (max. 8388607)
  488 compressed objects within 5 object streams
