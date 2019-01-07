@@ -1,0 +1,47 @@
+%\documentclass{article}
+\documentclass[a4paper,12pt,times,german]{cls/summary}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithmic}
+\usepackage[]{algorithm2e}
+\usepackage{float}
+\restylefloat{table}
+\usepackage{hyperref}
+
+
+\title{Der Linearzeit MST-Algorithmus\\
+       \LARGE Der Schnellste Algorithmus F"ur Das MST/ MSF Problem}
+\author{Maximilian Springenberg\\
+        \small Proseminar Randomisierte Algorithmen}
+\date{}
+\setcounter{section}{-1}
+
+\begin{document}
+\maketitle
+
+% paragraphs
+\input{section0/conventions}
+\input{section1/motivation}
+\input{section2/f_edges}
+\input{section3/graph_reduction}
+\input{section4/mst_algorithm}
+
+% literature
+\begin{thebibliography}{}
+\footnotesize
+\bibitem{randAlg} 
+    Motwani, R., Raghavan, P. :
+    \textit{Randomized Algorithms}. Cambridge :
+    Cambridge University Press 1995, Kapitel 10.3.
+
+\bibitem{simpleVer} 
+    King, V.:
+    \textit{A Simpler Minimum Spanning Tree Verification Algorithm}:
+    Algorithmica June 1997
+\end{thebibliography}
+
+\end{document}

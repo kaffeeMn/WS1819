@@ -1,0 +1,78 @@
+\section{Kennzahlen}
+\subsection{Lage}
+Uns interessiert bei Daten insbesondere die Verteilung derer.
+    Wir möchten also mit möglichst wenigen und einfachen Mitteln
+    erfassen wie Streuung/ Mittel-/ Medianwerte sich verhalten.\\
+\\
+\subsection{Allgemeine Definitionen}
+\subsubsection{Mittel}
+Arithm. Mittel:\\
+$$
+    \overset{-}{x} = \frac{1}{n} \sum_{i=1}^n x_i
+$$
+Median:\\
+$$
+    med_x := \begin{cases}
+        x_(\frac{n+1}{2})                               &, \text{n ungerade}\\
+        \frac{x_(\frac{n}{2}) + x(\frac{n}{2} + 1)}{2}  &, \text{sonst}
+    \end{cases}
+$$
+Modus: Häufigster Wert.\\
+\subsubsection{Quantile}
+Ein $p$-Quantil, $p \in [0,1]$ ist eine Zahl, für die $100 \cdot p \%$ 
+    kleiner-gleich sind und $100 \cdot (1-p) \%$ der Werte größer-gleich\\
+$$ 
+    Q_p := \begin{cases}
+        x_{(j)}                             &,\text{$np$ nicht ganzzahlig,
+                                                    $j := \lceil np \rceil$}\\
+        \frac{x_{(j)} + x_{(j+2)}}{2}       &,\text{sonst,
+                                                    $j := np$}
+    \end{cases}
+$$
+\subsubsection{Abweichungen}
+absolute Abweichung:\\
+$$
+    \Delta_a(x) = \sum_{i=1}^N |x_i - x|
+$$
+Quadratische Abweichung:\\
+$$
+    \Delta(x) = \sum_{i=1}^N (x_i - x)^2
+$$
+\\
+Hierbei ist insbesondere interassant, dass $\Delata(x)$ für $x = \overset{-}{x}$
+    minimal ist.\\
+
+\subsection{Streuung}
+Wir haben bereits Maße für die Lage kennengelernt, nun wollen wir wissen wie stark
+    unsere Daten um die Lage varieren.\\
+\subsection{allgemeine Definitionen}
+\subsubsection{Abstände und Varianz um die Lage}
+Varianz:\\
+$$
+    var_x = s_x^2 := \sum_{i=1}^n \frac{(x_i - \overset{-}{x})^2}{n-1}
+$$
+Die Standardabweichung ist offensichtlich die Wurzel der Varianz $s_x := var_x$\\
+\\
+Interquatilsabstand:\\
+$$
+    qd_x := q^4 - q_4
+$$
+\\
+range/ Spannweite:\\
+$$
+    R_x := max(x) - min(x) = x(n) - x(1)
+$$
+Frage an Daniel: muss es nicht eigentlich $X$ anstatt $x$ sein?
+\subsubsection{Kennzahlen der Streuung}
+Variantionskoeffizient/ relative Standardabweichung:\\
+$$
+    v_x := \frac{s_x}{\overset{-}{x}
+$$
+Mittlere absolute Medianabweichung MD:\\
+$$
+    md_x := \frac{1}[n} \sum_{i=1}^{n} |x_i - med_x|
+$$
+mediane absolute Medianabweichung MAD:\\
+$$
+    md_x := med(|x_i - med_x|)
+$$
