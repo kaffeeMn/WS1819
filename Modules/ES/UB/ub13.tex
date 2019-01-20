@@ -1,0 +1,134 @@
+\documentclass{article}
+\textwidth=6in
+\hoffset=0in
+\voffset=0in
+
+\usepackage{afterpage}
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pdflscape}
+\usetikzlibrary{arrows,automata}
+\usepackage[utf8x]{inputenc}
+\usepackage[a4paper, left=2cm, right=3cm, top=2cm, bottom=2cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usetikzlibrary{automata, arrows, fit, calc}
+\usepackage{pifont}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage[ampersand]{easylist}
+
+
+\newcommand{\gap}{\ \\ \\}
+\newcommand{\chart}[6]{
+    \node[round, 
+          minimum width=#5, 
+          minimum height=#6] (#1) at (#3,#4) {chart};
+    \node[rect] (#2) at (#3,#4) {title};
+}
+\newcommand{\sepline}[2]{
+}
+
+% needs to be updated
+\author{Max Springenberg, 177792\\
+        Daniel Sonnabend, 190748}
+\title{\
+    ES Übungsblatt 12\\
+    Gruppe Fr. 8-10
+    }
+\setcounter{section}{12}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+% A1
+\subsection\
+$\alpha^l, \alpha^u$ sind wie folgt definiert.\\
+\begin{flalign*}
+	\alpha^l(\Delta) & \overset{def}{=} \underset{\lambda \geq 0, \forall R}{inf} \{R(\Delta + \lambda) - R(\lambda)\}&&\\
+	\alpha^u(\Delta) & \overset{def}{=} \underset{\lambda \geq 0, \forall R}{sup} \{R(\Delta + \lambda) - R(\lambda)\}&&\\
+\end{flalign*}
+
+%A2
+\subsection\
+$\beta^l, \beta^u$ sind wie folgt definiert.
+\begin{flalign*}
+	\beta^l(\Delta) & \overset{def}{=} \underset{\lambda \geq 0, \forall C}{inf} \{C(\Delta + \lambda) - C(\lambda)\}&&\\
+	\beta^u(\Delta) & \overset{def}{=} \underset{\lambda \geq 0, \forall C}{sup} \{C(\Delta + \lambda) - C(\lambda)\}&&\\
+\end{flalign*}
+
+% A3
+\subsection\
+\begin{tikzpicture}
+	\begin{axis}[xlabel=$\Delta$, ylabel=$\alpha^u(\Delta)$
+	                    , xtick={0,0.4,1,1.4,2,2.4,3}, xticklabels={$0$, $d$, $p$, $p+d$, $2p$, $2p+d$, $3p$}
+	                    , axis lines = middle, xmin=0, ymin=0]
+	\addplot[color=blue] coordinates{
+		(0,1)
+		(0.4, 1)
+		(0.4, 2)
+		(1,2)
+		(1,3)
+		(1.4, 3)
+		(1.4, 4)
+		(2,4)
+		(2,5)
+		(2.4,5)
+		(2.4, 6)
+		(3,6)
+		(3,7)
+		(3.4,7)
+	};
+	\draw[red, dashed, thick](axis cs:0.4,0) -- (axis cs:0.4,1);
+	\draw[red, dashed, thick](axis cs:1.4,0) -- (axis cs:1.4,3);
+	\draw[red, dashed, thick](axis cs:2.4,0) -- (axis cs:2.4,5);
+	\end{axis}
+\end{tikzpicture}
+
+\subsection\
+Konkret können wir $\beta^u, \beta^l$ wie folgt interpretieren:\\
+\begin{flalign*}
+    \beta^u(\Delta) & B \{\lceil\frac{\Delta}{\overset{-}{c}}\rceil s_i, \Delta - lfloor\frac{\Delta}{\overset{-}{c}}\rfloor (\overset{-}{c} - s_i)\}&&\\
+    \beta^l(\Delta) & B \{\lfloor\frac{\Delta}{\overset{-}{c}}\rfloor s_i, \Delta - \lfloor\frac{\Delta}{\overset{-}{c}}\rfloor (\overset{-}{c} - s_i)\}&&
+\end{flalign*}
+Daraus resultiert das folgende Diagramm für das Beispiel:\\
+\begin{tikzpicture}
+	\begin{axis}[xlabel=$\Delta$, ylabel=service
+	                    , xtick={1, 2, 3}, xticklabels={$s$, $p$, $s+p$}
+	                    , ytick={1, 2, 3}, yticklabels={$b \cdot s$, $2b \cdot s$,  $3b \cdot s$}
+	                    , axis lines = middle, xmin=0, ymin=0]
+	\addplot[color=blue] coordinates{
+        (0,0)
+        (1,1)
+        (3,1)
+        (4,2)
+        (7,2)
+        (8,3)
+        (10,3)
+	};
+	\addplot[color=green] coordinates{
+        (0,0)
+        (2,0)
+        (3,1)
+        (5,1)
+        (7,2)
+        (10,2)
+	};
+	\end{axis}
+\end{tikzpicture}
+
+\subsection\
+\begin{tabular}{l|l}
+    partitioniert                               &                       global\\ \hline
+    Jeder Task hat einen Prozessor              & Jobs können auf beliebigen Prozessoren laufen\\
+    Prozessor schduled eigene Prozesse          & Es gibt eine globale "ready queue"\\
+    kein on-line Overhead                       & $M$ höchst priorisierten Jobs werde ausgeführt, mit $M \overset{def}{=} \#$ Prozessoren\\
+                                                & hoher on-line Overhead\\
+\end{tabular}
+\end{document}

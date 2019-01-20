@@ -1,0 +1,12 @@
+Liebe SWK-Teilnehmer,
+
+ich habe auf dem Übungsblatt 7 noch einige kleinere Änderungen
+vorgenommen.
+
+        * Die Notation zur SOS wurde korrigiert.
+        * Eine Anmerkung zu Beweisbäumen vs. Nebenrechungen wurde hinzugefügt.
+        * Die Aufgabe 7.1(l) wurde durch eine Quizfrage mit eindeutigerer Antwort
+ersetzt.
+
+Viel Erfolg
+Simon Dierl
