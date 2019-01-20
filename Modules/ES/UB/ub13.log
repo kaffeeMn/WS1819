@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.17)  20 JAN 2019 02:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2019.1.17)  20 JAN 2019 02:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -843,19 +843,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 95--96
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (37.20297pt too wide) in paragraph at lines 127--134
+Overfull \hbox (37.20297pt too wide) in paragraph at lines 128--135
 [] 
  []
 
 [2] (./ub13.aux) ) 
 Here is how much of TeX's memory you used:
- 25510 strings out of 492649
- 649813 string characters out of 6129622
- 808988 words of memory out of 5000000
- 28924 multiletter control sequences out of 15000+600000
+ 25527 strings out of 492649
+ 650124 string characters out of 6129622
+ 809993 words of memory out of 5000000
+ 28941 multiletter control sequences out of 15000+600000
  12504 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 69i,11n,96p,722b,1845s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 69i,18n,96p,722b,2063s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
@@ -866,7 +866,7 @@ r17.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7
 .pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
 pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pf
 b>
-Output written on ub13.pdf (2 pages, 96653 bytes).
+Output written on ub13.pdf (2 pages, 96861 bytes).
 PDF statistics:
  50 PDF objects out of 1000 (max. 8388607)
  36 compressed objects within 1 object stream
