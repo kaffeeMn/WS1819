@@ -1,0 +1,68 @@
+\section{Teil 1 - ES CPS}
+
+\subsection{ES}
+
+Ein eingebettetes System (ES) ist ein System, das Informationen verabeitet
+und in ein größeres Produkt eingebettet ist.
+Ein ES stellt also Software bereit, die durch die Verarbeitung von (Sensor-)
+Signalen/ Informationen ein Produkt im Features, bzw. Verbesserungen ergänzt.
+
+
+\subsection{CPS}
+
+Cyber-Physical-Systems (CPS) sind im Wesentlichen Systeme, die zuzüklich 
+auf Kommunikation ausgelegt sind. (smart-home, smart-$\ldots$)
+
+
+\subsection{Charakteristika}
+
+\subsubsection{Dependability}
+CPS und ES müssen verlässlich sein.
+Deshalb definieren wir folgende Güten:
+\begin{flalign*}
+    \text{Reliability } R(t)        & = \text{Wahrscheinlichkeit, dass das System zu} t=0 \text{funktioniert}\\
+    \text{Maintainability } M(d)    & = \text{Wahrscheinlichkeit, dass das System} d \text{Zeiteinheiten nach einem Fehler funktioniert}\\
+    \text{Availability } A(t)       & = \text{Wahrscheinlichkeit, dass das System zur Zeit } t \text{funktioniert}\\
+    \text{Safety }                  & = \text{Das System verursacht keinen Schaden}\\
+    \text{Security }                & = \text{Das System bedient sich authentischer und vertraulicher Kommunikation}\\
+\end{flalign*}
+
+
+\subsubsection{Effizienz}
+
+Energieeffizienz:\\
+Für ES/ CPS ist die Energieeffizienz von bedeutung, die sie oftmals auf Batteriebetrieb angewiesen sind.
+Energieeffiziente Prozessoren verlangen jedoch eine aufwendigere Implementierung des ES/ CPS.
+Hierbei gilt es für Produzenten/ Firmen einen Mittelweg zu finden.
+\\ \\
+real-time constraints:\\
+Wird bei z.B. einem Auto ein real-time constraint nicht eingehalten können die Folgen verherend sein.
+Dies wäre auch ein Beispiel für einen harten real-time constraint.
+Alle nicht in Katastrophen resultierende real-time constraints sind soft.
+\\ \\
+Weite Faktoren hinsichtlich der Effizienz sind: Gewicht der Hardware, Kosten der Hardware und Entwicklung, Code-Größe/ Länge
+
+\subsection{Anwendung}
+
+ES/ CPS finden Anwendung in:\\
+\begin{enumerate}
+    \item Transport:\\
+          Die Automobilindustrie verwendet ES mit ABS, ESP, etc., die 
+          Flugzeugindustrie benutzt ES für Flugkontrolle, Kollisionsvermeidung,
+          Autopiloten, etc.. Auch Schiffe und Z"uge verwenden ES für 
+          Sicherheits- und Kontroll/ Navigations Features.\\
+    \item Logistik:\\
+          Die Logistik verwendet ES für Radio-Frequency-Identification,
+          mobile Kommunikation, etc..\\
+    \item Fabriken:\\
+          Fabriken verwenden ES in 'social machines`, Maschinen de sich selbst 
+          konfigurieren und/ oder distributieren.\\
+    \item Structural Safety:\\
+          Darunter fällt Regulation des Wasserstandes eines Damms,
+          Überwachung von Brücken/ Vulkanen, sowie die
+          Neigung von Hochhausern bei Erdbeben.\\
+    \item Smart Home:\\
+          Häuser können ES für zero energy buildings, safety/ security, 
+          comfort, ambient assited living (selbst regulierende Fenster etc.)
+          benutzen.\\
+\end{enumerate}
