@@ -1,14 +1,55 @@
 \section{Teil 2 - Spezifikations- und Modellierungssprachen}
 
-\subsection{Anforderungen an Spezifikations- und Modellierungssprachen}
+\subsection{Undefined Components}
 
-\subsubsection{Hierarchy}
+\subsubsection{Anforderungen an Spezifikations- und Modellierungssprachen/techniken}
 
 Meschen sind nicht darauf ausgelegt Systeme zu verstehen, die mehr als 5 Komplexe Objekte enthalten.
 Die Meisten Systeme fordern jedoch mehr.
-Hilfe bietet eine Hierarchy für die Sprache.
-
+Hilfe bietet eine Hierarchy für die Spraceh/ Technik.
 \begin{itemize}
     \item Behavioral: states, processes, procedures
     \item Structural: processors, racks, printed circuit boards
+    \item Component-based design: Das System muss von Komponenten designed sein,
+            die Synchronisiert argieren können.
+    \item Timing: Erforderliche Spezifikationen \begin{itemize}
+        \item Measured elapsed Time: Check nach vergangener Zeit
+        \item Means for delaying Process: Prozesse können schlafen gelegt werden
+        \item Possibility to specify timeouts: In einer spezifizierten maximalen Laufzeit for Timeout bleiben
+        \item Methods for specifying deadlines: Programme sollen vor einer Angegebenen Zeit terminieren
+    \end{itemize}
+    \item support for design: kann unterteilt werden in \begin{itemize}
+        \item State-oriented behaviour: Verhalten, wie das von Automaten (States)
+        \item Event-handling: externe oder interne Events lösen Berechnungen aus
+        \item Exception-oriented behaviour: Imgang mit Fehlern
+    \end{itemize}
 \end{itemize}
+
+
+\subsection{SUD}
+
+Das system under design (SUD) wird oftmals wie auch in der Software-Konstruktion üblich als Anfragetext
+vorgelegt.
+Dabei sind Anforderungen and das SUD:
+\begin{itemize}
+    \item Machine-readable
+    \item Version-management
+    \item Dependency analysis
+\end{itemize}
+Applikations-Interaktionen können mittels UML modelliert werden. (Sequenz-/Use-Case Diagramme)
+
+
+
+\subsection{Communicating finite state machines}
+
+\subsubsection{State Charts}
+State Charts bieten eine vereinfachte Schreibweise komplexer Automaten.
+\\ \\
+In einem State Chart wir unteschieden zwischen super- und supstates.
+Substates werden in einem superstate durchlaufen, der superstate selbst betritt entweder immer seinen
+ersten substate oder den letzten eingetretenen substate, je nachdem, ob mit einer History gearbeitet wird
+oder nicht.
+
+
+
+\subsubsection{SDL}
