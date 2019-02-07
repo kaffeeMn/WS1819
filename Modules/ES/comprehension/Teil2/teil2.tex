@@ -1,5 +1,16 @@
 \section{Teil 2 - Spezifikations- und Modellierungssprachen}
 
+\subsection{Von Neumann Modell (Deadlocks)}
+
+\begin{enumerate}
+    \item mutual exclusion
+    \item no preemption
+    \item holding recources
+    \item circular waiting
+\end{enumerate}
+
+
+
 \subsection{Undefined Components}
 
 \subsubsection{Anforderungen an Spezifikations- und Modellierungssprachen/techniken}
@@ -26,6 +37,7 @@ Hilfe bietet eine Hierarchy für die Spraceh/ Technik.
 \end{itemize}
 
 
+
 \subsection{SUD}
 
 Das system under design (SUD) wird oftmals wie auch in der Software-Konstruktion üblich als Anfragetext
@@ -39,7 +51,6 @@ Dabei sind Anforderungen and das SUD:
 Applikations-Interaktionen können mittels UML modelliert werden. (Sequenz-/Use-Case Diagramme)
 
 
-
 \subsection{Communicating finite state machines}
 
 \subsubsection{State Charts}
@@ -49,7 +60,54 @@ In einem State Chart wir unteschieden zwischen super- und supstates.
 Substates werden in einem superstate durchlaufen, der superstate selbst betritt entweder immer seinen
 ersten substate oder den letzten eingetretenen substate, je nachdem, ob mit einer History gearbeitet wird
 oder nicht.
-
+\\ \\
+Superstates heißen OR-superstate wenn genau ein substate aktiv ist und AND-superstate, wenn substates conkurrierend 
+aktuv sind.
+\\ \\
+\\
+Kanten werden mit der Konvetion 'event[condition]/reaction' (z.B. 'service-off[not in lProc]/service:=0') beschriftet.
+Die Evaluierung dieser Labels erfolgt mithilfe der State-Mate Semantik.
+In dieser existieren 3 Phasen.
+\begin{enumerate}
+    \item Effekte externer Veränderungne und Konditionen evaluieren
+    \item Die Menge an Traisitionen während des aktuellen Schrittes und rechte Seiten (Zuweisungen) werden berechnet
+    \item Transitionen werden aktiv, die Variablen bekommen ihre neuen Werte zugewiesen
+\end{enumerate}
+Hierbei erhalten wieder ein bestimmtes Verfahren durch die Trennung der Phasen 2 und 3.
 
 
 \subsubsection{SDL}
+
+SDL wird benutzt um asynchrone Nachrichtenvermittlung (asynchronous message passing communication) zu modellieren
+\\ \\
+Kommunikation zwischen SDLs basiert auf die Nachrichtenverteilung von Signalen(=input+output) mittels einer FIFO-queue.
+Wenn Signale gleichzeitig ankommen ist deren Reihenfolge in der FIFO-queue nicht deterministisch/ unbekannt.
+
+
+
+\subsection{Datenfluss}
+
+Das Modellieren eines Datenflusses umfasst wie Daten in einem Informationssystem bewegt werden.
+Dazu werden unter anderem:
+\begin{itemize}
+    \item Przesse (Aktivitäten, die Daten transformieren)
+    \item Datenbanken/ data stores
+    \item Externe Entitäten (was/ wer sendet/ empfängt daten ins/vom System)
+    \item Datenflusse (Routen des Datenflusses)
+\end{itemize}
+betrachtet.
+
+
+\subsubsection{Kahn process networks (KPN)}
+
+Kahn Netzwerke haben jeweils mindestens einen Input- und Output-Kanal.
+Einschränkungen:
+\begin{itemize}
+    \item Es kann nicht für verfügbare Daten for einer versuchten Leseoperation gecheckt werden
+    \item Ein Prozess kann immer nur die Ports nacheinander lesen
+\end{itemize}
+Daraus folgt:
+Die Reihenfolge der Leseoperationen erfolgt nicht über die Ankunft von Daten. Also sind KPNs deterministisch.
+Ferner sind KPNs Turingvollständig.
+
+\subsubsection{SDF}
