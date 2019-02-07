@@ -1,6 +1,6 @@
 \section{Teil 2 - Spezifikations- und Modellierungssprachen}
 
-\subsection{Von Neumann Modell (Deadlocks)}
+\subsection{Deadlocks}
 
 \begin{enumerate}
     \item mutual exclusion
@@ -8,6 +8,30 @@
     \item holding recources
     \item circular waiting
 \end{enumerate}
+
+
+
+\subsection{Imperative von Neumann Modell}
+
+Das von Neumann Modell behandelt die Prinzipien von Operationen in Computern.
+
+\subsubsection{Probleme}
+
+Es gibt zugang zu geteiltem Speicher, dies führt zu Anomalien, die mittels Mutex, Semaphoren umgangen werden müssen.
+Priority-Inversion kann auch aus dem geteilten Speicher folgen.
+Timing und Terminierung kann nicht garantiert/ entschieden werden.
+\\ \\
+Beispiel Java, als instanz einer Sprache nach dem von Neumann Modell:\\
+\begin{tabular}{|p{8cm}|p{8cm}|}
+    \hline
+    Pros                                            & Cons\\ \hline\hline
+    sauber/ sicher                                  & Größe der Runtime Libraries\\ \hline
+    multi-threading support                         & Kein direkter Zugang zu spezifischer Hardware\\ \hline
+    Platform unabhängig                             & Garbage-Collector nicht absehbar\\ \hline
+                                                    & non-deterministic dispatcher (mehrere Methoden mit gleichen Namen)\\ \hline
+                                                    & Performanz Probleme\\ \hline
+                                                    & Echtzeitanforderungen können nicht überprüft werden\\ \hline
+\end{tabular}
 
 
 
@@ -121,3 +145,12 @@ Ein akteur verbrauch und produziert Token (Input/ Output).
 Gibt es Deadlocks in SDFs?\\
 Nein SDFs sind Deadlock-frei.
 Dafür sind SDFs aber nicht Turingvollständig.
+
+
+
+\subsection{Petri Netze}
+
+Petri Netze modellieren kausale Abhängigkeiten.
+Petri Netze haben auch gewichtete Ein- und Ausgangskanten.
+Ähnlich wie beim KPN wird auch `gefeuert`, jedoch nicht in Abhängigkeit von Zeit.
+Damit sind Petri Netze nichtdeterministisch.
