@@ -108,6 +108,16 @@ Einschränkungen:
 \end{itemize}
 Daraus folgt:
 Die Reihenfolge der Leseoperationen erfolgt nicht über die Ankunft von Daten. Also sind KPNs deterministisch.
-Ferner sind KPNs Turingvollständig.
+Ferner sind KPNs Turingvollständig, aber nicht Deadlock-frei.
 
-\subsubsection{SDF}
+\subsubsection{Synchronous data flow (SDF)}
+
+Weniger stark als KPN, aber besser zu analysieren sind SDFs.
+SDFs besieren auf einer globalen Uhr, diese entscheidet wann Token `gefeuert` werden.
+In einem SDF Graphen/Netzwerk werden die knoten als Akteure bezeichnet.
+Ein Akteur ist bereit, wenn genügend Tokens für ihn vorhanden sind.
+Ein akteur verbrauch und produziert Token (Input/ Output).
+\\ \\
+Gibt es Deadlocks in SDFs?\\
+Nein SDFs sind Deadlock-frei.
+Dafür sind SDFs aber nicht Turingvollständig.
