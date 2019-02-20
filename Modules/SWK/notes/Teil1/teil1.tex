@@ -44,9 +44,22 @@ Unit-Tests, Integrations-Tests, Sytem-Integration, sowie Abnahme und Nutzung fol
 
 \subsection{Vergleich der Modellvarianten}
 \begin{tabular}{llll}
-    Kriterium   \\
-    Ablauf    \\
-    Phasentrennung\\
-    Feststellung von Fehlern\\
+    Kriterium                           & Wasserfall            & Spiral        & Scrum         & Simultan Engineering\\
+    Ablauf                              & sequentiell           & iterativ      & iterativ      & parallel\\
+    Phasentrennung                      & ausgeprägt            & schwach       & schwach       & fehlt\\
+    Durchlaufzeit                       & lang                  & lang          & kurz          & kurz\\
+    Feststellung von Fehlern            & spät                  & früher        & früh          & spät\\
     Aufwand Planung/ Kommunikation\\
 \end{tabular}
+
+\subsection{Ereignis Knoten Netz}
+
+Das Ereignis Knoten Netz ist ein Graph, der die Abhängigkeiten von Aufgaben zueinander darstellt.
+Kann ein Ereignis nicht geschehen, ohne dass zuvor ein anderes abgelaufen ist, so hat dessen Knoten im Graphen eine
+eingehende Kante von dem Ereignis, das zuvor geschehen sein muss.
+
+\subsubsection{Crititcal-Path-Method}
+
+Die Crititcal-Path-Method stützt sich auf das Ereignis Knoten Netz, bzw. erweitert dessen Syntax und Semantik.
+So wird in jedem Knoten die Ereignisnummer, der früheste - und späteste Ereignistermin und der Puffer eingetragen.
+Die Kanten erhalten zudem noch die Dauer des davor liegenden Verfahrens als gewichtung, sowie eine ID.
