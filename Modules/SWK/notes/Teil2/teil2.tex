@@ -1,0 +1,89 @@
+\newpage
+\section{Teil2}
+
+\subsection{Software Architektur}
+
+\subsubsection{Architekturmuster}
+
+Wir haben folgende Architekutrstile kennen gelernt:\\
+\begin{itemize}
+    \item Objekt orientiert
+    \item Client-Server
+    \item Pipe and filter
+    \item Ereignisorientiert
+    \item Schichten
+    \item Repository
+    \item Process controll
+\end{itemize}
+Objekt orientierte Architektur wird beispielsweise bei abstrakten Datetypen verwendet.
+So wird die interne Datendarstellung von der Außenwelt abgekapselt.
+Auf mehrere Agenten zerlegbar.
+Ein Nachteil jedoch ist, dass Objekte die Identität anderer Objekte kennen müssen, um zu interagieren.
+\\ \\
+Client-Server Architektur verteilt die Anwendungslogik auf eine Menge von Clients und Serversubsystemen.
+In der Regel werden Clients uns Serversubsysteme auf verschiedenen Maschinen realisiert und kommunizieren über ein
+Netzwerk.
+Nachteil hierbei ist, dass die Clients die Identität des Servers kennen müssen.
+\\ \\
+Peer to Peer, wobei Peers durch einen Server oder Broadcast gefunden werden.
+Engpässe werden reduziert und die Architektur ist robust gegenüber Peer-Ausfällen.
+Nachteile sind jedoch, dass der Server ein Engpass werden kann und Peers nur eine unvollständige Sicht-Synchronization 
+ermöglichen.
+\\ \\
+Pipe and Filter wird u.a. bei Unix Pipes, Compiler Ketten und Signal Prozessoren verwendet.
+Filter können parrallel implementiert werden und müssen nichts über die verbundenen Elemente wissen.
+\\ \\
+Ereignisorientierte Architektur findet beispielsweise bei Debuggern und Graphischen Benutzerschnittstellen Anwendung.
+Es wird auf Ereignisse gelauscht, wobei die Ereignisquelle die Ereignissenken nicht kennen muss.
+Ein großer Nachteil ist, dass die Komponenten keine Kontrolle über die Berechnungsreihenfolge haben (Endlosschleifen).
+\\ \\
+Schichtenarchitektur beschreibt die Einteilung von Software in verschieden Schichten 
+(e.g. Benutzerschnittstelle, Benutzerschnittstellenverwaltung, Buisinesslogik, OS/DB)
+Ein Beispiel für die Schichtenarchitektur wäre das ISO/OSI Modell aus RvS.
+\\ \\
+Repositories reduzieren die Notwendigkeit komplexe Daten zu duplizieren.
+Das Blackboard verwaltet dabei alle Daten zentral im einzelnem, gemeinsamen Repository.
+\\ \\
+Model View Controller beschreibt ein Zentrales Modell mehrerer Schichten, dem Model, View und Controller.
+Der Controller verarbeitet Updates der Nutzerschicht, der Controller updated das Model und notifiziert die View.
+Das Modell füllt die View.
+\\ \\
+REST
+% TODO
+
+\subsubsection{Qualität von Architektur}
+
+Die Menge von Beziehungen zwischen Subsystemen nennen wir Kopplung, sie ist ein Maß für die Verbundenheit von Elementen.
+Im allgemienem ist starke Kopplung schlecht, da mit ihr Klassen nur schwer isoliert verstanden werden können, Klassen
+ohne verbundene Klassen nicht wieder verwendet werden können.
+Im Gegenzug ist lose Kopplung gut, da sie die Wartbarkeit verbessert und Klassen unanbhängig sind.
+\\ \\
+Kohäsion ist ein weiterer wichtiger Begriff, geringe Kohäsion bedeutet, dass ein ELement wenig ider unzusammenhängende 
+Funktionalität bietet.
+Es erschwert Verständnis und Wartbarkeit.
+Elemente mit hoher Kohäsion sind also einfacher Verständlich/ weniger Komplex.
+
+\subsubsection{Weitere Muster}
+
+\begin{itemize}
+    \item Vertikale Dekomposition: Anwendung in mehrere unabhängige Anwendungen von vornherein zerlegen.
+    \item Distributed Computing: Horizontale Schnittstelle z.B. Kommunikation über REST
+    \item Sharding: Aufteilung der Eingabe auf dedizierte Prozesse (e.g. Aufteilung nach Anfangsbuchstaben)
+    \item Load Balancing: dynamische Zuordnung der Bearbeitung (e.g. nach Auslastung)
+\end{itemize}
+Die Varianten Sharding und Load Balancing können auch kombiniert werden, um Skalierbarkeit zu erhöhen.
+
+\subsection{Konfigurationsmanagement}
+
+\subsubsection{Source Code Management}
+
+\subsubsection{Build-Automatisierung und Dependency Management}
+
+\subsubsection{Release-Strategien}
+
+
+\subsection{Meta-Modellierung und Domänenspezifische Sprachen}
+
+\subsubsection{Meta-Modellierung}
+
+\subsubsection{Domänen-spezifische Sprachen}

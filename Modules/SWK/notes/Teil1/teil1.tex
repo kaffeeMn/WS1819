@@ -1,4 +1,6 @@
-\section{Projektmanagement}
+\section{Teil1}
+
+\subsection{Projektmanagement}
 
 Entwicklungsphasen:\\
 \\
@@ -19,7 +21,9 @@ Anforderungen an Methoden:\\
 \\
 Die Methode sollte korrekt (Qualität), im Budget (Kosten) und termingerecht (Termin) umgesetzt werden können.
 
-\subsection{Wasserfallmodell}
+\subsection{Projektplanung}
+
+\subsubsection{Wasserfallmodell}
 
 Beim Wasserfallmodell werden Phasen sukzessiv abgearbeitet, ohne Rückkanten.
 \begin{enumerate}
@@ -30,7 +34,7 @@ Beim Wasserfallmodell werden Phasen sukzessiv abgearbeitet, ohne Rückkanten.
     \item Wartung
 \end{enumerate}
 
-\subsection{V-Modell}
+\subsubsection{V-Modell}
 
 Das V-Modell beschreibt ein linear Steigende und dann linear fallendes Verhältnis von Zeit und umfang/ Detaillierung vom
 Entwurf.
@@ -38,28 +42,147 @@ Zeitlich mittig und mit der größten Detaillierung steht der software-Entwurf.
 Anforderungen, System-Architektur, System-Entwurf, sowie Software Architektur gehen disem zuvor und
 Unit-Tests, Integrations-Tests, Sytem-Integration, sowie Abnahme und Nutzung folgt offensichtlich.
 
-\subsection{Iterative Modell}
+\subsubsection{Iterative Modell}
 
-\subsection{SCRUM}
+\subsubsection{SCRUM}
 
-\subsection{Vergleich der Modellvarianten}
-\begin{tabular}{llll}
+\subsubsection{Vergleich der Modellvarianten}
+\begin{tabular}{l|llll}
     Kriterium                           & Wasserfall            & Spiral        & Scrum         & Simultan Engineering\\
+    \hline
     Ablauf                              & sequentiell           & iterativ      & iterativ      & parallel\\
+    \hline
     Phasentrennung                      & ausgeprägt            & schwach       & schwach       & fehlt\\
+    \hline
     Durchlaufzeit                       & lang                  & lang          & kurz          & kurz\\
+    \hline
     Feststellung von Fehlern            & spät                  & früher        & früh          & spät\\
+    \hline
     Aufwand Planung/ Kommunikation\\
 \end{tabular}
 
-\subsection{Ereignis Knoten Netz}
+\subsubsection{Ereignis Knoten Netz}
 
 Das Ereignis Knoten Netz ist ein Graph, der die Abhängigkeiten von Aufgaben zueinander darstellt.
 Kann ein Ereignis nicht geschehen, ohne dass zuvor ein anderes abgelaufen ist, so hat dessen Knoten im Graphen eine
 eingehende Kante von dem Ereignis, das zuvor geschehen sein muss.
-
-\subsubsection{Crititcal-Path-Method}
-
+\\ \\
+\textit{Crititcal-Path-Method}\\
 Die Crititcal-Path-Method stützt sich auf das Ereignis Knoten Netz, bzw. erweitert dessen Syntax und Semantik.
 So wird in jedem Knoten die Ereignisnummer, der früheste - und späteste Ereignistermin und der Puffer eingetragen.
 Die Kanten erhalten zudem noch die Dauer des davor liegenden Verfahrens als gewichtung, sowie eine ID.
+
+\begin{array}[t]{ll}
+    j&:$ Ereignisnummer$\\
+    F&:$ frühester\ Ereignistermin$\\
+    S&:$ spätester\ Ereignistermin$\\
+    P&:$ Puffer$\\
+    D&:$ Dauer$\\ 
+\end{array}
+
+\subsection{Schätzen, Messen und Steuern}
+
+\subsubsection{Schätzen}
+
+Das Aufwands-Aufrags-Dilemma behandelt das Problem, dass die Zeit die für einen Auftrag angegeben wird den Auftrag sichert.
+Eine kurze angebene Auftagszeit sichert den Auftrag, birgt jedoch ein hohes Risiko, vice versa eine lange angegebene Auftragszeit.
+\\ \\
+Es gibt folgende Schätzmethoden:\\
+\begin{tabular}{p{2cm}p{11cm}}
+    Methode& Beispiel\\ \hline \hline
+    Intuitiv& Raten\\ \hline
+    Vergleich& mehr/ weniger als (unsicher, einfach)\\ \hline
+    Kennzahlen& Einflussparameter $A = \sum_i c_i E_i$\\ \hline
+    Zerlegen& Summe von Einzelschätzungen $A = \sum_i A_i$\\ \hline
+    Skalieren& Dimensionen reduzieren und auf anschauliche Größen reduzieren\\ \hline
+    Kombinieren& kombination von Methoden\\ \hline
+    Gruppe& Gruppen schätzen besser als eine Person (Delphi Methode)\\ \hline
+\end{tabular}
+\\ \\ \\
+\textit{Punktschätzung und Aufwand}
+
+Es geht darum den Aufwand $E(x)$ und die Standardabweichung $S(x)$ aus gegebenen Parametern zu schätzen.
+Allgemein gilt $$
+    E(x) = \frac{a+r\cdot c+b}{2+r}, V(x) = \frac{(b-1)^2}{u^2}, S(x) = \frac{(b-a)}{u}
+$$, wobei $a \leq c \leq b$
+\\ \\
+Spezialfälle sind:\\
+\begin{array}[t]{ll}
+    Parameter& Formeln\\
+    a,b& E(x) = \frac{a+b}{2}, S(x) = \frac{b-a}{6}\\
+    a,c,b& E(x) = \frac{a+4\cdot c+b}{6}, S(x) = \frac{b-a}{6}\\
+\end{array}
+
+\subsubsection{Reaktionsmöglichkeiten}
+
+\textbf{1. Fall über Plan}
+
+Zunächst werden geringe Zeitvorteile als zusätzliche Puffer verwendet.
+Danach wird der größere Zeitvorteil zur Planrevidierung verwendet.
+\\ \\
+\textbf{2. Fall unter Plan (Plan vs. Realität)}
+
+Falsche Realität/ Rückstand aufholen:\\
+Überstunden, mehr Personal und/ oder bessere Arbeitsleistungen werden benötigt.
+\\ \\
+Falscher Plan/ Plan revidieren:\\
+einmalige Verschiebung des Zeitplans bei einmaliger Fehlplanung, Dehnung des Gesamtplans bei systematischer Fehllanung.
+\\ \\
+\textbf{Umgang mit Abweichungen}
+
+Kleine Abweichungen puffern, mittlere im Projektteam lösen, große mit dem Auftragsgeber.
+
+\subsubsection{Risiko}
+
+Das Risiko erreichnet sich aus der Risikowahrscheinlichkeit $p_i$ und dem Schadensausmaß $S_i$ $$
+    R = \sum_i^N p_i S_i
+$$
+
+\subsection{Anforderungen}
+
+\subsubsection{Typen und Eigenschaften}
+
+\begin{tabular}{l|l}
+    Funktional
+            & Nicht Funktional\\
+    \hline \hline
+    Benutzer\\ 
+        \tabitem Eingabe-/ Ausgabeverhalten\\
+        \tabitem Was soll nicht passieren bei Benutzereingaben?\\
+            & Unternehmensanforderungen\\
+            &   \tabitem Anforderungen an den Entwicklungsprozess\\
+    \\
+    System\\
+        \tabitem \textbf{Wie} realisiert das System Benutzeranforderungen?\\
+            & Produktanforderungen\\
+            &   \tabitem Performanz des Produkts\\
+    \\
+            & Externe Anforderungen\\
+            &   \tabitem Rechtliche Rahmenbedingungen\\
+\end{tabular}
+\\ \\
+Funktionale Anforderungen umfassen Leistungen, die das System abieten soll.
+\\
+Benutzeranforderungen beschreiben die Dienste, die eine Software leisten soll. 
+Außerdem werden Rahmenbedingungen, unter denen die Software betrieben werden soll, definiert.
+\\
+Systemanforderungen definieren was wie implementiert werden soll.
+\\ \\
+Nicht funktionale Anforderungen umfassen Qualitätsanforderungen an Produkt und Prozess.
+\\
+Unternehmensanforderungen umfassen Anforderungen an den Entwicklungsprozess, sowie an die (Programmier-)Umgebung des
+Produkts.
+\\
+Produktanforderungen umfassen Performanz, Zuverlässigkeit, Benutzbarkeit.
+\\ 
+Externe Anforderungen umfassen Regulatorische und ethische Anforderungen.
+
+\subsection{Spezifikation von Anforderungen}
+
+\subsubsection{Sophisten Satzschablonen}
+
+SYSTEM - sollte/ muss/ wird/ ... - \_/ fähig sein/ die Möglichkeit bieten/ ... - OBJEKT - PROZESSWORT
+
+\subsubsection{Formale Sprachen}
+
+\subsection{Erheben und Management von Anforderungen}

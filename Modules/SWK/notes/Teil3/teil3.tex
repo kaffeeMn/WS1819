@@ -1,0 +1,100 @@
+\section{Teil 3 Modellieren}
+
+\subsection{Domänenspezifische Sprachen/ Modellierung und Verhalten}
+
+\subsubsection{Metamodelle}
+
+Ein Metamodell besteht im wesentlichen aus 3 Teilen,
+der konkreten $C$ und abstrakten $A$ Syntax, sowie einer Semantik $S$.
+Dabei reden wir von einer syntaktischen $M_S: A \rightarrow C$ und einer semantischen $M_C: A \rightarrow S$ Abbildung,
+die bestimmt was wie beschrieben wird, bzw. die Bedeutung der Beschreibung.
+
+\subsubsection{Modellierung von Verhalten}
+
+Im wesentlichen haben wir zum Modellieren des Datenfluss Blockschaltdiagramme und für den Kontrollfluss
+erweiterte endliche Automaten verwendet.
+\\ \\
+Als ein Negativbeispiel für Modellierung wurden State-Charts erwähnt, zu denen bis heute keine Semantik vollständig 
+festgelegt wurde.
+\\ \\
+Blockschaltdiagramme:
+
+Blockschaltdiagramme arbeiten ohne implizieten Speicher, es handelt sich um eine Abbildung auf logische Ausdrücke mit 
+Variablen. Die Semantik wird durch die Auswertung dieser Ausdrücke unter einer Belegung der Variablen realisiert.
+\\ \\
+Erweiterte endliche Automaten:
+
+Erweiterte endliche Automaten kombinieren Ausdrücke mit dem Automaten-System/Modell, die Semantik erfolgt über das 
+Transitionssystem.
+
+\subsubsection{Domänenspezifische Sprachen}
+
+??? EMF ???
+\\ \\
+Code Generierung:
+
+Für die Generierung des Codes wird ein Template basierter Ansatz verwendet.
+Sprich es existieren Dateien mit Vorgefertigtem Code/ Vorlagen, die durch Informationen aus dem Modell ausgefüllt werden.
+
+??? Xtend ???
+
+\subsection{Qualität}
+
+\subsubsection{Software Qualität}
+
+Die Qualität von Software ist immer relativ zu ihren Anforderungen.
+Es wird anhand der Conformance (Erfüllung der Anforderungen) die Qualität gemessen.
+Bei nicht Erfüllen einer Anforderungen wird zwischen Faults (Fehlern) und Failures (Ausfällen) unterschieden.
+
+\subsubsection{Code Qualität}
+
+\begin{itemize}
+    \item Reliability/ Resilliance: Wie gut geht die Software mit Fehlern um?
+    \item Performance/ Efficiency: Wie Effizient ist die Software?
+    \item Security: Wie sicher ist die Software für einen Benutzer?
+    \item Maintanbility: Wie schwer ist es die Software zu pflegen/ warten?
+\end{itemize}
+
+\subsubsection{Code Standards}
+
+Standards stellen sicher das Code wartbar/ lesbar ist und ggf. andere nicht-funktionale Anforderungen erfüllt.
+Code Standards helfen eine Basis für guten Code zu schaffen hinsichtlich:
+\begin{itemize}
+    \item Dokumentation (Maintanbility)
+    \item Übersichtlichkeit (Maintanbility)
+    \item Konventionien für e.g. Passwörter (Security)
+    \item Behandelung von Exceptions (Reliability)
+    \item Nutzung von String-Buildern an Stelle von Konkatenationen (Efficiency)
+\end{itemize}
+
+\subsubsection{Code Review}
+
+Reviews stellen gemeinsames Verständnis sicher und finden Fehler möglichst früh.
+Andere Menschen setzten sich mit dem Code eines Authors auseinander, dadurch werden Fehler und Bugs in der Regel
+schneller gefunden, sowie der Code verbessert und es Tritt kein Chaos in der Endphase eines Projekts auf.
+\\ \\
+Im Rahmen der Code Reviews haben wir folgende Methoden kennen gelernt:\\
+\begin{itemize}
+    \item Ad-hoc: Einen Kollegen fragen
+    \item Peer Desk-Checking: Ein Reviewer führt den Code/ das Produkt aus.
+    \item Pair Programming: Einer programmiert und erzählt, die ander Person hört zu und checkt.
+    \item Walkthrough: Der Author präsentiert vor Reviewern.
+    \item Team-Review: Mehrere reviewen individuell, Resultate werden im Meeting besprochen.
+\end{itemize}
+
+\subsubsection{Code Metriken}
+
+Metriken helfen bei der Bewertung der Qualität von Code.
+\\ \\
+Kennen gelernte Metriken sind:
+\begin{itemize}
+    \item Lines Of Code (LOC): Anzahl der Zeilen
+    \item Lack Of Cohesion (LCOM): Wie stark hängen alle Komponenten einer Klasse zusammen?
+    \item Cyclomatic Complexity (CC): Wie Kompliziert ist eine Methode geschrieben?
+\end{itemize}
+LCOM: $$
+    LCOM = \frac{1/a \cdot \sum^a_{i=1} n(A_i)-m}{1-m}
+$$
+CC: $$
+    CC = e - n + 2 \cdot p
+$$
