@@ -70,6 +70,15 @@ Elemente mit hoher Kohäsion sind also einfacher Verständlich/ weniger Komplex.
     \item Distributed Computing: Horizontale Schnittstelle z.B. Kommunikation über REST
     \item Sharding: Aufteilung der Eingabe auf dedizierte Prozesse (e.g. Aufteilung nach Anfangsbuchstaben)
     \item Load Balancing: dynamische Zuordnung der Bearbeitung (e.g. nach Auslastung)
+    \item Microservice Architektur: Applikationen sind Folge unabhängiger Dienste
+            \begin{itemize}
+                \item Komponentenzerlegung via Dienste möglich
+                \item Organisiert um betriebswirtschaftliche Funktionen
+                \item Entwicklung eher Produkte als Projekte
+                \item Smarte Endpunkte und dumme Verbindungen
+                \item Ausfallsicher und Evolutionsfähig
+                \item Dezentrale Anwendungs- und Datenverwaltung
+            \end{itemize}
 \end{itemize}
 Die Varianten Sharding und Load Balancing können auch kombiniert werden, um Skalierbarkeit zu erhöhen.
 
@@ -77,13 +86,71 @@ Die Varianten Sharding und Load Balancing können auch kombiniert werden, um Ska
 
 \subsubsection{Source Code Management}
 
+Eine Versionsverwartlung hat unter anderem folgende Aufgaben
+\begin{itemize}
+    \item Identifizierung der Version
+    \item Festlegung aller zu verwaltenden Bestandteile
+    \item Namenskonventionen und Relation zwischen den Komponenten
+    \item Verschiedene Versionen einer Komponenete müssen abgespeichert werden
+    \item beliebige abgespeicherte Versionen müssen bereitgestellt werden können
+    \item Dokumentation von Änderungen
+    \item Festlegung und Kontrollieren von Zugriffsrechten
+    \item Verwaltung des Komponenten-Repositories
+\end{itemize}
+Commits:
+
+Ein Commit enthält mindestens ein Datum, den Author, eine neue Versionsnummer und eine optionale Begründung.
+Der Commit beschreibt also die Menge von Änderungen.
+\\ \\
+Merge vs. Rebase:
+
+Bei einem Rebase wird der aktuelle Entwicklungsstand des Masterbranches akzeptiert und davon aus weiter gearbeitet.
+Jedoch kann bei Parraleler entwicklung ein Merge Konflikt auftreten.
+Ferner geht bei einem Rebase sämtliche Information eines Branches verlore/ ein Branch wird zerstört.
+\\
+Bei einer Merge Operation wird ein Branch in Stand gehalten und die kritischen Sektionionen reviewed/ gesolved bevor ein
+Update/ Push zum Masterbranch erfolgt.
+\\ \\
+Beim Arbeiten mit GIT wird oftmals GIT-Workflow verwendet.
+Dabei existieren Branches für master (Production), hotfixes, release, development und einzelne Features.
+\\ \\
+Der Rosinenpick ist eine Operation, bei der ein einzelner Commit in einen anderen Branch übernommen wird, ohne dabei die
+anderen Commits mit zu übernehmen.
+%TODO Backporting und KM 48 +
+
 \subsubsection{Build-Automatisierung und Dependency Management}
+
+Nicht relevant.
 
 \subsubsection{Release-Strategien}
 
+Continuous integration
+
+Ein ständiges zusammenführen von Komponenten zu einer ANwendung, dabei ist das Ziel die Steigerung der Softwarequalität.
+Oftmals in Kombination von Tests und Qualitätsmetriken.
+\\ \\
+Continuous Delivery
+
+Maunuelle Software Deployments und Konfiguration der Produktivumgebung.
+Software wird erst nach ihrer Fertigstellung in einer der Produktivumgebung ähnlichen Testumgebung getestet.
+\\ \\
+Deployment Pipeline
+
+%TODO
 
 \subsection{Meta-Modellierung und Domänenspezifische Sprachen}
 
 \subsubsection{Meta-Modellierung}
 
-\subsubsection{Domänen-spezifische Sprachen}
+Nach Stachowiak hat ein Meta Modell 3 Merkmale: Abbildungs-, Verkürzungs- und pragmatisches Merkmal.
+Das Modell soll die Beschreibung der Realität vereinfachen.
+Die Welt wird also auf eine diskrete Struktur abgebildet.
+Dabei werden Struktur, Beziehungen und Verhalten modelliert.
+\\ \\
+Hinsichtlich UML gelten folgende Anwendungsbereiche:
+\begin{itemize}
+    \item Anwendungsfalldiagramm: Anforderung an das System
+    \item Klassendiagramm: Datenstruktur des Systems
+    \item Objektdiagramm: ein Instanz des Models/ Systems
+    \item Aktivitätsdiagramm: Steuerung des Ablaufs zwischen Komponenten
+\end{itemize}
